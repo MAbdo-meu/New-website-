@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Organizational Structure — MEU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--maroon:#8A1C1D;--maroon-dk:#6E1516;--maroon-deep:#4A0E0F;--grey:#4C4D4E;--ink:#2A2122;--paper:#FBF8F6;--sand:#EFE7E4;--line:#E2D5D2;--gold:#C9A227;--muted:#6E6463;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}@media(max-width:640px){.wrap{padding:0 18px}}
+.note{background:var(--gold);color:var(--ink);font-size:.78rem;font-weight:600;text-align:center;padding:7px;position:fixed;top:0;left:0;right:0;z-index:65;height:31px}
+.pagehead{background:var(--maroon-deep);color:#fff;position:relative;overflow:hidden;padding:78px 0 62px}
+.pagehead::after{content:"";position:absolute;inset:0;background-size:cover;background-position:center;opacity:.20;background-image:url('../assets/life-campus.jpg')}
+.pagehead .wrap{position:relative;z-index:2}
+.crumb{font-size:.8rem;color:rgba(255,255,255,.72);margin-bottom:14px}.crumb a:hover{color:#fff}
+.pagehead h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3.1rem);line-height:1.04;letter-spacing:-.02em;max-width:780px}
+.pagehead .sub{color:rgba(255,255,255,.9);margin-top:14px;max-width:640px;font-size:1.06rem}
+.ctabar{position:fixed;left:0;right:0;bottom:0;z-index:58;background:#FBF3DC;border-top:1px solid #E7D9AE;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 34px;box-shadow:0 -4px 18px rgba(74,14,15,.07)}
+.ctabar .msg{font-family:var(--serif);font-weight:600;font-size:clamp(1.05rem,2.2vw,1.5rem);color:var(--maroon-dk);letter-spacing:-.01em}
+.ctabar .msg em{font-style:italic;color:var(--maroon)}
+.ctabar a.cbtn{display:inline-flex;align-items:center;gap:14px;background:var(--maroon);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:14px 22px;border-radius:4px;transition:.2s}
+.ctabar a.cbtn:hover{background:var(--maroon-dk)}
+body{padding-bottom:0px}
+@media(max-width:600px){.ctabar{padding:11px 16px;gap:12px}.ctabar a.cbtn{padding:11px 14px;font-size:.72rem}}
+footer{background:var(--maroon-deep);color:rgba(255,255,255,.72);padding:56px 0 30px;margin-top:30px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+footer h5{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none;font-size:.88rem;display:flex;flex-direction:column;gap:8px}footer a:hover{color:#F0B8A0}
+.foot-logo{font-family:var(--serif);color:#fff;font-size:1.3rem;margin-bottom:8px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.jhu-top{position:fixed;top:0px;left:0;right:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);height:88px;display:flex;align-items:center}
+.jhu-top .row{display:flex;align-items:center;justify-content:flex-start;position:relative}
+.jhu-brand{display:flex;align-items:center}
+.jhu-brand img{height:67px}
+.about-home{margin-left:auto;font-weight:600;font-size:.9rem;color:var(--maroon)}
+.about-home:hover{color:var(--maroon-dk)}
+.pagehead{margin-top:0}
+.page-main{padding:54px 0 30px}
+.intro{max-width:820px;color:var(--ink);font-size:1.05rem;margin-bottom:8px}
+.cols-head{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--maroon);margin:48px 0 4px;padding-bottom:8px;border-bottom:2px solid var(--gold);display:inline-block}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:.82rem;color:var(--muted);margin:10px 0 26px}
+.legend .key{display:inline-flex;align-items:center;gap:8px}
+.legend .kbox{display:inline-block;width:26px;height:0;border-top:2px solid var(--maroon)}
+.legend .kbox.dash{border-top:2px dashed var(--maroon);opacity:.6}
+.legend .kclick{display:inline-block;width:13px;height:13px;border:1.5px solid var(--maroon);background:#fff;border-radius:3px;box-shadow:0 0 0 2px rgba(201,162,39,.45)}
+.gov{margin-top:10px}
+.gcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 22px;text-align:center;box-shadow:0 2px 0 var(--line);transition:.2s;min-width:230px}
+.gcard.clk{cursor:pointer}
+.gcard.clk:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(74,14,15,.16);border-color:var(--maroon)}
+.gcard .tier-tag{font-size:.64rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.gcard .gname{font-family:var(--serif);font-weight:600;font-size:1.12rem;color:var(--maroon-deep);line-height:1.15}
+.gcard .gwho{font-size:.82rem;color:var(--grey);margin-top:5px;font-weight:500}
+.gcard.lead{background:var(--maroon-deep);border-color:var(--maroon-deep)}
+.gcard.lead .gname{color:#fff}.gcard.lead .gwho{color:rgba(255,255,255,.82)}.gcard.lead .tier-tag{color:var(--gold)}
+.gcard.lead.clk:hover{background:var(--maroon)}
+.gcard.clk::after{content:"View →";position:absolute;bottom:9px;right:14px;font-size:.66rem;font-weight:700;letter-spacing:.06em;color:var(--maroon);opacity:0;transition:.2s}
+.gcard.lead.clk::after{color:var(--gold)}
+.gcard.clk:hover::after{opacity:.9}
+.vbar{width:2px;height:24px;background:var(--maroon);opacity:.5;margin:0 auto}
+.gtier{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;max-width:1000px;margin:0 auto}
+.gtier .side{display:flex;flex-direction:column;gap:10px}
+.gtier .side.l{align-items:flex-end}.gtier .side.r{align-items:flex-start}
+.gtier .core{justify-self:center}
+.advisory{background:var(--sand);border:1px dashed var(--maroon);border-radius:11px;padding:10px 16px;font-size:.84rem;font-weight:600;color:var(--maroon-dk);text-align:center;max-width:250px;line-height:1.25}
+.advisory .lbl{display:block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--maroon);opacity:.7;margin-bottom:2px}
+.dconn{height:2px;border-top:2px dashed var(--maroon);opacity:.45;width:100%}
+@media(max-width:820px){
+  .gtier{grid-template-columns:1fr;gap:12px;max-width:440px}
+  .gtier .side.l,.gtier .side.r{align-items:stretch}
+  .gtier .core{justify-self:stretch}
+  .gcard,.advisory{min-width:0;max-width:none;width:100%}
+  .dconn{display:none}
+}
+.org-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:24px}
+@media(max-width:1000px){.org-cols{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.org-cols{grid-template-columns:1fr}}
+.org-col{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.org-col h4{background:var(--maroon-deep);color:#fff;font-family:var(--serif);font-weight:600;font-size:.92rem;padding:13px 15px;line-height:1.25}
+.org-col ul{list-style:none;padding:8px 0}
+.org-col li{font-size:.84rem;color:var(--grey);padding:9px 15px;border-bottom:1px solid var(--line);line-height:1.3;font-weight:500;transition:.15s}
+.org-col li:last-child{border-bottom:0}
+.org-col li.clk{cursor:pointer}
+.org-col li.clk::after{content:" +";color:var(--gold);font-weight:700}
+.org-col li.clk:hover{background:var(--sand);color:var(--maroon)}
+.legal{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 24px;margin-top:38px;max-width:860px}
+.legal h3{font-family:var(--serif);font-weight:600;color:var(--maroon);font-size:1.05rem;margin-bottom:10px}
+.legal p{font-size:.88rem;color:var(--grey);margin-bottom:10px;line-height:1.5}
+.legal p:last-child{margin-bottom:0}
+.ref-line{font-size:.78rem;color:var(--muted);margin-top:18px;font-style:italic}
+.mshade{position:fixed;inset:0;background:rgba(20,12,12,.6);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:.25s;z-index:200;display:flex;align-items:flex-start;justify-content:center;padding:60px 18px;overflow-y:auto}
+.mshade.open{opacity:1;visibility:visible}
+.modal{background:var(--paper);width:100%;max-width:760px;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(20,12,12,.4);transform:translateY(16px);transition:.25s;margin:auto}
+.mshade.open .modal{transform:none}
+.mhead{background:var(--maroon-deep);color:#fff;padding:26px 30px;position:relative}
+.mhead .eb{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.mhead h3{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.1}
+.mclose{position:absolute;top:18px;right:20px;background:rgba(255,255,255,.12);border:0;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer;line-height:1;transition:.18s}
+.mclose:hover{background:rgba(255,255,255,.28)}
+.mbody{padding:26px 30px 30px;max-height:64vh;overflow-y:auto}
+.mbody .ov{font-size:.96rem;color:var(--ink);line-height:1.6}
+.mbody .ov p{margin-bottom:12px}
+.taglist{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0}
+.taglist span{font-size:.8rem;background:var(--sand);border:1px solid var(--line);padding:5px 12px;border-radius:20px;color:var(--maroon-dk);font-weight:500}
+.people-h{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+@media(max-width:560px){.people{grid-template-columns:1fr}}
+.person-row{padding:8px 0;border-bottom:1px solid var(--line)}
+.person-row .nm{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);line-height:1.25}
+.person-row .ro{font-size:.82rem;color:var(--maroon);font-weight:500;margin-top:2px}
+.mlink{display:inline-block;margin-top:20px;background:var(--maroon);color:#fff;font-size:.82rem;font-weight:600;padding:11px 18px;border-radius:8px;transition:.18s}
+.mlink:hover{background:var(--maroon-dk)}
+.mlink.ghost{background:#fff;color:var(--maroon);border:1px solid var(--maroon);margin-left:10px}
+.mlink.ghost:hover{background:var(--sand)}
+.layout{display:grid;grid-template-columns:248px 1fr;gap:40px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr;gap:26px}}
+.snav{position:sticky;top:130px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px 14px;font-size:.9rem}
+@media(max-width:900px){.snav{position:static}}
+.snav-head{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);padding:4px 8px 12px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.snav-a{display:block;padding:8px 8px;border-radius:8px;color:var(--grey);font-weight:500;line-height:1.3;font-size:.84rem}
+.snav-a:hover{background:var(--sand);color:var(--maroon)}
+.snav-a.active{background:var(--maroon);color:#fff}
+.snav-grp{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--maroon-dk);padding:16px 8px 6px;margin-top:4px}
+.snav-grp:first-of-type{margin-top:0}
+</style><link rel="stylesheet" href="../assets/jhu-nav.css">
+<script src="../assets/jhu-nav.js" defer></script>
+</head><body>
+
+<div class="jhu-top">
+    <div class="row" style="width:100%;padding:0 34px">
+      <a class="jhu-brand" href="../index.html"><img
+          src="../assets/meu-logo.png" alt="Middle East University"></a>
+      <div class="jhu-tabs">
+        <div class="grp1">
+          <button class="tab tab-main" onclick="openPane('menu')"><svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg><span>Menu</span></button>
+          <button class="tab tab-main" onclick="openPane('news')"><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg><span>News</span></button>
+          <a class="tab tab-main" href="../media/meu-pulse.html"><svg viewBox="0 0 24 24">
+              <path d="M3 12h4l2-7 4 14 2-7h6" />
+            </svg><span>MEU Pulse</span></a>
+          <button class="tab tab-main" onclick="openPane('search')"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg><span>Search</span></button>
+        </div>
+        <div class="grp2">
+          <a class="tab tab-sub" data-i="A" href="../uk/uk-apply.html"><span>Apply</span></a>
+          <a class="tab tab-sub" data-i="U" href="https://ukdegrees.meu.edu.jo/newsite/"><span>UK Degrees MEU</span></a>
+          <a class="tab tab-sub" data-i="P" href="../academics/programs.html"><span>Programmes</span></a>
+
+
+          <button type="button" class="tab tab-sub tab-lang" data-i="ع" id="langTab" onclick="location.href='../ar/about/org-structure.html'"
+            aria-label="Switch language"><span id="langTabLabel" lang="ar">العربية</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="jhu-burger" type="button" aria-label="Menu" onclick="openPane('menu')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="shade" id="shade" onclick="closePane()"></div>
+  <aside class="sidep" id="sidep" aria-hidden="true">
+    <div class="pane pane-menu on" id="pane-menu">
+      <div class="ptitle">Explore MEU</div>
+      <a href="../about/meu-in-words.html">About</a><a href="../academics/programs.html">Faculties</a><a
+        href="../admission/admission.html">Admissions</a><a href="../admission/admission.html#sch">Scholarships</a><a
+        href="https://ukdegrees.meu.edu.jo/newsite/">UK Degrees</a><a href="../about/campus.html">Student Life</a><a
+        href="../about/meu-map.html">Our Campus</a><a href="../student-affairs/deanship-students-affairs.html">Deanships</a><a
+        href="../centers/centers-institutes.html">Centers &amp; Institutions</a>
+      <div class="grp">
+        <h6>Quick Links</h6><a class="sub" href="../academics/programs.html">Programme Finder</a><a class="sub"
+          href="../admission/ug-requirements.html">Admission Requirements</a><a class="sub"
+          href="../admission/admission.html#sch">Scholarships</a><a class="sub" href="../admission/fees.html">Fees</a><a
+          class="sub" href="../admission/epayment.html">e-Payments</a><a class="sub" href="../about/meu-map.html">Maps &
+          Directions</a><a class="sub" href="../about/contact.html">Contact Us</a>
+      </div>
+
+      <div class="grp">
+        <h6>Portals</h6><a class="sub" href="https://www.meu.edu.jo/student-portal/" target="_blank"
+          rel="noopener">Student Portal ↗</a><a class="sub" href="https://mymeu.meu.edu.jo/" target="_blank"
+          rel="noopener">Staff Portal ↗</a><a class="sub" href="https://reg.meu.edu.jo/" target="_blank"
+          rel="noopener">EduGate ↗</a><a class="sub" href="http://elearning.meu.edu.jo/" target="_blank"
+          rel="noopener">E-Learning ↗</a>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-search" id="pane-search">
+      <div class="ptitle">Search</div>
+      <input type="text" placeholder="Search MEU…" aria-label="Search">
+      <button class="sbtn">Search</button>
+      <div class="cs">Common Searches</div>
+      <div class="cslist"><a href="../admission/admission.html">Admission Requirements</a><a
+          href="../admission/fees.html">Tuition & Fees</a><a href="../admission/admission.html#cal">Academic Calendar</a><a
+          href="../academics/programs.html">Faculties & Programmes</a><a href="../uk/uk-about.html">UK Degrees</a><a
+          href="../admission/admission.html">Apply Now</a></div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-news" id="pane-news">
+      <div class="ptitle">News & Events</div>
+      <h6>Recent News</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-youth.jpg')">
+        </div>
+        <div class="nx">
+          <p>Minister of Youth Visits MEU — The Minister of Youth joins MEU to discuss empowering the next generation.
+          </p>
+          <div class="meta">2 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-film.jpg')">
+        </div>
+        <div class="nx">
+          <p>MEU Short Film Festival — The Minister of Culture crowns the winners at this year's festival.</p>
+          <div class="meta">6 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-genetic.jpg')">
+        </div>
+        <div class="nx">
+          <p>New: Genetic Engineering & Biotech — MEU launches a forward-looking degree in the science of medicine's
+            future.</p>
+          <div class="meta">2 weeks ago</div>
+        </div>
+      </div>
+      <h6 class="mt">Upcoming Events</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-openday.jpg')">
+        </div>
+        <div class="nx">
+          <p>Open Day — Amman Campus — Tour faculties, meet staff, and explore student life.</p>
+          <div class="meta">24 Jun 2026</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-emergency.jpg')">
+        </div>
+        <div class="nx">
+          <p>Paramedical & Emergency Info Session — Learn about MEU's newest health-sciences programme.</p>
+          <div class="meta">2 Jul 2026</div>
+        </div>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+      <div class="social"><a href="#">X</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </aside>
+<div class="jhu-spacer"></div>
+<header class="pagehead"><div class="wrap">
+  <div class="crumb"><a href="../index.html">Home</a> <span style="opacity:.5">/</span> <a href="meu-in-words.html">About MEU</a> <span style="opacity:.5">/</span> Organizational Structure</div>
+  <h1>MEU Organizational Structure</h1>
+  <p class="sub">How Middle East University is governed and organised — from the Board of Trustees through the President to faculties, deanships and service departments. Select a highlighted body to view its overview and the people who lead it.</p>
+</div></header>
+<div class="page-main"><div class="wrap"><div class="layout">
+  <aside><div class="snav"><div class="snav-head">About MEU</div><div class="snav-grp">Leadership &amp; Governance</div><a class="snav-a d1 " href="meu-in-words.html">Message from the President</a><a class="snav-a d1 " href="../governance/board-of-directors.html">Board of Trustees</a><a class="snav-a d1 " href="../governance/council-of-deans.html">Council of Deans</a><a class="snav-a d1 active" href="org-structure.html">Organizational Structure</a><a class="snav-a d1 " href="../governance/internal-control-unit.html">Control and Internal Audit Unit</a><div class="snav-grp">Our Identity</div><a class="snav-a d1 " href="vision-mission.html">Vision, Mission &amp; Objectives</a><a class="snav-a d1 " href="civic-engagement.html">Civic Engagement</a><a class="snav-a d1 " href="why-meu.html">Why MEU?</a><a class="snav-a d1 " href="meu-in-numbers.html">MEU in Numbers</a><div class="snav-grp">Accreditation &amp; Quality</div><a class="snav-a d1 " href="accreditation.html">Accreditation</a><a class="snav-a d1 " href="quality-assurance.html">Quality Assurance Policy</a><a class="snav-a d1 " href="university-strategic-plan.html">University Strategic Plan</a><div class="snav-grp">MEU News</div><a class="snav-a d1" href="../media/news.html">MEU News</a><a class="snav-a d1 " href="contact.html">Contact Us</a></div></aside>
+  <div class="content">
+  <p class="intro">Middle East University operates as a private university under the Jordanian Universities Law No. 18 of 2018, which grants private universities their own organisational structure across administrative, technical and financial divisions. Authority flows from the Board of Trustees through the President, supported by councils, deanships, academic faculties and service departments.</p>
+  <div class="legend">
+    <span class="key"><span class="kbox"></span> Reporting line</span>
+    <span class="key"><span class="kbox dash"></span> Advisory / coordinating body</span>
+    <span class="key"><span class="kclick"></span> Click for overview &amp; people</span>
+  </div>
+  <div class="gov">
+    <div class="gtier">
+      <div class="side l"></div>
+      <div class="core"><div class="gcard lead clk" data-k="bot"><div class="tier-tag">Highest Authority</div><div class="gname">Board of Trustees</div><div class="gwho">Chaired by Dr. Yacoub Nasereddin</div></div></div>
+      <div class="side r"><div class="gcard clk" data-k="audit" style="min-width:200px"><div class="tier-tag">Oversight</div><div class="gname" style="font-size:.98rem">Internal Audit &amp; Control Unit</div></div></div>
+    </div>
+    <div class="vbar"></div>
+    <div class="gtier">
+      <div class="side l"><div class="advisory"><span class="lbl">Advisory</span>Council for Strategic Policies</div></div>
+      <div class="core" style="display:flex;align-items:center;width:100%"><div class="dconn"></div></div>
+      <div class="side r"><div class="advisory"><span class="lbl">Advisory</span>University Advisory Council</div></div>
+    </div>
+    <div class="vbar"></div>
+    <div class="gtier">
+      <div class="side l"></div>
+      <div class="core"><div class="gcard lead clk" data-k="pres"><div class="tier-tag">Executive Leadership</div><div class="gname">President</div><div class="gwho">Prof. Salam Al-Mahadin</div></div></div>
+      <div class="side r"></div>
+    </div>
+    <div class="vbar"></div>
+    <div class="gtier">
+      <div class="side l"><div class="advisory"><span class="lbl">Executive</span>Vice-President(s)</div></div>
+      <div class="core" style="display:flex;align-items:center;width:100%"><div class="dconn" style="border-top-style:solid;opacity:.4"></div></div>
+      <div class="side r"><div class="advisory"><span class="lbl">Governance</span>University Council</div></div>
+    </div>
+    <div class="vbar"></div>
+    <div class="gtier">
+      <div class="side l"><div class="gcard clk" data-k="passist"><div class="tier-tag">Executive</div><div class="gname" style="font-size:1rem">Assistant(s) to the President</div></div></div>
+      <div class="core" style="display:flex;align-items:center;width:100%"><div class="dconn"></div></div>
+      <div class="side r"><div class="gcard clk" data-k="deans"><div class="tier-tag">Academic Governance</div><div class="gname" style="font-size:1rem">Deans' Council</div></div></div>
+    </div>
+    <div class="vbar"></div>
+    <div class="gtier">
+      <div class="side l"><div class="advisory"><span class="lbl">Advisory</span>Advisors</div></div>
+      <div class="core" style="display:flex;align-items:center;width:100%"><div class="dconn"></div></div>
+      <div class="side r"><div class="gcard clk" data-k="bod"><div class="tier-tag">Governance</div><div class="gname" style="font-size:1rem">Board of Directors</div><div class="gwho">Chaired by Dr. Sana Shaqwara</div></div></div>
+    </div>
+  </div>
+  <span class="cols-head">Centres, departments, deanships &amp; faculties</span>
+  <div class="org-cols">
+    <div class="org-col"><h4>Centres &amp; Offices</h4><ul>
+      <li>Office of Sustainable Development</li><li>Yacoub Nasereddin Heritage Revival Centre</li><li>E-Learning Centre</li><li>Innovation &amp; Entrepreneurship Centre</li><li>Accreditation, Quality &amp; Information Centre</li><li>International Programmes Centre</li><li>Media Training Centre</li><li>Consultancy, Training &amp; Languages Centre</li>
+    </ul></div>
+    <div class="org-col"><h4>Support Departments</h4><ul>
+      <li>Library Department</li><li>Procurement &amp; Tenders Department</li><li>Warehouse Department</li><li>Legal Department</li><li>Health Services Department</li><li>Marketing &amp; Communication Department</li>
+    </ul></div>
+    <div class="org-col"><h4>Administrative Departments</h4><ul>
+      <li>Office of the President</li><li class="clk" data-k="admreg">Admissions &amp; Registration</li><li>Human Resources Department</li><li>Finance Department</li><li>Engineering &amp; Services Department</li><li>Information Technology Department</li><li>Media &amp; Public Relations Department</li>
+    </ul></div>
+    <div class="org-col"><h4>Deanships</h4><ul>
+      <li class="clk" data-k="dgrad">Deanship of Graduate Studies &amp; Scientific Research</li><li class="clk" data-k="dstud">Deanship of Student Affairs</li>
+    </ul></div>
+    <div class="org-col"><h4>Faculties</h4><ul>
+      <li class="clk" data-k="f_arts">Faculty of Arts &amp; Educational Sciences</li><li class="clk" data-k="f_law">Faculty of Law</li><li class="clk" data-k="f_business">Faculty of Business</li><li class="clk" data-k="f_media">Faculty of Media</li><li class="clk" data-k="f_it">Faculty of Information Technology</li><li class="clk" data-k="f_eng">Faculty of Engineering &amp; Design</li><li class="clk" data-k="f_arch">Faculty of Engineering &amp; Design</li><li class="clk" data-k="f_pharmacy">Faculty of Pharmacy</li><li class="clk" data-k="f_allied">Faculty of Allied Medical Sciences</li><li class="clk" data-k="f_nursing">Faculty of Nursing</li><li class="clk" data-k="f_technical">The Technical Faculty</li>
+    </ul></div>
+  </div>
+  <span class="cols-head">Statutory basis</span>
+  <div class="legal">
+    <h3>Jordanian Universities Law No. 18 of 2018</h3>
+    <p><strong>Article 6/B/2</strong> — A private university has its own organisational structure that runs its administrative, technical and financial divisions, directly supervised by the President.</p>
+    <p><strong>Article 12/B</strong> — The President may delegate any of their powers to deputies, deans and directors according to their fields of specialisation, provided the delegation is specific and in written form.</p>
+    <p><strong>Article 28/A</strong> — The Board is directly responsible for spending, capital construction projects, buildings, amenities and necessary maintenance for the private university, and manages funding per the approved plan by the Board of Trustees.</p>
+  </div>
+  <p class="ref-line">Ref.: Deans' Council Session (19-2024/2025), Decision No.: 19, Date: 04/03/2025, Rev. j</p>
+  </div>
+</div></div></div>
+<div class="mshade" id="mshade" onclick="if(event.target===this)closeModal()">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="mhead"><div class="eb" id="m-eb"></div><h3 id="m-title"></h3><button class="mclose" onclick="closeModal()" aria-label="Close">&times;</button></div>
+    <div class="mbody" id="m-body"></div>
+  </div>
+</div>
+
+<footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan &middot; Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="../academics/faculty-it.html">Faculties</a></li><li><a href="../academics/ug-majors.html">Programmes</a></li><li><a href="../uk/uk-about.html">UK Degrees</a></li><li><a href="../graduate-research/deanship-research.html">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="../admission/ug-requirements.html">Requirements</a></li><li><a href="../admission/ug-fees.html">Fees &amp; aid</a></li><li><a href="academic-calendar.html">Calendar</a></li><li><a href="visit.html">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="contact.html">Contact</a></li><li><a href="../media/press.html">News</a></li><li><a href="../student-affairs/careers.html">Careers</a></li><li><a href="../governance/board-of-directors.html">Leadership</a></li></ul></div>
+  </div><div class="foot-bottom"><span>&copy; 2026 Middle East University.</span><span>QS &#9733;&#9733;&#9733; &middot; ISO 9001:2015 &middot; AQACHEI Golden Level</span></div></div></footer>
+<script>
+var DATA={
+ bot:{eb:"Governance · Highest Authority",title:"Board of Trustees",ov:["The Board of Trustees is the University's highest governing authority. It sets institutional policy, approves the strategic plan and budget, and oversees the work of the President and senior leadership. It is chaired by the University's founder."],link:"https://www.meu.edu.jo/about-2019/board-of-trustees/",groups:[{h:"Chairman & President",p:[["Dr. Yacoub Nasereddin","Chairman"],["Prof. Salam Al-Mahadin","University President"]]},{h:"Members of the Academic Council",p:[["Prof. Walid Abu Salama","Member"],["Prof. Jibril Al-Khashman","Member"],["Prof. Wissam Al-Khatib","Member"],["Prof. Aidah Aleawamila","Member"]]},{h:"Division of Industry & Trade",p:[["Dr. Adnan Al-A'raj","Member"],["HE Eng. Shahata Abu Hadeeb","Member"]]},{h:"Board of Directors Representatives",p:[["Dr. Sana Sheqwara","Member"],["Eng. Abdul Majeed Ahmed Lotfi Khader","Member"],["Lawyer Muhammad Al-Qutaishat","Member"]]},{h:"Emeritus Faculty",p:[["Dr. Taleb Al-Refai","Member"],["Dr. Amin Mohamed Amin","Member"]]}]},
+ audit:{eb:"Oversight",title:"Control & Internal Audit Unit",ov:["The Unit enforces the University's compliance with applicable laws, regulations and instructions; conducts regular checks across departments, colleges and centres; safeguards the University's movable and immovable assets; and recommends improvements to performance and productivity in support of MEU's strategic goals."],link:"https://www.meu.edu.jo/about-2019/control-and-internal-audit-unit/",groups:[{h:"Key People",p:[["Osama Al Khalili","Director of the Unit"],["Ahmad Abuhalima","Head of the Financial Audit Department"],["Yazan Yaghi","Internal Auditor"],["Omar Daradkeh","Occupational Safety & Health Supervisor"],["Maram Alzaghmouri","Administrative Assistant"]]}]},
+ pres:{eb:"Executive Leadership",title:"The President",ov:["The President is the University's chief executive, leading academic, administrative and financial operations under the authority of the Board of Trustees, and championing a student-focused model geared towards \u201cpreparing leaders.\u201d"],link:"https://www.meu.edu.jo/about-2019/message-from-the-president/",groups:[{h:"Office Holder",p:[["Prof. Salam Al-Mahadin","University President"]]}]},
+ passist:{eb:"Executive Leadership",title:"Assistant(s) to the President",ov:["The President's Assistants support the President across the University's academic and administrative portfolios."],link:"https://www.meu.edu.jo/about-2019/presidents-assistant/",groups:[{h:"Key People",p:[["Prof. Tamara Nasereddin","President's Assistant"],["Dr. Saleem Shareef","President's Assistant"]]}]},
+ deans:{eb:"Academic Governance",title:"Council of Deans",ov:["The Council of Deans brings together the University's senior academic leadership — the President, Vice-President and the deans of the faculties and deanships — to govern academic policy and coordinate across the institution."],link:"https://www.meu.edu.jo/about-2019/council-of-deans/",groups:[{h:"Leadership",p:[["Prof. Salam Al-Mahadin","President"],["Prof. Ahmed Al-Louzi","Vice President"]]},{h:"Deans",p:[["Prof. Ahmad Abdelhay Mousa","Dean, Postgraduate Studies & Scientific Research"],["Prof. Amjad Naji Abu Irmeileh","Dean, Faculty of Pharmacy"],["Prof. Qusai Shambour","Dean, Faculty of Information Technology"],["Dr. Anas Alashram","Acting Dean, Technical Faculty"],["Dr. Anas Alashram","Acting Dean, Allied Medical Sciences"],["Dr. Rania Al Zumot","Acting Dean, Faculty of Business"],["Dr. Ayman Al Rfoa","Acting Dean, Faculty of Law"],["Dr. Ayman Awad","Acting Dean, Engineering & Design"],["Dr. Hazem Nsour","Acting Dean of Student Affairs"],["Dr. Ramez Abuhasirah","Acting Dean, Faculty of Media"],["Dr. Samira Alhabashneh","Acting Dean, Faculty of Nursing"],["Dr. Ayat Al Mughabi","Acting Dean, Arts & Educational Sciences"]]}]},
+ bod:{eb:"Governance",title:"Board of Directors",ov:["The Board of Directors holds direct supervision over the University's capital construction projects, buildings and facilities, and manages its financial resources according to the plan approved by the Board of Trustees. It maintains the accounts and financial records and approves the budget and final account statements."],link:"https://www.meu.edu.jo/about-2019/board-of-directors/",groups:[{h:"Key People",p:[["Dr. Sana Shaqwara","Chairman of the Board of Directors"],["Dr. Ahmed Nasereddin","Vice Chairman"],["Prof. Tamara Nasereddin","Member"],["Dr. Sara Nasereddin","Member"],["Dr. Mohammed Nasereddin","Member"],["Eng. Abdul Majeed Ahmed Lotfi Khader","Member"]]}]},
+ admreg:{eb:"Administrative Department",title:"Admissions & Registration",ov:["The Admission and Registration Department manages student admissions, registration and academic records, supporting students from enrolment through graduation."],link:"https://www.meu.edu.jo/admission/about-the-admission-and-registration-department/admission-staff/",groups:[{h:"Key People",p:[["Nadia Al-Bakri","Director of the Registration Department"],["Fadi Odeh","Assistant to the Director"],["Ayat Abdul Mahdi","Assistant to the Director"],["Ahmed Almasri","Head of the Documentation Division"],["Norhan Alkurdi","Registration Officer"],["Nasrin Nejad","Admissions Officer"]]}]},
+ dgrad:{eb:"Deanship",title:"Deanship of Graduate Studies & Scientific Research",ov:["Founded in early 2018, the Deanship oversees all post-graduate studies and scientific research affairs at MEU. It supervises graduate admissions, monitors academic and research performance, upholds accreditation and quality-assurance standards, and encourages original, innovative research that serves the community."],link:"https://www.meu.edu.jo/deanships/graduate-studies-scientific-research/",groups:[{h:"Dean",p:[["Prof. Ahmad Abdelhay Mousa","Dean of the Deanship"]]}]},
+ dstud:{eb:"Deanship",title:"Deanship of Student Affairs",ov:["The Deanship of Student Affairs supports the educational process through direct communication with students, cultivating their skills across cultural, recreational, athletic and social domains, and connecting with graduates to highlight their success stories in line with MEU's vision of \u201cpreparing leaders.\u201d"],link:"https://www.meu.edu.jo/deanships/students-affairs/",groups:[{h:"Acting Dean",p:[["Dr. Hazem Nsour","Acting Dean of Student Affairs"]]},{h:"Departments",p:[["Counseling & Psychological Services Centre",""],["Career Guidance & Alumni Office",""],["Student Services & International Students",""],["Student Activities",""]]}]},
+ f_it:{eb:"Faculty",title:"Faculty of Information Technology",page:"../academics/faculty-it.html",ov:["Founded in September 2005, the Faculty of Information Technology builds human capability and qualifies students for excellence in a high-quality scientific environment."],majors:["Computer Science","Software Engineering","Cybersecurity","Data Science"],groups:[{h:"Dean",p:[["Prof. Qusai Shambour","Dean of the Faculty"]]}]},
+ f_business:{eb:"Faculty",title:"Faculty of Business",page:"../academics/faculty-business.html",ov:["The Faculty of Business offers programmes and study plans across finance, marketing, accounting and management, available in both Arabic and English."],majors:["Finance","Marketing","Accounting","Business & Psychology"],groups:[{h:"Dean",p:[["Dr. Rania Al Zumot","Acting Dean of the Faculty"]]}]},
+ f_law:{eb:"Faculty",title:"Faculty of Law",page:"../academics/faculty-law.html",ov:["The Faculty of Law was formed in 2005/2006, first receiving MA students and later establishing a BA programme in Law. It teaches law close to practice."],majors:["LLB Law","LLM Law","Arbitration"],groups:[{h:"Dean",p:[["Dr. Ayman Al Rfoa","Acting Dean of the Faculty"]]}]},
+ f_allied:{eb:"Faculty",title:"Faculty of Allied Medical Sciences",page:"../academics/faculty-allied-medical.html",ov:["Allied medical sciences are an ancient profession serving humanity. The faculty offers hands-on health sciences with real lab partnerships and a growing slate of programmes."],majors:["Physiotherapy","Medical Lab Sciences","Paramedical & Emergency Science","Nutrition"],groups:[{h:"Dean",p:[["Dr. Anas Alashram","Acting Dean of the Faculty"]]}]},
+ f_pharmacy:{eb:"Faculty",title:"Faculty of Pharmacy",page:"../academics/faculty-pharmacy.html",ov:["The Faculty of Pharmacy hosts the Department of Pharmacy, responsible for the five-year BSc in Pharmacy that fulfils registration requirements as a pharmacist."],majors:["BSc Pharmacy","Pharm D","MSc (Strathclyde joint)"],groups:[{h:"Dean",p:[["Prof. Amjad Naji Abu Irmeileh","Dean of the Faculty"]]}]},
+ f_media:{eb:"Faculty",title:"Faculty of Media",page:"../academics/faculty-media.html",ov:["The Faculty of Media is the first faculty in Jordan to award an MA in Media. A subject of study at MEU since its foundation, it was reintroduced as a dedicated faculty."],majors:["Journalism","Digital Media","Public Relations & Advertising"],groups:[{h:"Dean",p:[["Dr. Ramez Abuhasirah","Acting Dean of the Faculty"]]}]},
+ f_arch:{eb:"Faculty",title:"Faculty of Engineering & Design",page:"../academics/faculty-architecture.html",ov:["Established in 2010/2011, the Faculty of Engineering and Design received its first architecture students in 2011/2012 alongside graphic design cohorts."],majors:["Architecture","Interior Design","Graphic Design"],groups:[{h:"Dean",p:[["Dr. Ayman Awad","Acting Dean, Engineering & Design"]]}]},
+ f_eng:{eb:"Faculty",title:"Faculty of Engineering & Design",page:"../academics/faculty-architecture.html",ov:["The Faculty of Engineering and Design delivers engineering and design programmes under shared academic leadership with Engineering & Design."],majors:["Engineering programmes","Design programmes"],groups:[{h:"Dean",p:[["Dr. Ayman Awad","Acting Dean, Engineering & Design"]]}]},
+ f_nursing:{eb:"Faculty",title:"Faculty of Nursing",page:"../academics/faculty-nursing.html",ov:["Nursing is an ancient humanitarian profession serving humanity. As the concept of health care has evolved, the faculty prepares caring professionals grounded in modern practice."],majors:["BSc Nursing"],groups:[{h:"Dean",p:[["Dr. Samira Alhabashneh","Acting Dean of the Faculty"]]}]},
+ f_arts:{eb:"Faculty",title:"Faculty of Arts & Educational Sciences",page:"../academics/faculty-arts.html",ov:["The Faculty of Arts and Sciences has grown steadily over the years. It comprises four departments — Arabic, English, Political Science and Basic Sciences."],majors:["English Language & Literature","Translation","Arabic","Political Science"],groups:[{h:"Dean",p:[["Dr. Ayat Al Mughabi","Acting Dean of the Faculty"]]}]},
+ f_technical:{eb:"Faculty",title:"The Technical Faculty",page:"../academics/technical-college.html",ov:["The Technical College contains four innovative departments — Allied Medical Professions, Financial & Administrative Sciences, Information Technology, and applied tracks."],majors:["Intermediate diplomas","Applied tracks"],groups:[{h:"Dean",p:[["Dr. Anas Alashram","Acting Dean of the Technical Faculty"]]}]}
+};
+function openModal(k){var d=DATA[k];if(!d)return;
+ document.getElementById('m-eb').textContent=d.eb;
+ document.getElementById('m-title').textContent=d.title;
+ var h='<div class="ov">'+d.ov.map(function(p){return '<p>'+p+'</p>'}).join('')+'</div>';
+ if(d.majors&&d.majors.length){h+='<div class="people-h">Programmes</div><div class="taglist">'+d.majors.map(function(m){return '<span>'+m+'</span>'}).join('')+'</div>';}
+ (d.groups||[]).forEach(function(g,gi){h+='<div class="people-h">'+(g.h||('Group '+(gi+1)))+'</div><div class="people">';g.p.forEach(function(pr){h+='<div class="person-row"><div class="nm">'+pr[0]+'</div>'+(pr[1]?'<div class="ro">'+pr[1]+'</div>':'')+'</div>'});h+='</div>';});
+ if(d.page)h+='<a class="mlink" href="'+d.page+'">Open faculty page &rarr;</a>';
+ if(d.link)h+='<a class="mlink '+(d.page?'ghost':'')+'" href="'+d.link+'" target="_blank" rel="noopener">View on meu.edu.jo &#8599;</a>';
+ document.getElementById('m-body').innerHTML=h;document.getElementById('m-body').scrollTop=0;
+ document.getElementById('mshade').classList.add('open');}
+function closeModal(){document.getElementById('mshade').classList.remove('open')}
+document.querySelectorAll('[data-k]').forEach(function(el){el.addEventListener('click',function(){openModal(el.getAttribute('data-k'))})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+</script>
+<script src="_version-switch.js" defer></script>
+<script src="_v11-chrome.js" defer></script>
+<script src="_v12-enhance.js" defer></script><script src="_ar-dict.js" defer></script>
+<script src="_ar-dict-pages.js" defer></script>
+<script src="_ar-layer.js" defer></script>
+</body></html>

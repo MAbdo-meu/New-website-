@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Plan — MA in Media | Middle East University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#6b1f2a;--maroon-deep:#52151f;--gold:#b08537;--gold-soft:#c9a25a;
+    --sand:#ece3d2;--sand-deep:#ddd0b8;--paper:#faf6ee;--ink:#2a2421;--ink-soft:#5d534c;
+    --line:#e4dac6;--radius:14px;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;text-decoration:none}
+  .brand img{height:67px;width:auto;display:block}
+  .crumbs{font-size:.8rem;color:var(--ink-soft)}
+  .crumbs a{text-decoration:none;color:var(--maroon)}
+  .crumbs a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(155deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:#fdf8ee;padding:62px 0 56px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border:1px solid rgba(201,162,90,.35);border-radius:50%}
+  .hero::before{content:"";position:absolute;right:10px;top:40px;width:200px;height:200px;border:1px solid rgba(201,162,90,.25);border-radius:50%}
+  .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:18px}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.08;max-width:18ch;letter-spacing:-.01em}
+  .hero .lede{margin-top:18px;max-width:54ch;color:rgba(253,248,238,.85);font-size:1.02rem}
+  .facts{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .fact{background:rgba(255,255,255,.08);border:1px solid rgba(201,162,90,.3);border-radius:var(--radius);padding:14px 20px}
+  .fact .n{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:#fff;line-height:1}
+  .fact .l{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px}
+  .legend{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center;margin:38px 0 4px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+  .legend .lg-title{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--maroon)}
+  .legend .hint{font-size:.82rem;color:var(--ink-soft)}
+  .mode{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:500;padding:3px 11px 3px 9px;border-radius:999px;border:1px solid var(--sand-deep);white-space:nowrap}
+  .mode svg{flex:0 0 auto;stroke:currentColor;fill:none}
+  .mode.on-campus{color:#5a3b14;background:#f6edda;border-color:#e6d4a8}
+  .mode.blended{color:#4a2c52;background:#f1e8f3;border-color:#ddc6e2}
+  .mode.online{color:#13474a;background:#e1f0ee;border-color:#bcdcd8}
+  main{padding:30px 0 80px}
+  .block{margin-bottom:54px;scroll-margin-top:99px}
+  .block-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--maroon);margin-bottom:6px}
+  .block-head h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;color:var(--maroon);letter-spacing:-.01em}
+  .block-head .hrs{margin-left:auto;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--gold);padding:5px 12px;border-radius:999px}
+  .block-note{font-size:.9rem;color:var(--ink-soft);margin:14px 0 18px;max-width:70ch}
+  .table-card{border:1px solid var(--line);border-radius:var(--radius);overflow:auto;background:#fff;box-shadow:0 1px 2px rgba(42,36,33,.04)}
+  table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:780px}
+  thead th{background:var(--maroon);color:#fdf8ee;text-align:left;font-weight:600;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;padding:12px 14px;white-space:nowrap}
+  thead th.c{text-align:center}
+  thead .hrgrp{border-left:1px solid rgba(201,162,90,.3);border-right:1px solid rgba(201,162,90,.3)}
+  tbody td{padding:13px 14px;border-top:1px solid var(--line);vertical-align:middle}
+  tbody tr{transition:background .15s}
+  tbody tr:hover{background:#fbf3e6}
+  td.code{font-family:var(--serif);font-weight:600;color:var(--maroon);white-space:nowrap}
+  td.title{font-weight:500;min-width:200px}
+  td.c{text-align:center;color:var(--ink-soft)}
+  td.cr{text-align:center;font-weight:600;color:var(--ink)}
+  td.hrgrp{border-left:1px solid var(--line);border-right:1px solid var(--line);background:#fdfbf6}
+  td.dash{color:#c4b896}
+  td.prereq{color:var(--ink-soft);font-size:.82rem;white-space:nowrap}
+  td.prereq .none{opacity:.4}
+  .summary{background:linear-gradient(150deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:#fdf8ee;border-radius:var(--radius);padding:34px 32px;margin-top:10px}
+  .summary h2{font-family:var(--serif);font-weight:600;font-size:1.4rem;margin-bottom:20px;color:#fff}
+  .sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(201,162,90,.3);border-radius:10px;overflow:hidden}
+  .sumcell{background:var(--maroon);padding:16px 18px}
+  .sumcell .n{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:#fff;line-height:1}
+  .sumcell .l{font-size:.76rem;color:var(--gold-soft);margin-top:6px;letter-spacing:.04em}
+  .sumtotal{display:flex;align-items:baseline;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(201,162,90,.35)}
+  .sumtotal .big{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:#fff;line-height:1}
+  .sumtotal .lbl{font-size:.9rem;color:rgba(253,248,238,.8)}
+  footer{background:var(--ink);color:rgba(255,255,255,.7);padding:34px 0;font-size:.84rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--gold-soft);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .disclaimer{font-size:.78rem;color:var(--ink-soft);margin-top:28px;padding:16px 18px;background:var(--sand);border-radius:10px;border:1px solid var(--sand-deep);max-width:78ch}
+  @media(max-width:720px){.wrap{padding:0 18px}.hero{padding:48px 0 42px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+  /* track toggle */
+  .trackbar{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:38px 0 0;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+  .trackbar .tb-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--maroon)}
+  .toggle{display:inline-flex;background:var(--sand);border:1px solid var(--sand-deep);border-radius:999px;padding:4px}
+  .toggle button{appearance:none;border:0;background:none;cursor:pointer;font-family:var(--sans);font-size:.9rem;font-weight:600;color:var(--ink-soft);padding:9px 22px;border-radius:999px;transition:.18s;display:inline-flex;align-items:center;gap:8px}
+  .toggle button .ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+  .toggle button[aria-pressed="true"]{background:var(--maroon);color:#fff;box-shadow:0 2px 8px rgba(107,31,42,.25)}
+  .trackbar .tb-note{margin-left:auto;font-size:.85rem;color:var(--ink-soft);max-width:46ch}
+  .trackbar .tb-note b{color:var(--maroon-deep)}
+  /* per-track visibility */
+  [data-track="thesis"] .only-comp{display:none}
+  [data-track="comprehensive"] .only-thesis{display:none}
+  .capstone{display:flex;align-items:flex-start;gap:16px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:22px 24px;box-shadow:0 1px 2px rgba(42,36,33,.04)}
+  .capstone .cap-ic{flex:0 0 auto;width:46px;height:46px;border-radius:12px;background:var(--sand);display:flex;align-items:center;justify-content:center}
+  .capstone .cap-ic svg{width:24px;height:24px;stroke:var(--maroon);fill:none;stroke-width:1.8}
+  .capstone h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;color:var(--maroon-deep);margin-bottom:4px}
+  .capstone p{font-size:.92rem;color:var(--ink-soft);max-width:62ch}
+  .capstone .cap-cr{margin-left:auto;flex:0 0 auto;text-align:center}
+  .capstone .cap-cr b{display:block;font-family:var(--serif);font-size:1.7rem;color:var(--maroon);font-weight:600;line-height:1}
+  .capstone .cap-cr span{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+</style>
+<link rel="stylesheet" href="../../assets/jhu-nav.css">
+<script src="../../assets/jhu-nav.js" defer></script>
+<link rel="stylesheet" href="../../assets/rtl.css">
+</head><body>
+
+<div class="jhu-top">
+    <div class="row" style="width:100%;padding:0 34px">
+      <a class="jhu-brand" href="../index.html"><img
+          src="../../assets/meu-logo.png" alt="Middle East University"></a>
+      <div class="jhu-tabs">
+        <div class="grp1">
+          <button class="tab tab-main" onclick="openPane('menu')"><svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg><span>القائمة</span></button>
+          <button class="tab tab-main" onclick="openPane('news')"><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg><span>الأخبار</span></button>
+          <a class="tab tab-main" href="../media/meu-pulse.html"><svg viewBox="0 0 24 24">
+              <path d="M3 12h4l2-7 4 14 2-7h6" />
+            </svg><span>نبض MEU</span></a>
+          <button class="tab tab-main" onclick="openPane('search')"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg><span>بحث</span></button>
+        </div>
+        <div class="grp2">
+          <a class="tab tab-sub" data-i="A" href="../uk/uk-apply.html"><span>التقديم</span></a>
+          <a class="tab tab-sub" data-i="U" href="https://ukdegrees.meu.edu.jo/newsite/"><span>الشهادات البريطانية</span></a>
+          <a class="tab tab-sub" data-i="P" href="../academics/programs.html"><span>البرامج</span></a>
+
+
+          <button type="button" class="tab tab-sub tab-lang" data-i="ع" id="langTab" onclick="location.href='../../study-plans/MEU_StudyPlan_Media_MA.html'"
+            aria-label="تبديل اللغة"><span id="langTabLabel" lang="en">English</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="jhu-burger" type="button" aria-label="القائمة" onclick="openPane('menu')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="shade" id="shade" onclick="closePane()"></div>
+  <aside class="sidep" id="sidep" aria-hidden="true">
+    <div class="pane pane-menu on" id="pane-menu">
+      <div class="ptitle">استكشف الجامعة</div>
+      <a href="../about/meu-in-words.html">عن الجامعة</a><a href="../academics/programs.html">الكليات</a><a
+        href="../admission/admission.html">القبول</a><a href="../admission/admission.html#sch">المِنَح</a><a
+        href="https://ukdegrees.meu.edu.jo/newsite/">شهادات بريطانية</a><a href="../about/campus.html">الحياة الجامعية</a><a
+        href="../about/meu-map.html">الحرم الجامعي</a><a href="../student-affairs/deanship-students-affairs.html">العمادات</a><a
+        href="../centers/centers-institutes.html">المراكز والمعاهد</a>
+      <div class="grp">
+        <h6>روابط سريعة</h6><a class="sub" href="../academics/programs.html">دليل البرامج</a><a class="sub"
+          href="../admission/ug-requirements.html">شروط القبول</a><a class="sub"
+          href="../admission/admission.html#sch">المِنَح</a><a class="sub" href="../admission/fees.html">الرسوم</a><a
+          class="sub" href="../admission/epayment.html">الدفع الإلكتروني</a><a class="sub" href="../about/meu-map.html">الخرائط والاتجاهات</a><a class="sub" href="../about/contact.html">اتصل بنا</a>
+      </div>
+
+      <div class="grp">
+        <h6>البوابات</h6><a class="sub" href="https://www.meu.edu.jo/student-portal/" target="_blank"
+          rel="noopener">بوابة الطالب ↗</a><a class="sub" href="https://mymeu.meu.edu.jo/" target="_blank"
+          rel="noopener">بوابة الموظفين ↗</a><a class="sub" href="https://reg.meu.edu.jo/" target="_blank"
+          rel="noopener">بوابة القبول والتسجيل ↗</a><a class="sub" href="http://elearning.meu.edu.jo/" target="_blank"
+          rel="noopener">التعلّم الإلكتروني ↗</a>
+      </div>
+      <button class="pclose" onclick="closePane()">إغلاق القائمة</button>
+    </div>
+    <div class="pane pane-search" id="pane-search">
+      <div class="ptitle">بحث</div>
+      <input type="text" placeholder="ابحث في الجامعة…" aria-label="بحث">
+      <button class="sbtn">بحث</button>
+      <div class="cs">عمليات بحث شائعة</div>
+      <div class="cslist"><a href="../admission/admission.html">شروط القبول</a><a
+          href="../admission/fees.html">الرسوم الدراسية</a><a href="../admission/admission.html#cal">التقويم الجامعي</a><a
+          href="../academics/programs.html">الكليات والبرامج</a><a href="../uk/uk-about.html">شهادات بريطانية</a><a
+          href="../admission/admission.html">قدّم الآن</a></div>
+      <button class="pclose" onclick="closePane()">إغلاق القائمة</button>
+    </div>
+    <div class="pane pane-news" id="pane-news">
+      <div class="ptitle">الأخبار والفعاليات</div>
+      <h6>أحدث الأخبار</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-youth.jpg')">
+        </div>
+        <div class="nx">
+          <p>وزير الشباب يزور الجامعة — وزير الشباب ينضمّ إلى الجامعة لبحث تمكين الجيل القادم.
+          </p>
+          <div class="meta">قبل يومين</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-film.jpg')">
+        </div>
+        <div class="nx">
+          <p>مهرجان الجامعة للأفلام القصيرة — وزير الثقافة يتوّج الفائزين في مهرجان هذا العام.</p>
+          <div class="meta">قبل 6 أيام</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-genetic.jpg')">
+        </div>
+        <div class="nx">
+          <p>New: Genetic Engineering & Biotech — MEU launches a forward-looking degree in the science of medicine's
+            future.</p>
+          <div class="meta">قبل أسبوعين</div>
+        </div>
+      </div>
+      <h6 class="mt">الفعاليات القادمة</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-openday.jpg')">
+        </div>
+        <div class="nx">
+          <p>يوم مفتوح — حرم عمّان — جولة في الكليات، ولقاء الكادر، واستكشاف الحياة الطلابية.</p>
+          <div class="meta">24 حزيران 2026</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-emergency.jpg')">
+        </div>
+        <div class="nx">
+          <p>جلسة تعريفية بالإسعاف والطوارئ — تعرّف على أحدث برامج العلوم الصحية في الجامعة.</p>
+          <div class="meta">2 تموز 2026</div>
+        </div>
+      </div>
+      <button class="pclose" onclick="closePane()">إغلاق القائمة</button>
+      <div class="social"><a href="#">X</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </aside>
+<div class="jhu-spacer"></div>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Faculty of Media · Department of Journalism and Media · Graduate</p>
+    <h1>MA in Media</h1>
+    <p class="lede">A 33-credit master's degree in media and communication, offered in two routes: a research-focused Thesis track and a coursework-focused Comprehensive track. Choose a track below to view its study plan.</p>
+    <div class="facts">
+      <div class="fact"><div class="n">33</div><div class="l">الساعات المعتمدة</div></div>
+      <div class="fact"><div class="n">الماجستير</div><div class="l">الدرجة الممنوحة</div></div>
+      <div class="fact"><div class="n" id="factTrack">الرسالة</div><div class="l">المسار المختار</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="trackbar">
+    <span class="tb-label">مسار الدراسة</span>
+    <div class="toggle" role="group" aria-label="Choose study track">
+      <button id="btnThesis" aria-pressed="true" onclick="setTrack('thesis')">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        مسار الرسالة
+      </button>
+      <button id="btnComp" aria-pressed="false" onclick="setTrack('comprehensive')">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        المسار الشامل
+      </button>
+    </div>
+    <p class="tb-note">
+      <span class="only-thesis"><b>مسار الرسالة:</b> 18 ساعة إجبارية + 6 ساعات اختيارية ورسالة بواقع 9 ساعات.</span>
+      <span class="only-comp"><b>المسار الشامل:</b> 24 ساعة إجبارية + 9 ساعات اختيارية وامتحان شامل.</span>
+    </p>
+  </div>
+</div>
+
+<main class="wrap" id="plan" data-track="thesis">
+
+  <!-- CORE REQUIREMENTS -->
+  <section class="block" id="core">
+    <div class="block-head">
+      <h2>المتطلبات الإجبارية</h2>
+      <span class="hrs only-thesis">18 ساعة معتمدة · إجباري</span>
+      <span class="hrs only-comp">24 ساعة معتمدة · إجباري</span>
+    </div>
+    <p class="block-note">Required modules for all students in the program. The Comprehensive track adds two further core modules — Seminar in Media Issues and a Research Project.</p>
+    <div class="table-card">
+      <table>
+        <thead><tr>
+          <th>الرمز</th><th>اسم المساق</th>
+          <th class="c">Cr</th><th>المتطلب السابق</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="code">0137101</td><td class="title">Advanced Studies in Digital Media</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137102</td><td class="title">Discourse and Content Analysis for Media Studies</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137103</td><td class="title">Media Law and Ethics</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137104</td><td class="title">Communication Theories</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137105</td><td class="title">Advanced Studies in Public Relations</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137201</td><td class="title">Scientific Research Methods</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">0137106</td><td class="title">Seminar in Media Issues</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">0137202</td><td class="title">مشروع بحثي</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ELECTIVE REQUIREMENTS -->
+  <section class="block" id="electives">
+    <div class="block-head">
+      <h2>المتطلبات الاختيارية</h2>
+      <span class="hrs only-thesis">6 ساعات معتمدة · اختياري</span>
+      <span class="hrs only-comp">9 ساعات معتمدة · اختياري</span>
+    </div>
+    <p class="block-note">
+      <span class="only-thesis">اختر 6 ساعات معتمدة (مساقان) من القائمة أدناه.</span>
+      <span class="only-comp">اختر 9 ساعات معتمدة (3 مساقات) من القائمة أدناه.</span>
+      In the Thesis track, Seminar in Media Issues is offered as an elective; in the Comprehensive track it is a core requirement and therefore not listed here.
+    </p>
+    <div class="table-card">
+      <table>
+        <thead><tr>
+          <th>الرمز</th><th>اسم المساق</th>
+          <th class="c">Cr</th><th>المتطلب السابق</th>
+        </tr></thead>
+        <tbody>
+          <tr class="only-thesis"><td class="code">0137106</td><td class="title">Seminar in Media Issues</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137107</td><td class="title">Advanced Studies in Communication Sciences (in English)</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137108</td><td class="title">Data Journalism</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137109</td><td class="title">Investigative Journalism</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137110</td><td class="title">Studies in Cinema</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137111</td><td class="title">Advanced Studies in Media Economics and Entrepreneurship</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137112</td><td class="title">Radio and Television Drama</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0137113</td><td class="title">Studies in Persuasion and Mass Communication</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CAPSTONE -->
+  <section class="block" id="capstone">
+    <div class="block-head">
+      <h2>مشروع التخرّج</h2>
+      <span class="hrs only-thesis">9 ساعات معتمدة</span>
+      <span class="hrs only-comp">0 ساعة معتمدة · ناجح/راسب</span>
+    </div>
+    <div class="capstone only-thesis">
+      <div class="cap-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div>
+        <h3>الرسالة</h3>
+        <p>An original, supervised research thesis demonstrating mastery of media scholarship and research methods. Required for the Thesis track.</p>
+      </div>
+      <div class="cap-cr"><b>9</b><span>س.م</span></div>
+    </div>
+    <div class="capstone only-comp">
+      <div class="cap-ic"><svg viewBox="0 0 24 24"><path d="M12 6.5V20M5 8V18a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M3 6l9-3 9 3"/></svg></div>
+      <div>
+        <h3>الامتحان الشامل</h3>
+        <p>A qualifying examination covering the program's core and elective coursework, taken after completing the required modules. Required for the Comprehensive track; carries no credit hours.</p>
+      </div>
+      <div class="cap-cr"><b>0</b><span>س.م</span></div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="block" id="summary">
+    <div class="summary">
+      <h2>توزيع الساعات المعتمدة</h2>
+      <div class="sumgrid">
+        <div class="sumcell"><div class="n" id="sumCore">18</div><div class="l">المتطلبات الإجبارية</div></div>
+        <div class="sumcell"><div class="n" id="sumElec">6</div><div class="l">المتطلبات الاختيارية</div></div>
+        <div class="sumcell"><div class="n" id="sumCap">9</div><div class="l" id="sumCapL">الرسالة</div></div>
+      </div>
+      <div class="sumtotal"><span class="big">33</span><span class="lbl">إجمالي الساعات المعتمدة المطلوبة للتخرّج</span></div>
+    </div>
+    <p class="disclaimer">This study plan reflects the 2020/2021 catalog for the MA in Media, Department of Journalism and Media, Faculty of Media. The program is offered in Thesis and Comprehensive tracks, each totalling 33 credit hours. Course offerings, prerequisites, and track requirements are subject to revision by the university. Always confirm requirements with the Department and your academic advisor before registration.</p>
+  </section>
+
+</main>
+
+<script>
+  function setTrack(t){
+    document.getElementById('plan').setAttribute('data-track', t);
+    var thesis = (t === 'thesis');
+    document.getElementById('btnThesis').setAttribute('aria-pressed', String(thesis));
+    document.getElementById('btnComp').setAttribute('aria-pressed', String(!thesis));
+    document.getElementById('factTrack').textContent = thesis ? 'Thesis' : 'Comprehensive';
+    document.getElementById('sumCore').textContent = thesis ? '18' : '24';
+    document.getElementById('sumElec').textContent = thesis ? '6' : '9';
+    document.getElementById('sumCap').textContent = thesis ? '9' : '0';
+    document.getElementById('sumCapL').textContent = thesis ? 'Dissertation' : 'Comprehensive Exam';
+  }
+</script>
+<footer>
+  <div class="wrap">
+    <span>جامعة الشرق الأوسط · عمّان، الأردن · <a href="https://www.meu.edu.jo">www.meu.edu.jo</a></span>
+    <span>Faculty of Media · Department of Journalism and Media</span>
+  </div>
+</footer>
+
+<script src="_version-switch.js" defer></script>
+<script src="_v11-chrome.js" defer></script>
+<script src="_v11-convert.js" defer></script>
+<script src="_v12-enhance.js" defer></script><script src="_ar-dict.js" defer></script>
+<script src="_ar-dict-pages.js" defer></script>
+<script src="_ar-layer.js" defer></script>
+</body>
+</html>

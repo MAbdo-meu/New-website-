@@ -1,0 +1,579 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Campus — MEU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--maroon:#8A1C1D;--maroon-dk:#6E1516;--maroon-deep:#4A0E0F;--grey:#4C4D4E;--ink:#2A2122;--paper:#FBF8F6;--sand:#EFE7E4;--line:#E2D5D2;--gold:#C9A227;--muted:#6E6463;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#0e0a0a;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}@media(max-width:640px){.wrap{padding:0 20px}}
+.note{background:var(--gold);color:var(--ink);font-size:.78rem;font-weight:600;text-align:center;padding:7px;position:fixed;top:0;left:0;right:0;z-index:120;height:31px}
+
+/* ---- minimal top bar (logo + home only; NO right-side nav) ---- */
+.topbar{position:fixed;top:0px;left:0;right:0;z-index:110;height:90px;display:flex;align-items:center;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(74,14,15,.06)}
+.topbar .row{width:100%;padding:0 34px;display:flex;align-items:center;justify-content:space-between}
+.topbar img{height:53px}
+.topbar .home{color:var(--maroon);font-weight:600;font-size:.92rem;opacity:.9}
+.topbar .home:hover{opacity:1;color:var(--maroon-dk)}
+
+/* ===== APPLE-STYLE PINNED HERO ===== */
+.stage-track{position:relative;height:300vh;background:#0e0a0a}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.stage .layer{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform,opacity}
+.stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,10,10,.4),rgba(14,10,10,.18) 42%,rgba(14,10,10,.82));z-index:2}
+.stage .cap{position:relative;z-index:3;text-align:center;color:#fff;padding:0 24px;will-change:transform,opacity}
+.stage .cap .kick{font-size:.78rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.stage .cap h1{font-family:var(--serif);font-weight:500;line-height:.94;letter-spacing:-.02em;font-size:clamp(3rem,10vw,8rem);text-shadow:0 4px 40px rgba(0,0,0,.5)}
+.stage .cap h1 em{font-style:italic;color:#F0B8A0}
+.stage .cap2{position:absolute;z-index:3;text-align:center;color:#fff;padding:0 24px;max-width:760px;opacity:0;will-change:opacity,transform}
+.stage .cap2 h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,4.5vw,3.2rem);line-height:1.08;letter-spacing:-.01em}
+.stage .cap2 p{margin-top:18px;font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.9)}
+.scrollhint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:4;color:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollhint::after{content:"";width:1px;height:34px;background:linear-gradient(rgba(255,255,255,.7),transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---- reveal-on-scroll helper ---- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---- intro statement ---- */
+.statement{background:#0e0a0a;color:#fff;padding:30vh 0}
+.statement .big{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.15;letter-spacing:-.01em;max-width:980px}
+.statement .big .dim{color:rgba(255,255,255,.34)}
+.statement .meta{display:flex;gap:54px;flex-wrap:wrap;margin-top:60px}
+.statement .meta b{font-family:var(--serif);font-size:2.6rem;color:var(--gold);font-weight:600;display:block;line-height:1}
+.statement .meta span{font-size:.86rem;color:rgba(255,255,255,.6);margin-top:8px;display:block;max-width:150px}
+
+/* ===== CHAPTER STACK — sticky panels ===== */
+.chapters{position:relative;background:#0e0a0a}
+.chapter{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:flex-end}
+.chapter .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.08);will-change:transform}
+.chapter.in .bg{transform:scale(1);transition:transform 2s cubic-bezier(.2,.7,.2,1)}
+.chapter::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,10,10,.08) 28%,rgba(14,10,10,.5) 66%,rgba(14,10,10,.94));z-index:2}
+.chapter .inner{position:relative;z-index:3;width:100%;padding-bottom:9vh}
+.chapter .num{font-family:var(--serif);font-size:.95rem;color:var(--gold);letter-spacing:.1em;margin-bottom:14px;opacity:0;transform:translateY(24px);transition:.9s}
+.chapter .ttl{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(2.4rem,6vw,5rem);line-height:.98;letter-spacing:-.02em;max-width:820px;opacity:0;transform:translateY(30px);transition:1s .08s}
+.chapter .desc{color:rgba(255,255,255,.92);font-size:clamp(1rem,2vw,1.2rem);max-width:540px;margin-top:20px;opacity:0;transform:translateY(30px);transition:1s .16s}
+.chapter .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;opacity:0;transform:translateY(30px);transition:1s .24s}
+.chapter .tags span{font-size:.82rem;color:#fff;border:1px solid rgba(255,255,255,.35);padding:7px 15px;border-radius:30px;background:rgba(255,255,255,.06);backdrop-filter:blur(3px)}
+.chapter.in .num,.chapter.in .ttl,.chapter.in .desc,.chapter.in .tags{opacity:1;transform:none}
+
+/* ===== HORIZONTAL SCROLL GALLERY ===== */
+.hscroll-track{position:relative;background:#0e0a0a}
+.hscroll-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.hscroll-rail{display:flex;gap:26px;padding:0 8vw;will-change:transform}
+.hcard{flex:0 0 auto;width:min(64vw,620px);height:72vh;border-radius:18px;overflow:hidden;position:relative;background:#1a1010}
+.hcard .him{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .9s ease}
+.hcard:hover .him{transform:scale(1.05)}
+.hcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,10,10,.85))}
+.hcard .hc{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:34px}
+.hcard .hc h3{font-family:var(--serif);color:#fff;font-weight:600;font-size:1.7rem;letter-spacing:-.01em}
+.hcard .hc p{color:rgba(255,255,255,.85);font-size:.95rem;margin-top:6px;max-width:380px}
+.hscroll-head{position:absolute;top:13vh;left:8vw;z-index:5;color:#fff;pointer-events:none}
+.hscroll-head .k{font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.hscroll-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-.01em;margin-top:10px;max-width:520px;line-height:1.02}
+.hprog{position:absolute;bottom:8vh;left:8vw;right:8vw;height:3px;background:rgba(255,255,255,.16);border-radius:3px;z-index:5}
+.hprog i{display:block;height:100%;width:0;background:var(--gold);border-radius:3px}
+
+/* ---- everything-else strip ---- */
+.more{background:var(--paper);color:var(--ink);padding:14vh 0}
+.more .k{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--maroon)}
+.more h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.01em;margin:10px 0 8px;max-width:680px}
+.more .lead{color:var(--muted);font-size:1.06rem;max-width:560px;margin-bottom:42px}
+.morewrap{columns:3;column-gap:0;border-top:1px solid var(--line)}
+@media(max-width:820px){.morewrap{columns:2}}@media(max-width:520px){.morewrap{columns:1}}
+.mitem{break-inside:avoid;border-bottom:1px solid var(--line);padding:22px 26px 22px 0;transition:padding .2s}
+.mitem:hover{padding-left:10px}
+.mitem h4{font-family:var(--serif);font-weight:600;font-size:1.18rem;color:var(--maroon-deep)}
+.mitem p{font-size:.9rem;color:var(--muted);margin-top:5px}
+
+/* ---- experience moments (narrated, timeline feel) ---- */
+.feat-moments{margin-top:28px;display:flex;flex-direction:column;gap:0}
+.feat-moments div{position:relative;padding:16px 0 16px 26px;border-left:2px solid rgba(201,162,39,.35)}
+.feat-moments div::before{content:"";position:absolute;left:-7px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,39,.18)}
+.feat-moments span{display:block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.feat-moments p{font-family:var(--serif);font-weight:400;font-size:1.12rem;line-height:1.4;color:rgba(255,255,255,.92);max-width:420px}
+.feat-moments.light div{border-left-color:rgba(138,28,29,.25)}
+.feat-moments.light div::before{background:var(--maroon);box-shadow:0 0 0 4px rgba(138,28,29,.12)}
+.feat-moments.light span{color:var(--maroon)}
+.feat-moments.light p{color:var(--ink)}
+
+/* ---- alternating feature sections (safe / health / transport) ---- */
+.feature{padding:13vh 0}
+.feature-dark{background:#0e0a0a;color:#fff}
+.feature-light{background:var(--sand);color:var(--ink)}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+@media(max-width:820px){.feat-grid{grid-template-columns:1fr;gap:30px}.feat-grid.reverse .feat-media{order:-1}}
+.feat-text .k{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.feat-text .k.klight{color:var(--maroon)}
+.feat-text h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.01em;line-height:1.05;margin:12px 0 14px;color:#fff;max-width:460px}
+.feat-text h2.dark{color:var(--maroon-deep)}
+.feat-text p{color:rgba(255,255,255,.78);font-size:1.05rem;max-width:480px}
+.feat-text p.darkp{color:var(--grey)}
+.feat-points{margin-top:26px;display:flex;flex-direction:column;gap:2px}
+.feat-points div{padding:14px 0;border-top:1px solid rgba(255,255,255,.16);display:flex;gap:16px;align-items:baseline}
+.feat-points.light div{border-top:1px solid var(--line)}
+.feat-points b{font-family:var(--serif);font-weight:600;color:var(--gold);flex:0 0 168px;font-size:1.02rem}
+.feat-points.light b{color:var(--maroon)}
+.feat-points span{font-size:.94rem;color:rgba(255,255,255,.7)}
+.feat-points.light span{color:var(--muted)}
+.feat-media{border-radius:18px;min-height:420px;background-size:cover;background-position:center;box-shadow:0 22px 50px rgba(0,0,0,.3)}
+@media(max-width:820px){.feat-media{min-height:300px}}
+
+/* ---- building & facilities ---- */
+.build{background:#0e0a0a;color:#fff;padding:14vh 0}
+.build .k{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.build h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-.01em;margin:10px 0 8px;max-width:680px}
+.build .lead{color:rgba(255,255,255,.75);font-size:1.06rem;max-width:580px;margin-bottom:42px}
+.build-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:300px;gap:18px}
+@media(max-width:760px){.build-grid{grid-template-columns:1fr;grid-auto-rows:260px}}
+.build-tile{position:relative;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;transition:transform .5s ease}
+.build-tile.big{grid-row:span 2}
+@media(max-width:760px){.build-tile.big{grid-row:span 1}}
+.build-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(14,10,10,.9));transition:.4s}
+.build-tile:hover{transform:translateY(-4px)}
+.build-tile .bt{position:relative;z-index:2;padding:26px}
+.build-tile .bt h3{font-family:var(--serif);font-weight:600;font-size:1.5rem}
+.build-tile .bt p{color:rgba(255,255,255,.85);font-size:.92rem;margin-top:5px;max-width:320px}
+
+/* ---- location ---- */
+.loc{background:var(--paper);color:var(--ink);padding:0 0 14vh}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+@media(max-width:860px){.loc-grid{grid-template-columns:1fr;gap:28px}}
+.loc h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.01em;max-width:480px}
+.loc .k{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--maroon);margin-bottom:12px}
+.loc p{color:var(--muted);font-size:1.05rem;margin-top:16px;max-width:460px}
+.loc ul{list-style:none;margin-top:22px}
+.loc li{padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem;display:flex;gap:16px}
+.loc li b{font-family:var(--serif);color:var(--maroon);font-weight:600;flex:0 0 90px}
+.loc-map{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 44px rgba(74,14,15,.14);min-height:380px}
+.loc-map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.btn{display:inline-block;padding:13px 26px;border-radius:9px;font-weight:600;font-size:.95rem;background:var(--maroon);color:#fff;transition:.2s;margin-top:26px}.btn:hover{background:var(--maroon-dk)}
+
+/* ---- closing CTA ---- */
+.close-cta{position:relative;height:80vh;min-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.close-cta .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.close-cta::after{content:"";position:absolute;inset:0;background:rgba(14,10,10,.58)}
+.close-cta .cc{position:relative;z-index:2;color:#fff;padding:0 24px}
+.close-cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.02em}
+.close-cta h2 em{font-style:italic;color:#F0B8A0}
+.close-cta .btn{margin-top:30px;background:#fff;color:var(--maroon-deep);padding:15px 32px}
+.close-cta .btn:hover{background:var(--gold);color:#fff}
+
+footer{background:#0e0a0a;color:rgba(255,255,255,.66);padding:60px 0 34px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+footer h5{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none;font-size:.88rem;display:flex;flex-direction:column;gap:8px}footer a:hover{color:#F0B8A0}
+.foot-logo{font-family:var(--serif);color:#fff;font-size:1.3rem;margin-bottom:8px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style><link rel="stylesheet" href="../assets/jhu-nav.css">
+<script src="../assets/jhu-nav.js" defer></script>
+</head><body>
+
+
+<div class="jhu-top">
+    <div class="row" style="width:100%;padding:0 34px">
+      <a class="jhu-brand" href="../index.html"><img
+          src="../assets/meu-logo.png" alt="Middle East University"></a>
+      <div class="jhu-tabs">
+        <div class="grp1">
+          <button class="tab tab-main" onclick="openPane('menu')"><svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg><span>Menu</span></button>
+          <button class="tab tab-main" onclick="openPane('news')"><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg><span>News</span></button>
+          <a class="tab tab-main" href="../media/meu-pulse.html"><svg viewBox="0 0 24 24">
+              <path d="M3 12h4l2-7 4 14 2-7h6" />
+            </svg><span>MEU Pulse</span></a>
+          <button class="tab tab-main" onclick="openPane('search')"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg><span>Search</span></button>
+        </div>
+        <div class="grp2">
+          <a class="tab tab-sub" data-i="A" href="../uk/uk-apply.html"><span>Apply</span></a>
+          <a class="tab tab-sub" data-i="U" href="https://ukdegrees.meu.edu.jo/newsite/"><span>UK Degrees MEU</span></a>
+          <a class="tab tab-sub" data-i="P" href="../academics/programs.html"><span>Programmes</span></a>
+
+
+          <button type="button" class="tab tab-sub tab-lang" data-i="ع" id="langTab" onclick="location.href='../ar/about/campus.html'"
+            aria-label="Switch language"><span id="langTabLabel" lang="ar">العربية</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="jhu-burger" type="button" aria-label="Menu" onclick="openPane('menu')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="shade" id="shade" onclick="closePane()"></div>
+  <aside class="sidep" id="sidep" aria-hidden="true">
+    <div class="pane pane-menu on" id="pane-menu">
+      <div class="ptitle">Explore MEU</div>
+      <a href="../about/meu-in-words.html">About</a><a href="../academics/programs.html">Faculties</a><a
+        href="../admission/admission.html">Admissions</a><a href="../admission/admission.html#sch">Scholarships</a><a
+        href="https://ukdegrees.meu.edu.jo/newsite/">UK Degrees</a><a href="../about/campus.html">Student Life</a><a
+        href="../about/meu-map.html">Our Campus</a><a href="../student-affairs/deanship-students-affairs.html">Deanships</a><a
+        href="../centers/centers-institutes.html">Centers &amp; Institutions</a>
+      <div class="grp">
+        <h6>Quick Links</h6><a class="sub" href="../academics/programs.html">Programme Finder</a><a class="sub"
+          href="../admission/ug-requirements.html">Admission Requirements</a><a class="sub"
+          href="../admission/admission.html#sch">Scholarships</a><a class="sub" href="../admission/fees.html">Fees</a><a
+          class="sub" href="../admission/epayment.html">e-Payments</a><a class="sub" href="../about/meu-map.html">Maps &
+          Directions</a><a class="sub" href="../about/contact.html">Contact Us</a>
+      </div>
+
+      <div class="grp">
+        <h6>Portals</h6><a class="sub" href="https://www.meu.edu.jo/student-portal/" target="_blank"
+          rel="noopener">Student Portal ↗</a><a class="sub" href="https://mymeu.meu.edu.jo/" target="_blank"
+          rel="noopener">Staff Portal ↗</a><a class="sub" href="https://reg.meu.edu.jo/" target="_blank"
+          rel="noopener">EduGate ↗</a><a class="sub" href="http://elearning.meu.edu.jo/" target="_blank"
+          rel="noopener">E-Learning ↗</a>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-search" id="pane-search">
+      <div class="ptitle">Search</div>
+      <input type="text" placeholder="Search MEU…" aria-label="Search">
+      <button class="sbtn">Search</button>
+      <div class="cs">Common Searches</div>
+      <div class="cslist"><a href="../admission/admission.html">Admission Requirements</a><a
+          href="../admission/fees.html">Tuition & Fees</a><a href="../admission/admission.html#cal">Academic Calendar</a><a
+          href="../academics/programs.html">Faculties & Programmes</a><a href="../uk/uk-about.html">UK Degrees</a><a
+          href="../admission/admission.html">Apply Now</a></div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-news" id="pane-news">
+      <div class="ptitle">News & Events</div>
+      <h6>Recent News</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-youth.jpg')">
+        </div>
+        <div class="nx">
+          <p>Minister of Youth Visits MEU — The Minister of Youth joins MEU to discuss empowering the next generation.
+          </p>
+          <div class="meta">2 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-film.jpg')">
+        </div>
+        <div class="nx">
+          <p>MEU Short Film Festival — The Minister of Culture crowns the winners at this year's festival.</p>
+          <div class="meta">6 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-genetic.jpg')">
+        </div>
+        <div class="nx">
+          <p>New: Genetic Engineering & Biotech — MEU launches a forward-looking degree in the science of medicine's
+            future.</p>
+          <div class="meta">2 weeks ago</div>
+        </div>
+      </div>
+      <h6 class="mt">Upcoming Events</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-openday.jpg')">
+        </div>
+        <div class="nx">
+          <p>Open Day — Amman Campus — Tour faculties, meet staff, and explore student life.</p>
+          <div class="meta">24 Jun 2026</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-emergency.jpg')">
+        </div>
+        <div class="nx">
+          <p>Paramedical & Emergency Info Session — Learn about MEU's newest health-sciences programme.</p>
+          <div class="meta">2 Jul 2026</div>
+        </div>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+      <div class="social"><a href="#">X</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </aside>
+<div class="jhu-spacer"></div>
+
+<!-- ===== APPLE-STYLE PINNED HERO ===== -->
+<div class="stage-track" id="heroTrack">
+  <div class="stage" id="heroStage">
+    <div class="layer" id="heroLayer" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2022/02/meu.jpg')"></div>
+    <div class="cap" id="heroCap">
+      <div class="kick">Campus · Amman, Jordan</div>
+      <h1>This is<br>where you<br><em>belong.</em></h1>
+    </div>
+    <div class="cap2" id="heroCap2">
+      <h2>Founded in 2005, fifteen minutes from the heart of Amman.</h2>
+      <p>A campus built around how students actually live — learning, playing, creating, and finding their people.</p>
+    </div>
+    <div class="scrollhint" id="scrollhint">Scroll</div>
+  </div>
+</div>
+
+<!-- ===== STATEMENT ===== -->
+<section class="statement"><div class="wrap">
+  <p class="big reveal">A campus isn't its buildings. <span class="dim">It's friends from across the region who become family, the laughter on the grass between lectures, a clinic that's got your back, and a gate that means you can just focus on the work.</span></p>
+  <div class="meta reveal">
+    <div><b>2005</b><span>Founded in Amman</span></div>
+    <div><b>15 min</b><span>From the city centre</span></div>
+    <div><b>17+</b><span>Facility categories</span></div>
+    <div><b>24/7</b><span>Secured campus</span></div>
+  </div>
+</div></section>
+
+<!-- ===== CHAPTER STACK ===== -->
+<div class="chapters" id="chapters">
+  <section class="chapter" data-ch>
+    <div class="bg" style="background-image:url('../assets/ev-forum.jpg')"></div>
+    <div class="inner"><div class="wrap">
+      <div class="num">01 — One campus, many homes</div>
+      <h2 class="ttl">Saudi, Qatari, Egyptian, Jordanian — friends, first.</h2>
+      <p class="desc">Students from across the Gulf, the Levant and North Africa study side by side here. Different passports, one campus — and the friendships that cross every border start between classes.</p>
+      <div class="tags"><span>Regional Community</span><span>International Students</span><span>Belonging</span></div>
+    </div></div>
+  </section>
+
+  <section class="chapter" data-ch>
+    <div class="bg" style="background-image:url('../assets/campus-stadium.jpg')"></div>
+    <div class="inner"><div class="wrap">
+      <div class="num">02 — Play</div>
+      <h2 class="ttl">Football, finals, and an Olympic stadium.</h2>
+      <p class="desc">Floodlit pitches and a full-size track turn match days into the loudest, best nights of the year.</p>
+      <div class="tags"><span>Olympic Stadium</span><span>Football Pitches</span><span>Athletics</span></div>
+    </div></div>
+  </section>
+
+  <section class="chapter" data-ch>
+    <div class="bg" style="background-image:url('../assets/campus-courts.jpg')"></div>
+    <div class="inner"><div class="wrap">
+      <div class="num">03 — Courts</div>
+      <h2 class="ttl">Game on, between lectures.</h2>
+      <p class="desc">Open-air basketball and indoor courts where the rivalries are friendly and the crowds are loud.</p>
+      <div class="tags"><span>Basketball</span><span>Indoor Courts</span><span>Fitness Gym</span></div>
+    </div></div>
+  </section>
+
+  <section class="chapter" data-ch>
+    <div class="bg" style="background-image:url('../assets/campus-interior.jpg')"></div>
+    <div class="inner"><div class="wrap">
+      <div class="num">04 — Stillness</div>
+      <h2 class="ttl">A place to pause.</h2>
+      <p class="desc">Dedicated places of worship offer a quiet centre to the day — space for prayer and reflection, a short walk from any lecture hall.</p>
+      <div class="tags"><span>Places of Worship</span><span>Prayer Spaces</span><span>Reflection</span></div>
+    </div></div>
+  </section>
+
+  <section class="chapter" data-ch>
+    <div class="bg" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2024/09/meu1-scaled.jpg')"></div>
+    <div class="inner"><div class="wrap">
+      <div class="num">05 — Celebrate</div>
+      <h2 class="ttl">And one day, you walk the stage.</h2>
+      <p class="desc">Everything on this campus builds toward the moment your name is called — and the people cheering when it is.</p>
+      <div class="tags"><span>Graduation</span><span>Alumni Network</span><span>Careers Office</span></div>
+    </div></div>
+  </section>
+</div>
+
+<!-- ===== HORIZONTAL SCROLL GALLERY ===== -->
+<div class="hscroll-track" id="hTrack">
+  <div class="hscroll-pin" id="hPin">
+    <div class="hscroll-head"><div class="k">Around campus</div><h2>A day in the life.</h2></div>
+    <div class="hscroll-rail" id="hRail">
+      <div class="hcard"><div class="him" style="background-image:url('../assets/campus-pitches.jpg')"></div><div class="hc"><h3>On the grass</h3><p>Under the trees, between classes — where everyone ends up.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('../assets/campus-special.jpg')"></div><div class="hc"><h3>Many homes, one campus</h3><p>Friends from across the region.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('../assets/ev-reading.jpg')"></div><div class="hc"><h3>Study sessions</h3><p>The kind that end in laughing, not cramming.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('../assets/campus-courts.jpg')"></div><div class="hc"><h3>On the court</h3><p>Game on, between lectures.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2022/02/meu.jpg')"></div><div class="hc"><h3>The arrival</h3><p>Palms, flags, and the Amman hills behind the gate.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('../assets/life-campus.jpg')"></div><div class="hc"><h3>In the library</h3><p>Where the late nights happen.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2019/11/001.jpg')"></div><div class="hc"><h3>The prayer hall</h3><p>Calligraphy and quiet.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2026/02/WhatsApp-Image-2026-01-27-at-2.19.49-PM.jpeg')"></div><div class="hc"><h3>Open, modern interiors</h3><p>Light-filled halls between the faculties.</p></div></div>
+      <div class="hcard"><div class="him" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2024/09/meu1-scaled.jpg')"></div><div class="hc"><h3>Graduation day</h3><p>The moment your name is called.</p></div></div>
+    </div>
+    <div class="hprog"><i id="hProgBar"></i></div>
+  </div>
+</div>
+
+<!-- ===== BUILDING & FACILITIES ===== -->
+<section class="build"><div class="wrap">
+  <div class="k reveal">The campus itself</div>
+  <h2 class="reveal">Built for the next twenty years.</h2>
+  <p class="lead reveal">A purpose-built campus in Amman — light-filled interiors, modern faculties, and grounds designed for how students actually move through a day.</p>
+  <div class="build-grid">
+    <a class="build-tile big reveal" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2021/01/4B8A1477.jpg')"><div class="bt"><h3>The main building</h3><p>The MEU landmark, framed by palms and the Amman hills.</p></div></a>
+    <a class="build-tile reveal" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2026/02/WhatsApp-Image-2026-01-27-at-2.19.49-PM.jpeg')"><div class="bt"><h3>Open interiors</h3><p>Bright, social spaces between lectures.</p></div></a>
+    <a class="build-tile reveal" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2022/02/meu.jpg')"><div class="bt"><h3>The grounds</h3><p>Green, walkable, and secure.</p></div></a>
+  </div>
+</div></section>
+
+<!-- ===== SAFE ENVIRONMENT ===== -->
+<section class="feature feature-dark"><div class="wrap"><div class="feat-grid">
+  <div class="feat-text reveal">
+    <div class="k">Arriving on campus</div>
+    <h2>You tap in, and the day is yours.</h2>
+    <p>You reach the gate, the guard waves you through, and your card opens the door with a soft click. From that moment, the only thing on your mind is where you're meant to be — not whether your bag is safe or who's around.</p>
+    <div class="feat-moments">
+      <div><span>At the gate</span><p>A staffed entrance and a single secured way in — you're known here.</p></div>
+      <div><span>Through the door</span><p>Your card taps you into the buildings that are yours to use.</p></div>
+      <div><span>Late in the library</span><p>You stay till midnight and walk out calm — someone's always watching over the grounds.</p></div>
+    </div>
+  </div>
+  <div class="feat-media reveal" style="background-image:url('../assets/campus-transport.jpg')"></div>
+</div></div></section>
+
+<!-- ===== HEALTH & CARE ===== -->
+<section class="feature feature-light"><div class="wrap"><div class="feat-grid reverse">
+  <div class="feat-media reveal" style="background-image:url('../assets/campus-medical.jpg')"></div>
+  <div class="feat-text reveal">
+    <div class="k klight">When you're not at your best</div>
+    <h2 class="dark">Someone on campus has you.</h2>
+    <p class="darkp">A fever hits before an exam, or a week just gets heavy. You don't go home and hope — you walk a few minutes to the clinic, a nurse checks you over, and there's a quiet room and someone to talk to when the pressure builds.</p>
+    <div class="feat-moments light">
+      <div><span>Feeling unwell</span><p>A short walk to the clinic, and a health professional sees you that day.</p></div>
+      <div><span>A heavy week</span><p>Confidential counselling, because looking after your mind matters too.</p></div>
+      <div><span>Just in case</span><p>Help is minutes from every faculty — you never feel far from it.</p></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- ===== EASY TO REACH ===== -->
+<section class="feature feature-dark"><div class="wrap"><div class="feat-grid">
+  <div class="feat-text reveal">
+    <div class="k">The commute</div>
+    <h2>You step on, and you're already nearly there.</h2>
+    <p>You catch the bus near home — clean, comfortable, and it costs you nothing. You scroll, you doze, you go over your notes one more time, and before long the campus gate slides into view. The distance was never the thing that decided where you'd study.</p>
+    <div class="feat-moments">
+      <div><span>The pickup</span><p>A free university bus from points across Amman — no fare, no fuss.</p></div>
+      <div><span>The ride</span><p>A clean, modern coach where you can actually breathe and think.</p></div>
+      <div><span>The arrival</span><p>You step off at the gate, unhurried, ready for the day ahead.</p></div>
+    </div>
+  </div>
+  <div class="feat-media reveal" style="background-image:url('../assets/campus-catering.jpg')"></div>
+</div></div></section>
+
+<!-- ===== EVERYTHING ELSE ===== -->
+<section class="more"><div class="wrap">
+  <div class="k reveal">Also on campus</div>
+  <h2 class="reveal">The everyday things that make it work.</h2>
+  <p class="lead reveal">Not every facility needs a spotlight — but together they're what makes a day on campus run smoothly.</p>
+  <div class="morewrap">
+    <div class="mitem reveal"><h4>Catering</h4><p>Cafeterias and food outlets serving students and staff through the day.</p></div>
+    <div class="mitem reveal"><h4>Career Guidance &amp; Alumni</h4><p>The King Abdullah II Fund for Development office, linking students to employers.</p></div>
+    <div class="mitem reveal"><h4>Counseling &amp; Psychological Services</h4><p>A dedicated centre supporting student well-being.</p></div>
+    <div class="mitem reveal"><h4>Medical Services</h4><p>On-campus medical support for everyday care and emergencies.</p></div>
+    <div class="mitem reveal"><h4>Banking Service</h4><p>On-campus banking to keep day-to-day life simple.</p></div>
+    <div class="mitem reveal"><h4>Internet Services</h4><p>Campus-wide connectivity, everywhere you study.</p></div>
+    <div class="mitem reveal"><h4>Transportation</h4><p>University transport links across Amman.</p></div>
+    <div class="mitem reveal"><h4>Parking</h4><p>Ample on-site parking for students, staff and visitors.</p></div>
+    <div class="mitem reveal"><h4>Services for Special Needs</h4><p>Accessible design and dedicated support across campus.</p></div>
+  </div>
+</div></section>
+
+<!-- ===== LOCATION ===== -->
+<section class="loc"><div class="wrap"><div class="loc-grid">
+  <div class="reveal">
+    <div class="k">Getting here</div>
+    <h2>Close to the city. Close to the airport.</h2>
+    <p>MEU sits just south of Amman — about fifteen minutes from the city centre and a short drive from Queen Alia International Airport. Easy to reach for students from across the region.</p>
+    <ul>
+      <li><b>Location</b><span>Airport Road, south of Amman, Jordan.</span></li>
+      <li><b>Transit</b><span>University transportation to points across the capital.</span></li>
+      <li><b>Airport</b><span>Minutes from Queen Alia International.</span></li>
+    </ul>
+    <a class="btn" href="visit.html">Plan your visit →</a>
+  </div>
+  <div class="loc-map reveal"><iframe loading="lazy" title="MEU location" src="https://www.google.com/maps?q=Middle+East+University+Amman+Jordan&output=embed"></iframe></div>
+</div></div></section>
+
+<!-- ===== CLOSING CTA ===== -->
+<section class="close-cta">
+  <div class="bg" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2022/02/meu.jpg')"></div>
+  <div class="cc">
+    <h2>Come for a visit.<br>Stay for <em>the MEU difference.</em></h2>
+    <a class="btn" href="visit.html">Book a campus tour</a>
+  </div>
+</section>
+
+<footer><div class="wrap"><div class="foot-grid">
+  <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+  <div><h5>Academics</h5><ul><li><a href="../academics/faculty-it.html">Faculties</a></li><li><a href="../academics/ug-majors.html">Programmes</a></li><li><a href="../uk/uk-about.html">UK Degrees</a></li><li><a href="../graduate-research/deanship-research.html">Research</a></li></ul></div>
+  <div><h5>Campus</h5><ul><li><a href="facilities.html">Facilities</a></li><li><a href="../student-affairs/sports.html">Sport</a></li><li><a href="meu-map.html">Maps</a></li><li><a href="visit.html">Plan a visit</a></li></ul></div>
+  <div><h5>Connect</h5><ul><li><a href="contact.html">Contact</a></li><li><a href="../media/press.html">News</a></li><li><a href="../student-affairs/careers.html">Careers</a></li><li><a href="../governance/board-of-directors.html">Leadership</a></li></ul></div>
+</div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer>
+
+<script>
+var topbar=document.getElementById('topbar');
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+
+/* ---- smoothed scroll progress via lerp toward target ---- */
+var heroTrack=document.getElementById('heroTrack'),heroLayer=document.getElementById('heroLayer'),heroCap=document.getElementById('heroCap'),heroCap2=document.getElementById('heroCap2'),scrollhint=document.getElementById('scrollhint');
+var hTrack=document.getElementById('hTrack'),hRail=document.getElementById('hRail'),hProgBar=document.getElementById('hProgBar');
+
+var heroP=0,heroTarget=0,hP=0,hTarget=0;
+function measure(){
+  var hr=heroTrack.getBoundingClientRect();
+  heroTarget=clamp(-hr.top/(heroTrack.offsetHeight-innerHeight),0,1);
+  var xr=hTrack.getBoundingClientRect();
+  hTarget=clamp(-xr.top/(hTrack.offsetHeight-innerHeight),0,1);
+  topbar.classList.toggle('solid',scrollY>60);
+}
+function renderHero(p){
+  heroLayer.style.transform='scale('+(1+p*0.16)+')';
+  var a=clamp(1-p/0.42,0,1);
+  heroCap.style.opacity=a;
+  heroCap.style.transform='scale('+(1+(1-a)*0.10)+') translateY('+(-(1-a)*28)+'px)';
+  var b=clamp((p-0.40)/0.22,0,1);
+  var bOut=clamp((p-0.82)/0.18,0,1);
+  heroCap2.style.opacity=b-bOut;
+  heroCap2.style.transform='translateY('+((1-b)*36-bOut*40)+'px)';
+  scrollhint.style.opacity=clamp(1-p*4,0,1);
+}
+function renderH(p){
+  var travel=Math.max(0,hRail.scrollWidth-innerWidth*0.84);
+  hRail.style.transform='translateX('+(-p*travel)+'px)';
+  hProgBar.style.width=(p*100)+'%';
+}
+/* continuous rAF loop: ease current value toward target for buttery motion */
+function loop(){
+  heroP+=(heroTarget-heroP)*0.12;
+  hP+=(hTarget-hP)*0.12;
+  renderHero(heroP);
+  renderH(hP);
+  requestAnimationFrame(loop);
+}
+addEventListener('scroll',measure,{passive:true});
+addEventListener('resize',function(){measure();sizeHTrack();});
+measure();loop();
+
+function sizeHTrack(){
+  var travel=Math.max(0,hRail.scrollWidth-innerWidth*0.84);
+  hTrack.style.height=(innerHeight+travel+innerHeight*0.2)+'px';
+}
+window.addEventListener('load',function(){sizeHTrack();measure();});
+sizeHTrack();
+
+/* ---- reveal-on-scroll + chapter activation ---- */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+var chIo=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('in',e.isIntersecting&&e.intersectionRatio>0.5);});},{threshold:[0,.5,1]});
+document.querySelectorAll('[data-ch]').forEach(function(el){chIo.observe(el);});
+</script>
+<script src="_version-switch.js" defer></script>
+<script src="_v11-chrome.js" defer></script>
+<script src="_v12-enhance.js" defer></script><script src="_ar-dict.js" defer></script>
+<script src="_ar-dict-pages.js" defer></script>
+<script src="_ar-layer.js" defer></script>
+</body></html>

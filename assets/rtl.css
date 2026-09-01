@@ -1,0 +1,8 @@
+/* RTL baseline for the Arabic mirror */
+body{direction:rtl;text-align:right}
+.crumb,.breadcrumb{flex-direction:row-reverse;justify-content:flex-end}
+ul,ol{padding-right:1.4em;padding-left:0}
+.wrap,.page-main,.prose{text-align:right}
+blockquote{border-right:3px solid var(--maroon,#8A1C1D);border-left:0;padding-right:18px;padding-left:0}
+.trust-inner,.trust-track{direction:ltr}
+input,textarea,select{text-align:right}

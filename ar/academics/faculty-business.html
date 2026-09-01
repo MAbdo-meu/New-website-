@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>كلية الأعمال — MEU</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=El+Messiri:wght@500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet"><style>
+:root{--maroon:#8A1C1D;--maroon-dk:#6E1516;--maroon-deep:#4A0E0F;--grey:#4C4D4E;--ink:#2A2122;--paper:#FBF8F6;--sand:#EFE7E4;--line:#E2D5D2;--gold:#C9A227;--muted:#6E6463;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif;--serif-ar:"El Messiri","Fraunces",Georgia,serif;--sans-ar:"Tajawal","Inter",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--sans-ar);line-height:1.8;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+.h1big,.h2,.vmo-card h3,.card h3,.foot-logo,.dept-table td.dt-prog{font-family:var(--serif-ar);letter-spacing:0}
+.crumb .sep{display:inline-block;transform:scaleX(-1)}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}@media(max-width:640px){.wrap{padding:0 18px}}
+.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:0;text-transform:none;color:var(--maroon);margin-bottom:12px}
+.h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;letter-spacing:-.02em;max-width:700px}
+.h1big{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.06;letter-spacing:-.02em;color:var(--maroon-deep);max-width:620px}
+.lead{color:var(--muted);font-size:1rem;max-width:620px;margin-top:12px}
+.prose{max-width:620px;color:var(--ink);font-size:1rem}.prose p{margin-bottom:14px}
+.btn{display:inline-block;padding:12px 22px;border-radius:9px;font-weight:600;font-size:.92rem;cursor:pointer;border:0;font-family:var(--sans-ar);transition:.2s}
+.btn-primary{background:var(--maroon);color:#fff}.btn-primary:hover{background:var(--maroon-dk)}.btn-ghost{background:var(--grey);color:#fff}.btn-ghost:hover{background:var(--ink)}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.cardgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+@media(max-width:880px){.cardgrid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cardgrid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(74,14,15,.12)}
+.card .cimg{height:140px;background-size:cover;background-position:center;background-color:var(--maroon-deep)}
+.card .cbody{padding:18px}.card h3{font-family:var(--serif);font-weight:600;font-size:1.06rem;margin-bottom:6px}.card p{font-size:.88rem;color:var(--muted)}
+.split{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}@media(max-width:780px){.split{grid-template-columns:1fr}}
+.split .pic{border-radius:16px;min-height:280px;background-size:cover;background-position:center}
+.tag-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}.tag-list span{font-size:.82rem;background:var(--sand);border:1px solid var(--line);padding:6px 13px;border-radius:20px;color:var(--maroon-dk);font-weight:500}
+.highlight{background:#FBF3DC;border:1px solid #E7D9AE;border-radius:12px;padding:16px 20px;margin-top:22px;font-size:.9rem;color:var(--maroon-dk);max-width:700px}
+.highlight b{color:var(--maroon)}
+
+footer{background:var(--maroon-deep);color:rgba(255,255,255,.72);padding:56px 0 30px;margin-top:30px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+footer h5{color:#fff;font-size:.8rem;letter-spacing:0;text-transform:none;margin-bottom:14px}
+footer ul{list-style:none;font-size:.88rem;display:flex;flex-direction:column;gap:8px}footer a:hover{color:#F0B8A0}
+.foot-logo{font-family:var(--serif);color:#fff;font-size:1.3rem;margin-bottom:8px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.jhu-top{position:fixed;top:0;left:0;right:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);height:88px;display:flex;align-items:center}
+.jhu-top .row{display:flex;align-items:center;justify-content:space-between;position:relative}
+.jhu-brand{display:flex;align-items:center;justify-content:flex-start}
+.jhu-brand img{height:67px}
+.jhu-head-right{display:flex;align-items:center;gap:26px}
+.simple-nav{display:flex;align-items:center;gap:26px}
+.simple-nav a{font-size:.92rem;font-weight:600;color:var(--ink);transition:.15s}
+.simple-nav a:hover{color:var(--maroon)}
+.langtoggle{background:#fff;border:1px solid var(--line);color:var(--maroon);font-size:.76rem;font-weight:700;padding:7px 15px;border-radius:20px;cursor:pointer;font-family:var(--sans-ar);transition:.15s}
+.langtoggle:hover{background:var(--sand)}
+@media(max-width:640px){.simple-nav{gap:16px}.simple-nav a{font-size:.84rem}.jhu-head-right{gap:14px}}
+
+/* faculty page layout */
+.fbody{display:grid;grid-template-columns:230px 1fr;gap:40px;padding:40px 0 64px;align-items:start}
+@media(max-width:880px){.fbody{grid-template-columns:1fr;padding-top:24px}}
+.fmenu{position:sticky;top:104px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:2px}
+.fmenu-label{font-size:.68rem;font-weight:700;letter-spacing:0;text-transform:none;color:var(--muted);padding:10px 14px 6px}
+.fmenu a{display:block;padding:11px 14px;font-size:.85rem;font-weight:600;color:var(--grey);border-radius:8px;transition:.15s}
+.fmenu a:hover{background:var(--sand);color:var(--maroon)}
+.fmenu a.active{background:var(--maroon);color:#fff}
+@media(max-width:880px){.fmenu{position:static;flex-direction:row;flex-wrap:wrap}.fmenu-label{width:100%}}
+.crumb{font-size:.8rem;color:var(--muted);margin-bottom:16px}.crumb a:hover{color:var(--maroon)}
+.fcontent>section{padding:44px 0;border-bottom:1px solid var(--line);scroll-margin-top:104px}
+.fcontent>section:first-child{padding-top:0}
+.fcontent>section:last-child{border-bottom:0}
+.vmo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+@media(max-width:700px){.vmo-grid{grid-template-columns:1fr}}
+.vmo-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.vmo-card h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin-bottom:9px;color:var(--maroon-dk)}
+.vmo-card p{font-size:.9rem;color:var(--muted);line-height:1.55}
+.dept-table{width:100%;border-collapse:collapse;margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.dept-table th{text-align:right;font-size:.7rem;text-transform:none;letter-spacing:0;color:var(--muted);background:var(--sand);padding:12px 18px;font-weight:700}
+.dept-table td{padding:15px 18px;border-top:1px solid var(--line);font-size:.92rem}
+.dept-table td.dt-prog{font-weight:600;font-family:var(--serif);color:var(--ink)}
+.dept-table td.dt-link{text-align:left}
+.dept-table td.dt-link a{color:var(--maroon);font-weight:700;font-size:.83rem}
+.dept-table td.dt-link a:hover{color:var(--maroon-dk)}
+@media(max-width:640px){.dept-table thead{display:none}.dept-table,.dept-table tbody,.dept-table tr,.dept-table td{display:block;width:100%}.dept-table tr{padding:14px 18px;border-top:1px solid var(--line)}.dept-table td{padding:3px 0;border:0;text-align:right}}
+</style><link rel="stylesheet" href="../../assets/jhu-nav.css">
+<script src="../../assets/jhu-nav.js" defer></script>
+<link rel="stylesheet" href="../../assets/rtl.css">
+</head><body>
+<div class="jhu-top">
+    <div class="row" style="width:100%;padding:0 34px">
+      <a class="jhu-brand" href="../../index.html"><img
+          src="../../assets/meu-logo.png" alt="Middle East University"></a>
+      <div class="jhu-tabs">
+        <div class="grp1">
+          <button class="tab tab-main" onclick="openPane('menu')"><svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg><span>القائمة</span></button>
+          <button class="tab tab-main" onclick="openPane('news')"><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg><span>الأخبار</span></button>
+          <a class="tab tab-main" href="../../media/meu-pulse.html"><svg viewBox="0 0 24 24">
+              <path d="M3 12h4l2-7 4 14 2-7h6" />
+            </svg><span>نبض MEU</span></a>
+          <button class="tab tab-main" onclick="openPane('search')"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg><span>بحث</span></button>
+        </div>
+        <div class="grp2">
+          <a class="tab tab-sub" data-i="A" href="../../uk/uk-apply.html"><span>التقديم</span></a>
+          <a class="tab tab-sub" data-i="U" href="https://ukdegrees.meu.edu.jo/newsite/"><span>الشهادات البريطانية</span></a>
+          <a class="tab tab-sub" data-i="P" href="../../academics/programs.html"><span>البرامج</span></a>
+
+
+          <button type="button" class="tab tab-sub tab-lang" data-i="ع" id="langTab" onclick="location.href='../../academics/faculty-business.html'"
+            aria-label="تبديل اللغة"><span id="langTabLabel" lang="ar">العربية</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="jhu-burger" type="button" aria-label="القائمة" onclick="openPane('menu')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="shade" id="shade" onclick="closePane()"></div>
+  <aside class="sidep" id="sidep" aria-hidden="true">
+    <div class="pane pane-menu on" id="pane-menu">
+      <div class="ptitle">استكشف الجامعة</div>
+      <a href="../../about/meu-in-words.html">عن الجامعة</a><a href="../../academics/programs.html">الكليات</a><a
+        href="../../admission/admission.html">القبول</a><a href="../../admission/admission.html#sch">المِنَح</a><a
+        href="https://ukdegrees.meu.edu.jo/newsite/">شهادات بريطانية</a><a href="../../about/campus.html">الحياة الجامعية</a><a
+        href="../../about/meu-map.html">الحرم الجامعي</a><a href="../../student-affairs/deanship-students-affairs.html">العمادات</a><a
+        href="../../centers/centers-institutes.html">المراكز والمعاهد</a>
+      <div class="grp">
+        <h6>روابط سريعة</h6><a class="sub" href="../../academics/programs.html">دليل البرامج</a><a class="sub"
+          href="../../admission/ug-requirements.html">شروط القبول</a><a class="sub"
+          href="../../admission/admission.html#sch">المِنَح</a><a class="sub" href="../../admission/fees.html">الرسوم</a><a
+          class="sub" href="../../admission/epayment.html">الدفع الإلكتروني</a><a class="sub" href="../../about/meu-map.html">الخرائط والاتجاهات</a><a class="sub" href="../../about/contact.html">اتصل بنا</a>
+      </div>
+
+      <div class="grp">
+        <h6>البوابات</h6><a class="sub" href="https://www.meu.edu.jo/student-portal/" target="_blank"
+          rel="noopener">بوابة الطالب ↗</a><a class="sub" href="https://mymeu.meu.edu.jo/" target="_blank"
+          rel="noopener">بوابة الموظفين ↗</a><a class="sub" href="https://reg.meu.edu.jo/" target="_blank"
+          rel="noopener">بوابة القبول والتسجيل ↗</a><a class="sub" href="http://elearning.meu.edu.jo/" target="_blank"
+          rel="noopener">التعلّم الإلكتروني ↗</a>
+      </div>
+      <button class="pclose" onclick="closePane()">إغلاق القائمة</button>
+    </div>
+    <div class="pane pane-search" id="pane-search">
+      <div class="ptitle">بحث</div>
+      <input type="text" placeholder="ابحث في الجامعة…" aria-label="بحث">
+      <button class="sbtn">بحث</button>
+      <div class="cs">عمليات بحث شائعة</div>
+      <div class="cslist"><a href="../../admission/admission.html">شروط القبول</a><a
+          href="../../admission/fees.html">الرسوم الدراسية</a><a href="../../admission/admission.html#cal">التقويم الجامعي</a><a
+          href="../../academics/programs.html">الكليات والبرامج</a><a href="../../uk/uk-about.html">شهادات بريطانية</a><a
+          href="../../admission/admission.html">قدّم الآن</a></div>
+      <button class="pclose" onclick="closePane()">إغلاق القائمة</button>
+    </div>
+    <div class="pane pane-news" id="pane-news">
+      <div class="ptitle">الأخبار والفعاليات</div>
+      <h6>أحدث الأخبار</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-youth.jpg')">
+        </div>
+        <div class="nx">
+          <p>وزير الشباب يزور الجامعة — وزير الشباب ينضمّ إلى الجامعة لبحث تمكين الجيل القادم.
+          </p>
+          <div class="meta">قبل يومين</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-film.jpg')">
+        </div>
+        <div class="nx">
+          <p>مهرجان الجامعة للأفلام القصيرة — وزير الثقافة يتوّج الفائزين في مهرجان هذا العام.</p>
+          <div class="meta">قبل 6 أيام</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-genetic.jpg')">
+        </div>
+        <div class="nx">
+          <p>New: Genetic Engineering & Biotech — MEU launches a forward-looking degree in the science of medicine's
+            future.</p>
+          <div class="meta">قبل أسبوعين</div>
+        </div>
+      </div>
+      <h6 class="mt">الفعاليات القادمة</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-openday.jpg')">
+        </div>
+        <div class="nx">
+          <p>يوم مفتوح — حرم عمّان — جولة في الكليات، ولقاء الكادر، واستكشاف الحياة الطلابية.</p>
+          <div class="meta">24 حزيران 2026</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../../assets/news-emergency.jpg')">
+        </div>
+        <div class="nx">
+          <p>جلسة تعريفية بالإسعاف والطوارئ — تعرّف على أحدث برامج العلوم الصحية في الجامعة.</p>
+          <div class="meta">2 تموز 2026</div>
+        </div>
+      </div>
+      <button class="pclose" onclick="closePane()">إغلاق القائمة</button>
+      <div class="social"><a href="#">X</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </aside>
+<div class="jhu-spacer"></div>
+
+<div class="wrap fbody">
+  <aside class="fmenu">
+    <div class="fmenu-label">قائمة الكلية</div>
+    <a href="#about" class="active">عن هذه الكلية</a>
+    <a href="#vmo">الرؤية والرسالة والأهداف</a>
+    <a href="#departments">الأقسام والبرامج</a>
+    <a href="#research">البحث العلمي</a>
+    <a href="#facilities">المرافق والمختبرات</a>
+    <a href="#industry">الشراكات الصناعية</a>
+  </aside>
+  <div class="fcontent">
+
+    <section id="about">
+      <div class="crumb"><a href="../../index.html">الرئيسية</a> › <a href="ug-majors.html">الأكاديميات</a> › كلية الأعمال</div>
+      <p class="eyebrow">مرحباً بكم في الكلية</p>
+      <div class="split">
+        <div>
+          <h1 class="h1big">أساس للتميز في إدارة الأعمال</h1>
+          <div class="prose" style="margin-top:14px"><p>نرحب بكم نيابة عن أعضاء هيئة التدريس والإداريين. استكشفوا السير الذاتية والبرامج والخطط الدراسية — المتوفرة بالعربية والإنجليزية — في كلية تركّز على الأسواق والإدارة الواقعية.</p></div>
+          <p class="eyebrow" style="margin-top:22px">الأقسام</p>
+          <div class="tag-list"><span>إدارة الأعمال</span><span>المحاسبة</span><span>التمويل</span><span>التسويق</span></div>
+          <div class="btnrow" style="margin-top:22px"><a class="btn btn-primary" href="../../admission/ug-requirements.html">متطلبات القبول</a><a class="btn btn-ghost" href="../../about/visit.html">خطط لزيارة</a></div>
+        </div>
+        <div class="pic" style="background-image:url('../../assets/news-film.jpg')"></div>
+      </div>
+    </section>
+
+    <section id="vmo">
+      <p class="eyebrow">الرؤية والرسالة والأهداف</p>
+      <h2 class="h2">ما نسعى إليه</h2>
+      <div class="vmo-grid">
+        <div class="vmo-card"><h3>الرؤية</h3><p>أن تكون كلية رائدة في إدارة الأعمال على مستوى المنطقة، معروفة بتخريج طلبة مؤهلين لسوق العمل وأبحاث تطبيقية تخدم اقتصاد الأردن.</p></div>
+        <div class="vmo-card"><h3>الرسالة</h3><p>تقديم تعليم أكاديمي رصين وعملي في إدارة الأعمال والتمويل والمحاسبة والتسويق — مبني على أسس أكاديمية قوية وتواصل مع سوق العمل والتزام بالقيادة الأخلاقية.</p></div>
+        <div class="vmo-card"><h3>الأهداف</h3><p>بناء قدرات تؤهل للتوظيف، وتعميق الشراكة مع أصحاب العمل الإقليميين، وتنمية الأبحاث التطبيقية في التمويل والتسويق والسلوك التنظيمي بما يخدم الطلبة والجهات الشريكة.</p></div>
+      </div>
+    </section>
+
+    <section id="departments">
+      <p class="eyebrow">الأقسام والبرامج</p>
+      <h2 class="h2">ماذا يمكنك أن تدرس</h2>
+      <p class="lead">خمسة برامج بكالوريوس في إدارة الأعمال والتمويل والمحاسبة والتسويق — لكل منها خطة دراسية كاملة وتوزيع للساعات المعتمدة.</p>
+      <table class="dept-table">
+        <thead><tr><th>البرنامج</th><th>المستوى</th><th>القسم</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="dt-prog">التمويل</td><td>بكالوريوس</td><td>قسم التمويل</td><td class="dt-link"><a href="ug-majors.html">عرض البرنامج ←</a></td></tr>
+          <tr><td class="dt-prog">التسويق</td><td>بكالوريوس</td><td>قسم التسويق</td><td class="dt-link"><a href="ug-majors.html">عرض البرنامج ←</a></td></tr>
+          <tr><td class="dt-prog">المحاسبة</td><td>بكالوريوس</td><td>قسم المحاسبة</td><td class="dt-link"><a href="ug-majors.html">عرض البرنامج ←</a></td></tr>
+          <tr><td class="dt-prog">إدارة الأعمال وعلم النفس</td><td>بكالوريوس</td><td>قسم إدارة الأعمال</td><td class="dt-link"><a href="ug-majors.html">عرض البرنامج ←</a></td></tr>
+          <tr><td class="dt-prog">نظم المعلومات الإدارية</td><td>بكالوريوس</td><td>قسم إدارة الأعمال</td><td class="dt-link"><a href="ug-majors.html">عرض البرنامج ←</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="research">
+      <p class="eyebrow">البحث العلمي</p>
+      <h2 class="h2">مجالات البحث والمختبرات</h2>
+      <div class="tag-list"><span>التمويل والأسواق المالية</span><span>ريادة الأعمال والمشاريع الصغيرة</span><span>تحليلات التسويق</span><span>السلوك التنظيمي</span><span>إدارة الأعمال وعلم النفس</span></div>
+      <div class="highlight">قاعدة متنامية من الباحثين النشطين تعمل في مجالات التمويل والتسويق والإدارة. <b>تصفّح صفحة الأبحاث الخاصة بالكلية</b> للاطلاع على المنشورات والمشاريع وإنجازات أعضاء الهيئة.</div>
+    </section>
+
+    <section id="facilities">
+      <p class="eyebrow">المرافق والمختبرات</p>
+      <h2 class="h2">أين ستتعلم</h2>
+      <div class="cardgrid">
+        <div class="card"><div class="cimg" style="background-image:url('../../assets/campus-stadium.jpg')"></div><div class="cbody"><h3>مختبر محاكاة الأعمال</h3><p>تشغيل محاكاة حية للأسواق والتداول والعمليات عبر المواد الأساسية في إدارة الأعمال.</p></div></div>
+        <div class="card"><div class="cimg" style="background-image:url('../../assets/ev-conference.jpg')"></div><div class="cbody"><h3>قاعة دراسة الحالات والندوات</h3><p>مساحة مرنة على طراز غرف الاجتماعات مخصصة لمناقشة الحالات والعروض التقديمية والمحاضرات الضيفة.</p></div></div>
+        <div class="card"><div class="cimg" style="background-image:url('../../assets/ev-board.jpg')"></div><div class="cbody"><h3>مختبر التداول والأسواق المالية</h3><p>بيانات سوقية لحظية ومحطات تداول لمواد التمويل والاستثمار.</p></div></div>
+      </div>
+    </section>
+
+    <section id="industry">
+      <p class="eyebrow">الشراكات الصناعية</p>
+      <h2 class="h2">على تواصل مع سوق العمل</h2>
+      <p class="lead">اتفاقيات شراكة مع جهات توظيف إقليمية تجلب ممارسين حقيقيين ومشاريع حية وفرص تدريب إلى داخل الصف الدراسي — لتقليص الفجوة بين الدراسة وسوق العمل.</p>
+      <div class="tag-list"><span>البنوك والتمويل</span><span>التجزئة والسلع الاستهلاكية</span><span>الاستشارات</span><span>المحاسبة والتدقيق</span><span>التسويق الرقمي</span></div>
+      <div class="highlight">يتعاون أعضاء هيئة التدريس والطلبة مع الجهات الشريكة في محاضرات ضيفة ومشاريع حية وفرص تدريب طوال العام الدراسي.</div>
+    </section>
+
+  </div>
+</div>
+
+<footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">جامعة الشرق الأوسط</div><p style="font-size:.88rem;max-width:320px">عمّان، الأردن · تأسست عام 2005. جامعة خاصة معتمدة محلياً وشريكة عالمياً. تعلّم. انتمِ. قُد.</p></div>
+    <div><h5>الأكاديميات</h5><ul><li><a href="faculty-it.html">الكليات</a></li><li><a href="ug-majors.html">التخصصات</a></li><li><a href="../../uk/uk-about.html">الشهادات البريطانية</a></li><li><a href="../../graduate-research/deanship-graduate.html">البحث العلمي</a></li></ul></div>
+    <div><h5>القبول</h5><ul><li><a href="../../admission/ug-requirements.html">المتطلبات</a></li><li><a href="../../admission/ug-fees.html">الرسوم والمنح</a></li><li><a href="academic-calendar.html">التقويم</a></li><li><a href="../../about/visit.html">خطط لزيارتك</a></li></ul></div>
+    <div><h5>تواصل</h5><ul><li><a href="../../about/contact.html">اتصل بنا</a></li><li><a href="../../media/press.html">الأخبار</a></li><li><a href="../../student-affairs/careers.html">الوظائف</a></li><li><a href="../../governance/board-of-directors.html">القيادة</a></li><li><a href="../../_dev/abandoned-pages.html" style="opacity:.6;font-style:italic">صفحات مهجورة</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 جامعة الشرق الأوسط</span><span>QS ★★★ · ISO 9001:2015 · المستوى الذهبي AQACHEI</span></div></div></footer>
+<script>
+(function(){
+  var links=Array.from(document.querySelectorAll('.fmenu a'));
+  var secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if(!secs.length) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var id='#'+en.target.id;
+        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')===id)});
+      }
+    });
+  },{rootMargin:'-140px 0px -60% 0px',threshold:0});
+  secs.forEach(function(s){io.observe(s)});
+})();
+</script>
+</body></html>

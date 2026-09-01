@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Site Map — Middle East University</title><meta name="description" content="Complete site map for Middle East University — every page, organized by section."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--maroon:#8A1C1D;--maroon-dk:#6E1516;--maroon-deep:#4A0E0F;--ink:#2A2122;--paper:#FBF8F6;--sand:#EFE7E4;--line:#E2D5D2;--muted:#6E6463;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;padding:60px 28px}
+.wrap{max-width:1100px;margin:0 auto}
+.back{font-size:.85rem;color:var(--maroon);font-weight:600;text-decoration:none;display:inline-block;margin-bottom:18px}
+.back:hover{text-decoration:underline}
+h1{font-family:var(--serif);font-weight:600;font-size:2.6rem;letter-spacing:-.02em;color:var(--maroon-deep);margin-bottom:8px}
+.sub{color:var(--muted);font-size:1rem;margin-bottom:40px;max-width:680px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+h2{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--maroon-deep);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+h2 span{font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+li a{display:block;padding:6px 10px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.9rem;transition:.15s}
+li a:hover{background:var(--sand);color:var(--maroon)}
+h3{font-family:var(--serif);font-weight:600;font-size:.95rem;color:var(--ink);margin:14px 0 6px;opacity:.85}
+h3:first-of-type{margin-top:4px}
+.foot{text-align:center;color:var(--muted);font-size:.82rem;margin-top:50px;padding-top:24px;border-top:1px solid var(--line)}
+</style><link rel="stylesheet" href="assets/jhu-nav.css">
+<script src="assets/jhu-nav.js" defer></script>
+</head><body>
+<div class="jhu-top">
+    <div class="row" style="width:100%;padding:0 34px">
+      <a class="jhu-brand" href="index.html"><img
+          src="assets/meu-logo.png" alt="Middle East University"></a>
+      <div class="jhu-tabs">
+        <div class="grp1">
+          <button class="tab tab-main" onclick="openPane('menu')"><svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg><span>Menu</span></button>
+          <button class="tab tab-main" onclick="openPane('news')"><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg><span>News</span></button>
+          <a class="tab tab-main" href="media/meu-pulse.html"><svg viewBox="0 0 24 24">
+              <path d="M3 12h4l2-7 4 14 2-7h6" />
+            </svg><span>MEU Pulse</span></a>
+          <button class="tab tab-main" onclick="openPane('search')"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg><span>Search</span></button>
+        </div>
+        <div class="grp2">
+          <a class="tab tab-sub" data-i="A" href="uk/uk-apply.html"><span>Apply</span></a>
+          <a class="tab tab-sub" data-i="U" href="https://ukdegrees.meu.edu.jo/newsite/"><span>UK Degrees MEU</span></a>
+          <a class="tab tab-sub" data-i="P" href="academics/programs.html"><span>Programmes</span></a>
+
+
+          <button type="button" class="tab tab-sub tab-lang" data-i="ع" id="langTab" onclick="location.href='ar/sitemap.html'"
+            aria-label="Switch language"><span id="langTabLabel" lang="ar">العربية</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="jhu-burger" type="button" aria-label="Menu" onclick="openPane('menu')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="shade" id="shade" onclick="closePane()"></div>
+  <aside class="sidep" id="sidep" aria-hidden="true">
+    <div class="pane pane-menu on" id="pane-menu">
+      <div class="ptitle">Explore MEU</div>
+      <a href="about/meu-in-words.html">About</a><a href="academics/programs.html">Faculties</a><a
+        href="admission/admission.html">Admissions</a><a href="admission/admission.html#sch">Scholarships</a><a
+        href="https://ukdegrees.meu.edu.jo/newsite/">UK Degrees</a><a href="about/campus.html">Student Life</a><a
+        href="about/meu-map.html">Our Campus</a><a href="student-affairs/deanship-students-affairs.html">Deanships</a><a
+        href="centers/centers-institutes.html">Centers &amp; Institutions</a>
+      <div class="grp">
+        <h6>Quick Links</h6><a class="sub" href="academics/programs.html">Programme Finder</a><a class="sub"
+          href="admission/ug-requirements.html">Admission Requirements</a><a class="sub"
+          href="admission/admission.html#sch">Scholarships</a><a class="sub" href="admission/fees.html">Fees</a><a
+          class="sub" href="admission/epayment.html">e-Payments</a><a class="sub" href="about/meu-map.html">Maps &
+          Directions</a><a class="sub" href="about/contact.html">Contact Us</a>
+      </div>
+
+      <div class="grp">
+        <h6>Portals</h6><a class="sub" href="https://www.meu.edu.jo/student-portal/" target="_blank"
+          rel="noopener">Student Portal ↗</a><a class="sub" href="https://mymeu.meu.edu.jo/" target="_blank"
+          rel="noopener">Staff Portal ↗</a><a class="sub" href="https://reg.meu.edu.jo/" target="_blank"
+          rel="noopener">EduGate ↗</a><a class="sub" href="http://elearning.meu.edu.jo/" target="_blank"
+          rel="noopener">E-Learning ↗</a>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-search" id="pane-search">
+      <div class="ptitle">Search</div>
+      <input type="text" placeholder="Search MEU…" aria-label="Search">
+      <button class="sbtn">Search</button>
+      <div class="cs">Common Searches</div>
+      <div class="cslist"><a href="admission/admission.html">Admission Requirements</a><a
+          href="admission/fees.html">Tuition & Fees</a><a href="admission/admission.html#cal">Academic Calendar</a><a
+          href="academics/programs.html">Faculties & Programmes</a><a href="uk/uk-about.html">UK Degrees</a><a
+          href="admission/admission.html">Apply Now</a></div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-news" id="pane-news">
+      <div class="ptitle">News & Events</div>
+      <h6>Recent News</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('assets/news-youth.jpg')">
+        </div>
+        <div class="nx">
+          <p>Minister of Youth Visits MEU — The Minister of Youth joins MEU to discuss empowering the next generation.
+          </p>
+          <div class="meta">2 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('assets/news-film.jpg')">
+        </div>
+        <div class="nx">
+          <p>MEU Short Film Festival — The Minister of Culture crowns the winners at this year's festival.</p>
+          <div class="meta">6 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('assets/news-genetic.jpg')">
+        </div>
+        <div class="nx">
+          <p>New: Genetic Engineering & Biotech — MEU launches a forward-looking degree in the science of medicine's
+            future.</p>
+          <div class="meta">2 weeks ago</div>
+        </div>
+      </div>
+      <h6 class="mt">Upcoming Events</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('assets/news-openday.jpg')">
+        </div>
+        <div class="nx">
+          <p>Open Day — Amman Campus — Tour faculties, meet staff, and explore student life.</p>
+          <div class="meta">24 Jun 2026</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('assets/news-emergency.jpg')">
+        </div>
+        <div class="nx">
+          <p>Paramedical & Emergency Info Session — Learn about MEU's newest health-sciences programme.</p>
+          <div class="meta">2 Jul 2026</div>
+        </div>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+      <div class="social"><a href="#">X</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </aside>
+<div class="jhu-spacer"></div>
+<div class="wrap">
+  <a class="back" href="index.html">← Back to MEU home</a>
+  <h1>Site Map</h1>
+  <p class="sub">A complete index of every page on the Middle East University prototype site, organized by section.</p>
+
+  <div class="grid">
+
+    <section>
+      <h2>About MEU <span>Identity</span></h2>
+      <h3>Our Identity</h3>
+      <ul>
+        <li><a href="about/meu-in-words.html">MEU in Words</a></li>
+        <li><a href="about/meu-in-numbers.html">MEU in Numbers</a></li>
+        <li><a href="about/vision-mission.html">Vision & Mission</a></li>
+        <li><a href="about/core-values.html">Core Values</a></li>
+        <li><a href="about/why-meu.html">Why MEU</a></li>
+        <li><a href="about/university-objectives.html">University Objectives</a></li>
+        <li><a href="about/university-terminology.html">University Terminology</a></li>
+        <li><a href="about/meu-general-policy.html">General Policy</a></li>
+      </ul>
+      <h3>Leadership & Governance</h3>
+      <ul>
+        <li><a href="governance/president-message.html">President's Message</a></li>
+        <li><a href="governance/presidents-assistant.html">President's Assistant</a></li>
+        <li><a href="governance/chairman-trustees.html">Chairman of Trustees</a></li>
+        <li><a href="governance/board-of-trustees.html">Board of Trustees</a></li>
+        <li><a href="governance/board-of-directors.html">Board of Directors</a></li>
+        <li><a href="governance/council-of-deans.html">Council of Deans</a></li>
+        <li><a href="about/org-structure.html">Organizational Structure</a></li>
+        <li><a href="about/university-structure.html">University Structure</a></li>
+      </ul>
+      <h3>Accreditation & Quality</h3>
+      <ul>
+        <li><a href="about/accreditation.html">Accreditation</a></li>
+        <li><a href="about/quality-assurance.html">Quality Assurance</a></li>
+        <li><a href="about/strategic-plan.html">Strategic Plan</a></li>
+        <li><a href="about/university-strategic-plan.html">University Strategic Plan</a></li>
+        <li><a href="governance/policy-agreements.html">Policy & Agreements</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Academics <span>Programs</span></h2>
+      <h3>Faculties</h3>
+      <ul>
+        <li><a href="academics/faculty-it.html">Information Technology</a></li>
+        <li><a href="academics/faculty-business.html">Business</a></li>
+        <li><a href="academics/faculty-arts.html">Arts</a></li>
+        <li><a href="academics/faculty-law.html">Law</a></li>
+        <li><a href="academics/faculty-media.html">Media</a></li>
+        <li><a href="academics/faculty-architecture.html">Architecture</a></li>
+        <li><a href="academics/faculty-pharmacy.html">Pharmacy</a></li>
+        <li><a href="academics/faculty-nursing.html">Nursing</a></li>
+        <li><a href="academics/faculty-allied-medical.html">Allied Medical Sciences</a></li>
+        <li><a href="academics/technical-college.html">Technical College</a></li>
+      </ul>
+      <h3>Programs</h3>
+      <ul>
+        <li><a href="academics/programs.html">All Programs</a></li>
+        <li><a href="academics/ug-majors.html">Undergraduate Majors</a></li>
+        <li><a href="academics/master-programs.html">Master's Programs</a></li>
+        <li><a href="academics/pg-majors.html">Postgraduate Majors</a></li>
+        <li><a href="academics/prog-ai.html">Artificial Intelligence</a></li>
+        <li><a href="academics/prog-cs.html">Computer Science</a></li>
+        <li><a href="academics/prog-cis.html">Computer Information Systems</a></li>
+        <li><a href="academics/prog-cyber.html">Cybersecurity</a></li>
+        <li><a href="academics/prog-cloud.html">Cloud Computing</a></li>
+      </ul>
+      <h3>UK Degrees</h3>
+      <ul>
+        <li><a href="uk/uk-about.html">About UK Degrees</a></li>
+        <li><a href="https://ukdegrees.meu.edu.jo/newsite/">UK Degrees at MEU</a></li>
+        <li><a href="uk/uk-bachelors.html">UK Bachelor's</a></li>
+        <li><a href="uk/uk-masters.html">UK Master's</a></li>
+        <li><a href="uk/uk-phd.html">UK PhD</a></li>
+        <li><a href="uk/uk-apply.html">Apply</a></li>
+        <li><a href="uk/uk-alumni.html">Alumni</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Admissions <span>Apply</span></h2>
+      <ul>
+        <li><a href="admission/admission.html">Admissions Overview</a></li>
+        <li><a href="admission/ug-requirements.html">Undergraduate Requirements</a></li>
+        <li><a href="admission/ug-procedures.html">Undergraduate Procedures</a></li>
+        <li><a href="admission/ug-documents.html">Required Documents</a></li>
+        <li><a href="admission/ug-fees.html">Undergraduate Fees</a></li>
+        <li><a href="admission/pg-requirements.html">Postgraduate Requirements</a></li>
+        <li><a href="admission/pg-procedures.html">Postgraduate Procedures</a></li>
+        <li><a href="admission/pg-fees.html">Postgraduate Fees</a></li>
+        <li><a href="admission/hd-fees.html">Higher Diploma Fees</a></li>
+        <li><a href="admission/fees.html">Fees Overview</a></li>
+        <li><a href="graduate-research/scholarships.html">Scholarships</a></li>
+        <li><a href="admission/transfer-students.html">Transfer Students</a></li>
+        <li><a href="admission/certify-foreign.html">Certify Foreign Credentials</a></li>
+        <li><a href="admission/epayment.html">E-Payment</a></li>
+        <li><a href="about/visit.html">Plan a Visit</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Research <span>Graduate Studies</span></h2>
+      <ul>
+        <li><a href="graduate-research/deanship-graduate.html">Deanship of Graduate Studies & Research</a></li>
+        <li><a href="graduate-research/about-deanship-grad.html">About the Deanship</a></li>
+        <li><a href="graduate-research/deanship-research.html">Scientific Research</a></li>
+        <li><a href="graduate-research/deanship-structure.html">Deanship Structure</a></li>
+        <li><a href="graduate-research/deanship-members.html">Deanship Members</a></li>
+        <li><a href="graduate-research/department-graduate-studies.html">Department of Graduate Studies</a></li>
+        <li><a href="graduate-research/department-scientific-research.html">Department of Scientific Research</a></li>
+        <li><a href="governance/council-graduate-studies.html">Council of Graduate Studies</a></li>
+        <li><a href="governance/council-scientific-research.html">Council of Scientific Research</a></li>
+        <li><a href="graduate-research/grad-forms.html">Graduate Forms</a></li>
+        <li><a href="graduate-research/grad-rules.html">Graduate Rules</a></li>
+        <li><a href="graduate-research/research-forms.html">Research Forms</a></li>
+        <li><a href="graduate-research/staff-research-papers.html">Staff Research Papers</a></li>
+        <li><a href="graduate-research/journal.html">MEU Journal</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Campus Life <span>Students</span></h2>
+      <ul>
+        <li><a href="about/campus.html">Campus Overview</a></li>
+        <li><a href="about/campus-library.html">Campus Library</a></li>
+        <li><a href="about/library.html">Library</a></li>
+        <li><a href="about/facilities.html">Facilities</a></li>
+        <li><a href="student-affairs/activities.html">Activities</a></li>
+        <li><a href="student-affairs/sports.html">Sports</a></li>
+        <li><a href="media/events.html">Events</a></li>
+        <li><a href="student-affairs/student-services.html">Student Services</a></li>
+        <li><a href="student-affairs/deanship-students.html">Deanship of Student Affairs</a></li>
+        <li><a href="student-affairs/division-student-services.html">Student Services Division</a></li>
+        <li><a href="student-affairs/division-student-expatriates.html">Student Expatriates Division</a></li>
+        <li><a href="international/deanship-international.html">International Deanship</a></li>
+        <li><a href="graduate-research/dispatching-department.html">Dispatching Department</a></li>
+        <li><a href="graduate-research/dispatching-forms.html">Dispatching Forms</a></li>
+        <li><a href="student-affairs/handbook.html">Student Handbook</a></li>
+        <li><a href="media/booklet.html">Student Booklet</a></li>
+        <li><a href="about/meu-map.html">Campus Map</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Centers & Institutions <span>Services</span></h2>
+      <h3>Centers</h3>
+      <ul>
+        <li><a href="centers/centers-institutes.html">Centers & Institutions — Overview</a></li>
+        <li><a href="centers/center-academic-development.html">Academic Development Center</a></li>
+        <li><a href="centers/center-accreditation-quality.html">Accreditation & Quality Center</a></li>
+        <li><a href="centers/center-consulting-training.html">Consulting & Training Center</a></li>
+        <li><a href="centers/center-heritage-revival.html">Heritage Revival Center</a></li>
+        <li><a href="centers/center-innovation-entrepreneurship.html">Innovation & Entrepreneurship Center</a></li>
+        <li><a href="international/center-international-programs.html">International Programs Center</a></li>
+        <li><a href="centers/center-media-training.html">Media Training Center</a></li>
+        <li><a href="centers/center-recruitment.html">Recruitment Center</a></li>
+      </ul>
+      <h3>Administrative Units</h3>
+      <ul>
+        <li><a href="admin-units/unit-presidency.html">Presidency Unit</a></li>
+        <li><a href="admin-units/unit-engineering.html">Engineering Unit</a></li>
+        <li><a href="admin-units/unit-financial.html">Financial Unit</a></li>
+        <li><a href="admin-units/unit-health.html">Health Unit</a></li>
+        <li><a href="admin-units/unit-hr.html">Human Resources</a></li>
+        <li><a href="admin-units/unit-it.html">IT Unit</a></li>
+        <li><a href="admin-units/unit-legal.html">Legal Unit</a></li>
+        <li><a href="admin-units/unit-media-pr.html">Media & PR</a></li>
+        <li><a href="admin-units/unit-procurement.html">Procurement</a></li>
+        <li><a href="admin-units/unit-warehouses.html">Warehouses</a></li>
+        <li><a href="governance/control-audit.html">Control & Audit</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>News & Media <span>Communications</span></h2>
+      <ul>
+        <li><a href="media/news.html">News</a></li>
+        <li><a href="media/press.html">Press</a></li>
+        <li><a href="media/media-center.html">Media Center</a></li>
+        <li><a href="media/magazine.html">Magazine</a></li>
+        <li><a href="media/newsletter.html">Newsletter</a></li>
+        <li><a href="media/meu-newsletter.html">MEU Newsletter</a></li>
+        <li><a href="media/year-books.html">Year Books</a></li>
+        <li><a href="_dev/spotlight-preview.html">Spotlight</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Connect <span>Contact</span></h2>
+      <ul>
+        <li><a href="about/contact.html">Contact Us</a></li>
+        <li><a href="student-affairs/careers.html">Careers</a></li>
+        <li><a href="academic-calendar.html">Academic Calendar</a></li>
+        <li><a href="academics/ects.html">ECTS</a></li>
+        <li><a href="uk/uk-contact.html">UK Contact</a></li>
+      </ul>
+      <h3>Study Plans</h3>
+      <ul>
+        <li><a href="study-plans/MEU_StudyPlan_Accounting_MA.html">Accounting (MA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_MBA_MA.html">MBA</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_Arabic_BA.html">Arabic (BA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_English_BA.html">English (BA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_Translation_BA.html">Translation (BA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_EduTech_BA.html">Educational Technology (BA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_Media_MA.html">Media (MA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_PrivateLaw_MA.html">Private Law (MA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_PublicLaw_MA.html">Public Law (MA)</a></li>
+        <li><a href="study-plans/MEU_StudyPlan_SportsMgmt_BA.html">Sports Management (BA)</a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <div class="foot">© 2026 Middle East University · <a href="index.html" style="color:var(--maroon);text-decoration:none">Home</a></div>
+</div>
+<script src="_version-switch.js" defer></script>
+<script src="_v11-chrome.js" defer></script>
+<script src="_v12-enhance.js" defer></script><script src="_ar-dict.js" defer></script>
+<script src="_ar-dict-pages.js" defer></script>
+<script src="_ar-layer.js" defer></script>
+</body></html>

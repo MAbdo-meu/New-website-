@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MEU Spotlight — Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--maroon:#8A1C1D;--maroon-dk:#6E1516;--maroon-deep:#4A0E0F;--ink:#2A2122;--paper:#FBF8F6;--sand:#EFE7E4;--line:#E2D5D2;--gold:#C9A227;--muted:#6E6463;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+@media(max-width:640px){.wrap{padding:0 18px}}
+.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);margin-bottom:12px}
+.h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,3.5vw,2.5rem);line-height:1.07;letter-spacing:-.02em}
+.lead{color:var(--muted);font-size:1.06rem;max-width:620px;margin-top:12px}
+
+/* Spotlight Section */
+.spotlight{background:var(--paper);padding:80px 0 90px;border-top:1px solid var(--line)}
+.spot-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.spot-head .left{flex:1;min-width:280px}
+.spot-controls{display:flex;align-items:center;gap:10px}
+.spot-controls button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--maroon);background:transparent;color:var(--maroon);font-size:1.1rem;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center}
+.spot-controls button:hover{background:var(--maroon);color:#fff}
+.spot-controls button:disabled{opacity:.3;cursor:not-allowed}
+.spot-controls button:disabled:hover{background:transparent;color:var(--maroon)}
+.spot-more{display:inline-flex;align-items:center;gap:10px;background:var(--maroon);color:#fff;padding:12px 22px;border-radius:8px;font-size:.88rem;font-weight:600;margin-left:8px;transition:.2s}
+.spot-more:hover{background:var(--maroon-dk)}
+.spot-more .ar{font-size:.85rem}
+
+.spot-viewport{overflow:hidden;margin:0 -10px;padding:6px 0}
+.spot-track{display:flex;gap:24px;transition:transform .55s cubic-bezier(.22,.61,.36,1);padding:0 10px;will-change:transform}
+.spot-card{flex:0 0 calc((100% - 48px) / 3);background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.spot-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(74,14,15,.13);border-color:transparent}
+.spot-img{height:200px;background-size:cover;background-position:center;background-color:var(--maroon-deep);position:relative}
+.spot-img .src{position:absolute;left:12px;top:12px;background:rgba(74,14,15,.88);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:4px}
+.spot-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.spot-date{font-size:.78rem;font-weight:600;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.spot-title{font-family:var(--serif);font-weight:600;font-size:1.12rem;line-height:1.28;color:var(--ink);margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.spot-abs{font-size:.9rem;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.spot-read{margin-top:14px;font-size:.78rem;font-weight:700;color:var(--maroon);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:8px}
+.spot-read .ar{transition:.2s}
+.spot-card:hover .spot-read .ar{transform:translateX(4px)}
+
+.spot-dots{display:flex;justify-content:center;gap:8px;margin-top:32px}
+.spot-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:.2s}
+.spot-dots span.active{background:var(--maroon);width:24px;border-radius:4px}
+
+@media(max-width:880px){.spot-card{flex:0 0 calc((100% - 24px) / 2)}}
+@media(max-width:560px){.spot-card{flex:0 0 100%}.spot-more{margin-left:0;width:100%;justify-content:center;margin-top:10px}}
+
+/* preview note */
+.preview-note{background:var(--maroon-deep);color:#fff;padding:18px 0;text-align:center;font-size:.92rem}
+.preview-note a{color:var(--gold);font-weight:600;text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="preview-note">
+  <div class="wrap">Preview of the new <strong>MEU Spotlight</strong> section for the home page · <a href="../media/news.html">View News Center page →</a></div>
+</div>
+
+<section class="spotlight">
+  <div class="wrap">
+    <div class="spot-head">
+      <div class="left">
+        <div class="eyebrow">MEU Spotlight</div>
+        <h2 class="h2">News, milestones &amp; moments from campus</h2>
+        <p class="lead">Stay close to the stories shaping life at Middle East University — from research breakthroughs to student achievements, partnerships, and the people behind them.</p>
+      </div>
+      <div class="spot-controls">
+        <button class="prev" aria-label="Previous">‹</button>
+        <button class="next" aria-label="Next">›</button>
+        <a href="../media/news.html" class="spot-more">More News <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="spot-viewport">
+      <div class="spot-track" id="spotTrack"></div>
+    </div>
+    <div class="spot-dots" id="spotDots"></div>
+  </div>
+</section>
+
+<script>
+const NEWS = [
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/724484445_1006741395655788_3908657212574915022_n-280x187.jpg",date:"June 17, 2026",src:"MEU News",title:"MEU and Ministry of Agriculture Sign MoU to Advance AI Applications and Smart Farming",abs:"Middle East University signed a Memorandum of Understanding with the Ministry of Agriculture to develop AI-driven solutions for precision agriculture and smart farming across the Kingdom."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/722638699_1005503452446249_7250196566513340894_n-280x187.jpg",date:"June 17, 2026",src:"MEU News",title:"Exhibition Showcases MEU Media Students' Capabilities in Creating Impactful Advertising Campaigns",abs:"The Faculty of Media held a public exhibition highlighting end-of-semester advertising projects, with students presenting integrated campaigns built for real industry briefs."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-10-at-3.03.30-PM-252x187.jpeg",date:"June 11, 2026",src:"MEU News",title:"MEU Pharmacy Students Deliver Health Awareness Campaign at Jordan's Aerial Gateway",abs:"Pharmacy students partnered with Queen Alia International Airport to run a traveler-focused public health initiative, distributing materials on medication safety and travel wellness."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-10-at-7.02.41-PM-3-280x187.jpeg",date:"June 11, 2026",src:"MEU News",title:"MEU Organises 11th Career Day Featuring 60 Companies Across Diverse Economic Sectors",abs:"More than sixty employers joined MEU's 11th Career Day, connecting students and graduates with hiring opportunities across banking, technology, healthcare, media, and government."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-09-at-1.42.42-PM-280x187.jpeg",date:"June 11, 2026",src:"MEU Dialogues",title:"Al-Karki at MEU: 'The Jordanian Narrative — A Story Worth Telling for Future Generations'",abs:"A dialogue session at MEU explored the importance of preserving and documenting the Jordanian national narrative through scholarship, media, and the arts."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-07-at-4.34.37-PM-1-280x187.jpeg",date:"June 8, 2026",src:"Faculty of Allied Medical Sciences",title:"Faculty of Allied Medical Sciences Explores the Future of Healthy Ageing at Second Scientific Day",abs:"Researchers, clinicians, and students convened for the second annual scientific day to share evidence-based practice on healthy ageing, rehabilitation, and quality of life."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-07-at-2.21.22-PM-280x187.jpeg",date:"June 8, 2026",src:"MEU News",title:"Minister of Youth at MEU: 'Empowering Youth Remains a National Priority'",abs:"The Minister of Youth visited MEU to discuss national initiatives empowering the next generation through education, entrepreneurship, and civic engagement."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-03-at-3.14.25-PM-4-237x187.jpeg",date:"June 4, 2026",src:"MEU Short Film Festival",title:"Minister of Culture Al-Rawashdeh Highlights the Importance of Art and Cinema at MEU Short Film Festival Awards",abs:"The Minister of Culture crowned the winners of MEU's Short Film Festival, underlining cinema's role in shaping cultural identity and giving voice to a new generation of storytellers."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/shared-image-4-249x187.jpg",date:"June 4, 2026",src:"Faculty of Allied Medical Sciences",title:"MEU Physiotherapy Students Take Part in Anatomy Practical at the University of Jordan",abs:"Physiotherapy students participated in a hands-on anatomy laboratory at the University of Jordan as part of a cross-institutional clinical training collaboration."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-05-20-at-2.56.41-PM-280x187.jpeg",date:"June 4, 2026",src:"Faculty of Law",title:"Safeguarding Public Funds: Attorney General Khrais Leads a Seminar at MEU",abs:"His Excellency the Attorney General delivered a seminar at MEU on legal frameworks and institutional safeguards protecting public funds in the Kingdom."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/711695692_992839893712605_745237852613200985_n-268x187.jpg",date:"June 1, 2026",src:"Faculty of Media",title:"MEU Signs Cooperation Agreement with Photographer Alaa Abu Fares to Enhance Photography and Content Creation Skills",abs:"A new training agreement will give MEU students access to specialised workshops in photography, visual storytelling, and modern content creation."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/707647404_987557224240872_7511783147004444541_n-249x187.jpg",date:"June 1, 2026",src:"MEU Sports",title:"MEU Law Student Ahmad Hammoudeh Secures Gold at the University Boxing Championship",abs:"Law student Ahmad Hammoudeh claimed the gold medal at the national University Boxing Championship, adding to MEU's growing record in collegiate sports."}
+];
+
+const track = document.getElementById('spotTrack');
+const dots = document.getElementById('spotDots');
+const prevBtn = document.querySelector('.spot-controls .prev');
+const nextBtn = document.querySelector('.spot-controls .next');
+
+NEWS.forEach(n=>{
+  const card = document.createElement('a');
+  card.className = 'spot-card';
+  card.href = '../media/news.html';
+  card.innerHTML = `
+    <div class="spot-img" style="background-image:url('${n.img}')"><span class="src">${n.src}</span></div>
+    <div class="spot-body">
+      <div class="spot-date">${n.date}</div>
+      <h3 class="spot-title">${n.title}</h3>
+      <p class="spot-abs">${n.abs}</p>
+      <span class="spot-read">Read More <span class="ar">→</span></span>
+    </div>`;
+  track.appendChild(card);
+});
+
+function perView(){
+  if(window.innerWidth<=560) return 1;
+  if(window.innerWidth<=880) return 2;
+  return 3;
+}
+let idx = 0;
+const pages = ()=>Math.max(1, NEWS.length - perView() + 1);
+
+function buildDots(){
+  dots.innerHTML='';
+  const groups = Math.ceil(NEWS.length / perView());
+  for(let i=0;i<groups;i++){
+    const d=document.createElement('span');
+    if(i===0) d.className='active';
+    d.onclick=()=>{idx = Math.min(i*perView(), NEWS.length-perView()); update();};
+    dots.appendChild(d);
+  }
+}
+function update(){
+  const card = track.querySelector('.spot-card');
+  if(!card) return;
+  const gap = 24;
+  const w = card.getBoundingClientRect().width + gap;
+  track.style.transform = `translateX(-${idx*w}px)`;
+  prevBtn.disabled = idx<=0;
+  nextBtn.disabled = idx >= NEWS.length - perView();
+  const pv = perView();
+  [...dots.children].forEach((d,i)=>d.classList.toggle('active', i===Math.round(idx/pv)));
+}
+prevBtn.onclick=()=>{idx=Math.max(0,idx-perView());update();};
+nextBtn.onclick=()=>{idx=Math.min(NEWS.length-perView(), idx+perView());update();};
+window.addEventListener('resize',()=>{idx=Math.min(idx,NEWS.length-perView());buildDots();update();});
+buildDots();update();
+</script>
+<footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="../academics/faculty-it.html">Faculties</a></li><li><a href="../academics/ug-majors.html">Programmes</a></li><li><a href="../uk/uk-about.html">UK Degrees</a></li><li><a href="../graduate-research/deanship-graduate.html">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="../admission/ug-requirements.html">Requirements</a></li><li><a href="../admission/ug-fees.html">Fees & aid</a></li><li><a href="academic-calendar.html">Calendar</a></li><li><a href="../about/visit.html">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="../about/contact.html">Contact</a></li><li><a href="../media/press.html">News</a></li><li><a href="../student-affairs/careers.html">Careers</a></li><li><a href="../governance/board-of-directors.html">Leadership</a></li><li><a href="abandoned-pages.html" style="opacity:.6;font-style:italic">Abandoned pages</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer><script src="_version-switch.js" defer></script>
+<script src="_v11-chrome.js" defer></script>
+<script src="_v12-enhance.js" defer></script><script src="_ar-dict.js" defer></script>
+<script src="_ar-dict-pages.js" defer></script>
+<script src="_ar-layer.js" defer></script>
+</body>
+</html>

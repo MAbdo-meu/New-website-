@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Master's Programmes — MEU</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--maroon:#8A1C1D;--maroon-dk:#6E1516;--maroon-deep:#4A0E0F;--grey:#4C4D4E;--ink:#2A2122;--paper:#FBF8F6;--sand:#EFE7E4;--line:#E2D5D2;--gold:#C9A227;--muted:#6E6463;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}@media(max-width:640px){.wrap{padding:0 18px}}
+.note{background:var(--gold);color:var(--ink);font-size:.78rem;font-weight:600;text-align:center;padding:7px;position:fixed;top:0;left:0;right:0;z-index:65;height:31px}
+/* utility bar */
+.util{background:var(--maroon-deep);color:rgba(255,255,255,.82);font-size:.8rem}
+.util-inner{display:flex;justify-content:flex-end;align-items:center;gap:22px;height:40px}
+.util a{font-weight:500}.util a:hover{color:#fff}
+.util .sep{opacity:.4}
+.util .port{position:relative;cursor:pointer}
+.util .portmenu{position:absolute;top:130%;right:0;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 34px rgba(74,14,15,.2);padding:8px;display:none;min-width:180px;z-index:80}
+.util .port:hover .portmenu{display:block}
+.util .portmenu a{display:block;padding:8px 12px;border-radius:7px;color:var(--ink);font-weight:500}
+.util .portmenu a:hover{background:var(--sand);color:var(--maroon)}
+/* main nav */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(251,248,246,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:18px}
+.logo img{height:67px}
+.topnav{display:flex;gap:6px;list-style:none}
+.topnav>li>a{display:block;padding:26px 16px;font-size:.94rem;font-weight:600;color:var(--ink)}
+.topnav>li:hover>a{color:var(--maroon)}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:2px solid var(--maroon);box-shadow:0 26px 50px rgba(74,14,15,.14);opacity:0;visibility:hidden;transition:.18s;z-index:70}
+.topnav>li{position:static}
+.topnav>li:hover .mega{opacity:1;visibility:visible}
+.mega-inner{max-width:1200px;margin:0 auto;padding:34px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:30px}
+.mega-col h6{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:12px}
+.mega-col a{display:block;padding:6px 0;font-size:.88rem;color:var(--grey);font-weight:500}
+.mega-col a:hover{color:var(--maroon)}
+.nav-cta{background:var(--maroon);color:#fff;padding:11px 20px;border-radius:8px;font-size:.9rem;font-weight:600}.nav-cta:hover{background:var(--maroon-dk)}
+.burger{display:none;background:none;border:0;font-size:1.5rem;color:var(--maroon);cursor:pointer}
+@media(max-width:1024px){.topnav{display:none}.burger{display:block}}
+/* page head */
+.pagehead{background:var(--maroon-deep);color:#fff;position:relative;overflow:hidden;padding:78px 0 62px}
+.pagehead::after{content:"";position:absolute;inset:0;background-size:cover;background-position:center;opacity:.20}
+.pagehead .wrap{position:relative;z-index:2}
+.crumb{font-size:.8rem;color:rgba(255,255,255,.72);margin-bottom:14px}.crumb a:hover{color:#fff}
+.pagehead h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3.1rem);line-height:1.04;letter-spacing:-.02em;max-width:780px}
+.pagehead .sub{color:rgba(255,255,255,.9);margin-top:14px;max-width:640px;font-size:1.06rem}
+section{padding:70px 0}
+.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);margin-bottom:12px}
+.h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,3.5vw,2.5rem);line-height:1.07;letter-spacing:-.02em;max-width:700px}
+.lead{color:var(--muted);font-size:1.06rem;max-width:620px;margin-top:14px}
+.prose{max-width:740px;color:var(--ink);font-size:1.05rem}.prose p{margin-bottom:16px}.prose ol,.prose ul{padding-left:22px}.prose li{margin-bottom:9px}
+.btn{display:inline-block;padding:12px 24px;border-radius:9px;font-weight:600;font-size:.95rem;cursor:pointer;border:0;font-family:var(--sans);transition:.2s}
+.btn-primary{background:var(--maroon);color:#fff}.btn-primary:hover{background:var(--maroon-dk)}.btn-ghost{background:var(--grey);color:#fff}.btn-ghost:hover{background:var(--ink)}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+@media(max-width:680px){.statrow{grid-template-columns:1fr 1fr}}
+.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px;text-align:center}
+.stat b{display:block;font-family:var(--serif);font-size:1.9rem;color:var(--maroon);font-weight:600}.stat span{font-size:.82rem;color:var(--muted);font-weight:500}
+.cardgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+@media(max-width:880px){.cardgrid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cardgrid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(74,14,15,.12)}
+.card .cimg{height:148px;background-size:cover;background-position:center;background-color:var(--maroon-deep)}
+.card .cbody{padding:20px}.card h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin-bottom:7px}.card p{font-size:.9rem;color:var(--muted)}
+.card .more{font-size:.8rem;font-weight:700;color:var(--maroon);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;display:inline-block}
+.split{display:grid;grid-template-columns:1.2fr 1fr;gap:46px;align-items:center}@media(max-width:780px){.split{grid-template-columns:1fr}}
+.split .pic{border-radius:16px;min-height:320px;background-size:cover;background-position:center}
+.tag-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}.tag-list span{font-size:.82rem;background:var(--sand);border:1px solid var(--line);padding:6px 13px;border-radius:20px;color:var(--maroon-dk);font-weight:500}
+.linklist{columns:2;max-width:640px}@media(max-width:560px){.linklist{columns:1}}
+.linklist a{display:block;padding:8px 0;font-weight:500;color:var(--grey);border-bottom:1px solid var(--line)}.linklist a:hover{color:var(--maroon)}
+.ctabar{position:fixed;left:0;right:0;bottom:0;z-index:58;background:#FBF3DC;border-top:1px solid #E7D9AE;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 34px;box-shadow:0 -4px 18px rgba(74,14,15,.07)}
+.ctabar .msg{font-family:var(--serif);font-weight:600;font-size:clamp(1.05rem,2.2vw,1.5rem);color:var(--maroon-dk);letter-spacing:-.01em}
+.ctabar .msg em{font-style:italic;color:var(--maroon)}
+.ctabar .cta-actions{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.ctabar a.cbtn{display:inline-flex;align-items:center;gap:14px;background:var(--maroon);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:14px 22px;border-radius:4px;transition:.2s}
+.ctabar a.cbtn:hover{background:var(--maroon-dk)}
+.ctabar a.cbtn .ar{font-size:.7rem}
+.ctabar .dismiss{background:none;border:0;color:var(--muted);font-size:1.3rem;line-height:1;cursor:pointer;padding:4px 6px}
+.ctabar .dismiss:hover{color:var(--maroon)}
+body{padding-bottom:0px}
+@media(max-width:600px){.ctabar{padding:11px 16px;gap:12px}.ctabar a.cbtn{padding:11px 14px;font-size:.72rem}.ctabar .dismiss{display:none}}
+
+footer{background:var(--maroon-deep);color:rgba(255,255,255,.72);padding:56px 0 30px;margin-top:30px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+footer h5{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none;font-size:.88rem;display:flex;flex-direction:column;gap:8px}footer a:hover{color:#F0B8A0}
+.foot-logo{font-family:var(--serif);color:#fff;font-size:1.3rem;margin-bottom:8px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style><link rel="stylesheet" href="../assets/jhu-nav.css">
+<script src="../assets/jhu-nav.js" defer></script>
+</head><body><div class="util"><div class="wrap util-inner">
+    <a href="../about/visit.html">Plan a Visit</a><span class="sep">·</span>
+    <a href="../media/press.html">News</a><span class="sep">·</span>
+    <div class="port">Portals ▾<div class="portmenu"><a href="https://www.meu.edu.jo/student-portal/" target="_blank" rel="noopener">Student Portal ↗</a><a href="https://mymeu.meu.edu.jo/" target="_blank" rel="noopener">Staff Portal ↗</a><a href="https://reg.meu.edu.jo/" target="_blank" rel="noopener">EduGate ↗</a><a href="http://elearning.meu.edu.jo/" target="_blank" rel="noopener">E-Learning ↗</a></div></div><span class="sep">·</span>
+    <a href="../about/contact.html">عربي</a>
+  </div></div>
+  <div class="jhu-top">
+    <div class="row" style="width:100%;padding:0 34px">
+      <a class="jhu-brand" href="../index.html"><img
+          src="../assets/meu-logo.png" alt="Middle East University"></a>
+      <div class="jhu-tabs">
+        <div class="grp1">
+          <button class="tab tab-main" onclick="openPane('menu')"><svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg><span>Menu</span></button>
+          <button class="tab tab-main" onclick="openPane('news')"><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg><span>News</span></button>
+          <a class="tab tab-main" href="../media/meu-pulse.html"><svg viewBox="0 0 24 24">
+              <path d="M3 12h4l2-7 4 14 2-7h6" />
+            </svg><span>MEU Pulse</span></a>
+          <button class="tab tab-main" onclick="openPane('search')"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg><span>Search</span></button>
+        </div>
+        <div class="grp2">
+          <a class="tab tab-sub" data-i="A" href="../uk/uk-apply.html"><span>Apply</span></a>
+          <a class="tab tab-sub" data-i="U" href="https://ukdegrees.meu.edu.jo/newsite/"><span>UK Degrees MEU</span></a>
+          <a class="tab tab-sub" data-i="P" href="../academics/programs.html"><span>Programmes</span></a>
+
+
+          <button type="button" class="tab tab-sub tab-lang" data-i="ع" id="langTab" onclick="location.href='../ar/uk/uk-masters.html'"
+            aria-label="Switch language"><span id="langTabLabel" lang="ar">العربية</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="jhu-burger" type="button" aria-label="Menu" onclick="openPane('menu')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="shade" id="shade" onclick="closePane()"></div>
+  <aside class="sidep" id="sidep" aria-hidden="true">
+    <div class="pane pane-menu on" id="pane-menu">
+      <div class="ptitle">Explore MEU</div>
+      <a href="../about/meu-in-words.html">About</a><a href="../academics/programs.html">Faculties</a><a
+        href="../admission/admission.html">Admissions</a><a href="../admission/admission.html#sch">Scholarships</a><a
+        href="https://ukdegrees.meu.edu.jo/newsite/">UK Degrees</a><a href="../about/campus.html">Student Life</a><a
+        href="../about/meu-map.html">Our Campus</a><a href="../student-affairs/deanship-students-affairs.html">Deanships</a><a
+        href="../centers/centers-institutes.html">Centers &amp; Institutions</a>
+      <div class="grp">
+        <h6>Quick Links</h6><a class="sub" href="../academics/programs.html">Programme Finder</a><a class="sub"
+          href="../admission/ug-requirements.html">Admission Requirements</a><a class="sub"
+          href="../admission/admission.html#sch">Scholarships</a><a class="sub" href="../admission/fees.html">Fees</a><a
+          class="sub" href="../admission/epayment.html">e-Payments</a><a class="sub" href="../about/meu-map.html">Maps &
+          Directions</a><a class="sub" href="../about/contact.html">Contact Us</a>
+      </div>
+
+      <div class="grp">
+        <h6>Portals</h6><a class="sub" href="https://www.meu.edu.jo/student-portal/" target="_blank"
+          rel="noopener">Student Portal ↗</a><a class="sub" href="https://mymeu.meu.edu.jo/" target="_blank"
+          rel="noopener">Staff Portal ↗</a><a class="sub" href="https://reg.meu.edu.jo/" target="_blank"
+          rel="noopener">EduGate ↗</a><a class="sub" href="http://elearning.meu.edu.jo/" target="_blank"
+          rel="noopener">E-Learning ↗</a>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-search" id="pane-search">
+      <div class="ptitle">Search</div>
+      <input type="text" placeholder="Search MEU…" aria-label="Search">
+      <button class="sbtn">Search</button>
+      <div class="cs">Common Searches</div>
+      <div class="cslist"><a href="../admission/admission.html">Admission Requirements</a><a
+          href="../admission/fees.html">Tuition & Fees</a><a href="../admission/admission.html#cal">Academic Calendar</a><a
+          href="../academics/programs.html">Faculties & Programmes</a><a href="../uk/uk-about.html">UK Degrees</a><a
+          href="../admission/admission.html">Apply Now</a></div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+    </div>
+    <div class="pane pane-news" id="pane-news">
+      <div class="ptitle">News & Events</div>
+      <h6>Recent News</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-youth.jpg')">
+        </div>
+        <div class="nx">
+          <p>Minister of Youth Visits MEU — The Minister of Youth joins MEU to discuss empowering the next generation.
+          </p>
+          <div class="meta">2 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-film.jpg')">
+        </div>
+        <div class="nx">
+          <p>MEU Short Film Festival — The Minister of Culture crowns the winners at this year's festival.</p>
+          <div class="meta">6 days ago</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-genetic.jpg')">
+        </div>
+        <div class="nx">
+          <p>New: Genetic Engineering & Biotech — MEU launches a forward-looking degree in the science of medicine's
+            future.</p>
+          <div class="meta">2 weeks ago</div>
+        </div>
+      </div>
+      <h6 class="mt">Upcoming Events</h6>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-openday.jpg')">
+        </div>
+        <div class="nx">
+          <p>Open Day — Amman Campus — Tour faculties, meet staff, and explore student life.</p>
+          <div class="meta">24 Jun 2026</div>
+        </div>
+      </div>
+      <div class="news-it">
+        <div class="th"
+          style="background-image:url('../assets/news-emergency.jpg')">
+        </div>
+        <div class="nx">
+          <p>Paramedical & Emergency Info Session — Learn about MEU's newest health-sciences programme.</p>
+          <div class="meta">2 Jul 2026</div>
+        </div>
+      </div>
+      <button class="pclose" onclick="closePane()">Close Menu</button>
+      <div class="social"><a href="#">X</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </aside>
+<div class="jhu-spacer"></div><div class="pagehead"><style>.pagehead::after{background-image:url('../assets/fac-it.jpg')}</style><div class="wrap"><div class="crumb"><a href="../index.html">Home</a> › <a href="../academics/faculty-it.html">Academics</a> › Master's Programmes</div><h1>Master's Programmes</h1><div class="sub">Academics</div></div></div>
+  <section><div class="wrap"><div class="prose"><p>Master's Programmes is part of MEU's <strong>Academics</strong> section. This page carries the redesigned MEU identity — header, breadcrumb, navigation and footer — ready to receive its full content from meu.edu.jo. Use the menu above or the related links below to keep exploring.</p></div>
+  <p class="eyebrow" style="margin-top:34px">More in Academics</p><div class="linklist"><a href="../academics/faculty-it.html">Information Technology</a><a href="../academics/faculty-business.html">Business</a><a href="../academics/faculty-law.html">Law</a><a href="../academics/faculty-allied-medical.html">Allied Medical Sciences</a><a href="../academics/faculty-pharmacy.html">Pharmacy</a><a href="../academics/faculty-media.html">Media</a><a href="../academics/faculty-architecture.html">Engineering & Design</a><a href="../academics/faculty-nursing.html">Nursing</a></div>
+  <div class="btnrow" style="margin-top:26px"><a class="btn btn-primary" href="../academics/faculty-it.html">Back to Academics →</a><a class="btn btn-ghost" href="../about/contact.html">Contact us</a></div></div></section><script src="/meu/_mobile-nav.js"></script><footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="../academics/faculty-it.html">Faculties</a></li><li><a href="../academics/ug-majors.html">Programmes</a></li><li><a href="uk-about.html">UK Degrees</a></li><li><a href="../graduate-research/deanship-graduate.html">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="../admission/ug-requirements.html">Requirements</a></li><li><a href="../admission/ug-fees.html">Fees & aid</a></li><li><a href="academic-calendar.html">Calendar</a></li><li><a href="../about/visit.html">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="../about/contact.html">Contact</a></li><li><a href="../media/press.html">News</a></li><li><a href="../student-affairs/careers.html">Careers</a></li><li><a href="../governance/board-of-directors.html">Leadership</a></li><li><a href="../_dev/abandoned-pages.html" style="opacity:.6;font-style:italic">Abandoned pages</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer><script src="_version-switch.js" defer></script>
+<script src="_v11-chrome.js" defer></script>
+<script src="_v12-enhance.js" defer></script><script src="_ar-dict.js" defer></script>
+<script src="_ar-dict-pages.js" defer></script>
+<script src="_ar-layer.js" defer></script>
+</body></html>
