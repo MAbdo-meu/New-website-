@@ -377,3 +377,18 @@ body.hdr-stuck .tabtoggle{opacity:0!important;pointer-events:none}
 body.hdr-stuck .jhu-burger{opacity:1;pointer-events:auto;transform:translateY(0)}
 html[dir="rtl"] .jhu-burger{right:auto;left:0}
 html[dir="rtl"] body.hdr-stuck .jhu-tabs{transform:translateX(-130%)!important}
+
+/* ---- mobile header: one hamburger, no rail ---- */
+.jhu-langm{display:none}
+@media(max-width:880px){
+  .jhu-tabs,.tabtoggle{display:none !important}
+  .jhu-burger{opacity:1 !important;pointer-events:auto !important;transform:none !important;right:56px;top:0}
+  html[dir="rtl"] .jhu-burger{right:auto;left:56px}
+  .jhu-langm{display:flex;position:fixed;top:0;right:0;z-index:106;width:56px;height:56px;
+    align-items:center;justify-content:center;background:var(--maroon,#8A1C1D);color:#fff;
+    font-weight:700;font-size:.92rem;letter-spacing:.02em;text-decoration:none}
+  .jhu-langm:hover{background:var(--maroon-dk,#6E1516)}
+  html[dir="rtl"] .jhu-langm{right:auto;left:0}
+  .sidep{width:min(340px,86vw);padding-top:64px}
+  .msnav-panel{width:min(340px,86vw)}
+}
