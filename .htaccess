@@ -1,0 +1,29 @@
+# MEU site — pretty-URL front controller
+Options -MultiViews -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # serve real files / directories directly (assets, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # never route requests for the internal view/ or app/ trees
+  RewriteRule ^(view|app)/ - [F]
+
+  # everything else -> the router
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+# static asset caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css            "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/jpeg          "access plus 30 days"
+  ExpiresByType image/png           "access plus 30 days"
+  ExpiresByType image/webp          "access plus 30 days"
+  ExpiresByType video/mp4           "access plus 30 days"
+</IfModule>

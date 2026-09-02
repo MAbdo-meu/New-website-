@@ -1,0 +1,152 @@
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Faculty of Business · Financial and Accounting Sciences · Graduate</p>
+    <h1>MA in Accounting</h1>
+    <p class="lede">A 33-credit master's degree in accounting, offered in a research-focused Thesis track and a coursework-focused Comprehensive track. Choose a track below to view its study plan.</p>
+    <div class="facts">
+      <div class="fact"><div class="n">33</div><div class="l">الساعات المعتمدة</div></div>
+      <div class="fact"><div class="n">الماجستير</div><div class="l">الدرجة الممنوحة</div></div>
+      <div class="fact"><div class="n" id="factTrack">الرسالة</div><div class="l">المسار المختار</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="trackbar">
+    <span class="tb-label">مسار الدراسة</span>
+    <div class="toggle" role="group" aria-label="Choose study track">
+      <button id="btnThesis" aria-pressed="true" onclick="setTrack('thesis')"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> مسار الرسالة</button>
+      <button id="btnComp" aria-pressed="false" onclick="setTrack('comprehensive')"><svg class="ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> المسار الشامل</button>
+    </div>
+    <p class="tb-note">
+      <span class="only-thesis"><b>مسار الرسالة:</b> 18 ساعة إجبارية + 6 ساعات اختيارية ورسالة بواقع 9 ساعات.</span>
+      <span class="only-comp"><b>المسار الشامل:</b> 27 core + 6 elective hours and a comprehensive exam.</span>
+    </p>
+  </div>
+</div>
+
+<main class="wrap" id="plan" data-track="thesis">
+
+  <section class="block" id="core">
+    <div class="block-head">
+      <h2>المتطلبات الإجبارية</h2>
+      <span class="hrs only-thesis">18 ساعة معتمدة · إجباري</span>
+      <span class="hrs only-comp">27 Credit Hours · Compulsory</span>
+    </div>
+    <p class="block-note">Required modules for all students. The Comprehensive track expands the core to 27 hours — adding International Financial Reporting Standards, Advanced Financial Analysis, and a Research Project.</p>
+    <div class="table-card">
+      <table>
+        <thead><tr><th>الرمز</th><th>اسم المساق</th><th class="c">Cr</th><th>المتطلب السابق</th></tr></thead>
+        <tbody>
+          <tr><td class="code">0301704</td><td class="title">Advanced Financial Accounting</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301730</td><td class="title">Accounting Theory</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301711</td><td class="title">Advanced Managerial Accounting</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301710</td><td class="title">Advanced Financial Management</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301733</td><td class="title">Advanced Auditing</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301731</td><td class="title">منهجية البحث</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">0301737</td><td class="title">International Financial Reporting Standards</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">0301713</td><td class="title">Advanced Financial Analysis</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">0301701</td><td class="title">مشروع بحثي</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="electives">
+    <div class="block-head">
+      <h2>المتطلبات الاختيارية</h2>
+      <span class="hrs only-thesis">6 ساعات معتمدة · اختياري</span>
+      <span class="hrs only-comp">6 ساعات معتمدة · اختياري</span>
+    </div>
+    <p class="block-note">
+      <span class="only-thesis">اختر 6 ساعات معتمدة (مساقان) من القائمة أدناه.</span>
+      <span class="only-comp">اختر 6 ساعات معتمدة (مساقان) من القائمة أدناه.</span>
+      
+    </p>
+    <div class="table-card only-thesis">
+      <table>
+        <thead><tr><th>الرمز</th><th>اسم المساق</th><th class="c">Cr</th><th>المتطلب السابق</th></tr></thead>
+        <tbody>
+          <tr><td class="code">0301730E</td><td class="title">Contemporary Finance and Accounting Issues</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301737</td><td class="title">International Financial Reporting Standards</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301713</td><td class="title">Advanced Financial Analysis</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301710E</td><td class="title">Advanced Cost Accounting</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301703</td><td class="title">Portfolio Management</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301706</td><td class="title">International Financial Markets</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301736</td><td class="title">Advanced Strategic Management</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-card only-comp">
+      <table>
+        <thead><tr><th>الرمز</th><th>اسم المساق</th><th class="c">Cr</th><th>المتطلب السابق</th></tr></thead>
+        <tbody>
+          <tr><td class="code">0301730E</td><td class="title">Contemporary Finance and Accounting Issues</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301710E</td><td class="title">Advanced Cost Accounting</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301703</td><td class="title">Portfolio Management</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301706</td><td class="title">International Financial Markets</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">0301736</td><td class="title">Advanced Strategic Management</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="capstone">
+    <div class="block-head">
+      <h2>مشروع التخرّج</h2>
+      <span class="hrs only-thesis">9 ساعات معتمدة</span>
+      <span class="hrs only-comp">0 ساعة معتمدة · ناجح/راسب</span>
+    </div>
+    <div class="capstone only-thesis">
+      <div class="cap-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div><h3>الرسالة</h3><p>An original, supervised research thesis in accounting demonstrating mastery of accounting scholarship and research methods. Required for the Thesis track.</p></div>
+      <div class="cap-cr"><b>9</b><span>س.م</span></div>
+    </div>
+    <div class="capstone only-comp">
+      <div class="cap-ic"><svg viewBox="0 0 24 24"><path d="M12 6.5V20M5 8V18a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M3 6l9-3 9 3"/></svg></div>
+      <div><h3>الامتحان الشامل</h3><p>A qualifying examination covering the program's core and elective coursework, taken after completing the required modules. Required for the Comprehensive track; carries no credit hours.</p></div>
+      <div class="cap-cr"><b>0</b><span>س.م</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="summary">
+    <div class="summary">
+      <h2>توزيع الساعات المعتمدة</h2>
+      <div class="sumgrid">
+        <div class="sumcell"><div class="n" id="sumCore">18</div><div class="l">المتطلبات الإجبارية</div></div>
+        <div class="sumcell"><div class="n" id="sumElec">6</div><div class="l">المتطلبات الاختيارية</div></div>
+        <div class="sumcell"><div class="n" id="sumCap">9</div><div class="l" id="sumCapL">الرسالة</div></div>
+      </div>
+      <div class="sumtotal"><span class="big">33</span><span class="lbl">إجمالي الساعات المعتمدة المطلوبة للتخرّج</span></div>
+    </div>
+    <p class="disclaimer">This study plan reflects the 2020/2021 catalog for the MA in Accounting, Department of Financial and Accounting Sciences, Faculty of Business. The program is offered in Thesis and Comprehensive tracks, each totalling 33 credit hours. Course offerings, prerequisites, and track requirements are subject to revision by the university. Always confirm requirements with the Department and your academic advisor before registration.</p>
+  </section>
+
+</main>
+
+<script>
+  function setTrack(t){
+    document.getElementById('plan').setAttribute('data-track', t);
+    var thesis = (t === 'thesis');
+    document.getElementById('btnThesis').setAttribute('aria-pressed', String(thesis));
+    document.getElementById('btnComp').setAttribute('aria-pressed', String(!thesis));
+    document.getElementById('factTrack').textContent = thesis ? 'Thesis' : 'Comprehensive';
+    document.getElementById('sumCore').textContent = thesis ? '18' : '27';
+    document.getElementById('sumElec').textContent = thesis ? '6' : '6';
+    document.getElementById('sumCap').textContent = thesis ? '9' : '0';
+    document.getElementById('sumCapL').textContent = thesis ? 'Dissertation' : 'Comprehensive Exam';
+  }
+</script>
+<footer>
+  <div class="wrap">
+    <span>جامعة الشرق الأوسط · عمّان، الأردن · <a href="https://www.meu.edu.jo">www.meu.edu.jo</a></span>
+    <span>Faculty of Business · Department of Financial and Accounting Sciences</span>
+  </div>
+</footer>
+
+<script src="/ar/study-plans/_version-switch.js" defer></script>
+<script src="/ar/study-plans/_v11-chrome.js" defer></script>
+<script src="/ar/study-plans/_v11-convert.js" defer></script>
+<script src="/ar/study-plans/_v12-enhance.js" defer></script><script src="/ar/study-plans/_ar-dict.js" defer></script>
+<script src="/ar/study-plans/_ar-dict-pages.js" defer></script>
+<script src="/ar/study-plans/_ar-layer.js" defer></script>

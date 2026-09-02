@@ -1,0 +1,73 @@
+<div class="pagehead"><div class="wrap">
+    <div class="crumb"><a href="/ar/">الرئيسية</a> &nbsp;&rsaquo;&nbsp; Admission and Registration</div>
+    <h1>القبول والتسجيل</h1>
+    <p class="sub">Merit scholarships by program.</p>
+  </div></div>
+
+  <section><div class="wrap">
+    <div class="schkind" aria-label="Scholarship type">
+      <a href="/ar/admission/admission#sch">المِنَح الأكاديمية</a>
+      <a class="active" href="/ar/admission/talent-scholarship" aria-current="page">منحة الموهوبين</a>
+    </div>
+    <p class="eyebrow">التقديم</p>
+    <h2 class="h2">Apply for a Talent Scholarship.</h2>
+    <p class="lead">Tell us about your talent and attach the evidence. Applications are reviewed by the Deanship of Student Affairs together with the relevant faculty.</p>
+    <div class="phbanner">PLACEHOLDER &mdash; awaiting official Talent Scholarship terms, award values and deadlines from MEU.</div>
+
+    <div class="talentgrid">
+      <div class="tcard"><div class="ic">&#127945;</div><h4>Sport</h4><p>National or club-level achievement</p></div>
+      <div class="tcard"><div class="ic">&#127916;</div><h4>Arts &amp; Media</h4><p>Design, film, photography, theatre</p></div>
+      <div class="tcard"><div class="ic">&#127925;</div><h4>Music</h4><p>Performance or composition</p></div>
+      <div class="tcard"><div class="ic">&#128161;</div><h4>Innovation &amp; Leadership</h4><p>Debate, entrepreneurship, volunteering</p></div>
+    </div>
+
+    <div class="formcard">
+      <h3 style="font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--maroon-deep);margin-bottom:18px">Application form</h3>
+      <form id="talentForm" onsubmit="return submitTalent(event)">
+        <div class="frow">
+          <div class="fld"><label for="fn">Full name</label><input id="fn" name="fn" required></div>
+          <div class="fld"><label for="em">البريد الإلكتروني</label><input id="em" name="em" type="email" required></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="ph">Mobile</label><input id="ph" name="ph" type="tel" placeholder="+962 7X XXX XXXX" required></div>
+          <div class="fld"><label for="lv">Study level</label><select id="lv" name="lv">
+            <option>بكالوريوس</option><option>Post-graduate (Master&rsquo;s)</option><option>الدبلوم العالي</option><option>الدبلوم المتوسط</option>
+          </select></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="pg">Intended programme</label><input id="pg" name="pg" placeholder="e.g. Graphic Design"></div>
+          <div class="fld"><label for="cat">Talent category</label><select id="cat" name="cat">
+            <option>Sport</option><option>Arts &amp; Media</option><option>Music</option><option>Innovation &amp; Leadership</option><option>Other</option>
+          </select></div>
+        </div>
+        <div class="fld"><label for="ach">Your achievements <span class="hint">Competitions, awards, performances, dates and level (school, club, national).</span></label><textarea id="ach" name="ach" rows="5" required></textarea></div>
+        <div class="fld"><label for="lnk">Portfolio or evidence link <span class="hint">Drive, YouTube, Behance or a certificate PDF link.</span></label><input id="lnk" name="lnk" type="url" placeholder="https://"></div>
+        <div class="btnrow"><button class="btn btn-primary" type="submit">Submit application &rarr;</button><a class="btn btn-ghost" href="/ar/admission/admission#help">تواصل مع القبول</a></div>
+        <div class="okmsg" id="okmsg">Thank you &mdash; this is a prototype form, so nothing was sent. In the live site your application would reach the Deanship of Student Affairs.</div>
+      </form>
+    </div>
+
+    <div class="infogrid">
+      <div class="infobox"><h4>Who can apply</h4><p>PLACEHOLDER &mdash; eligibility criteria to be confirmed against MEU&rsquo;s published regulations.</p></div>
+      <div class="infobox"><h4>Award value</h4><p>PLACEHOLDER &mdash; percentage of tuition covered and renewal conditions to be confirmed.</p></div>
+      <div class="infobox"><h4>Deadlines</h4><p>PLACEHOLDER &mdash; application window per semester to be confirmed.</p></div>
+    </div>
+    <p class="tablenote">Figures and conditions shown for reference; the University&rsquo;s official scholarship decision is the binding statement of any award.</p>
+  </div></section>
+
+  
+  <script>
+  function submitTalent(e){e.preventDefault();document.getElementById('okmsg').style.display='block';return false;}
+  </script>
+  <script src="//meu/_mobile-nav.js"></script>
+  <footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">جامعة الشرق الأوسط</div><p style="font-size:.88rem;max-width:320px">عمّان، الأردن · تأسست عام 2005. جامعة خاصة معتمدة محلياً وشريكة دولياً. تعلّم. انتمِ. قُد.</p></div>
+    <div><h5>الشؤون الأكاديمية</h5><ul><li><a href="/ar/academics/faculty-it">الكليات</a></li><li><a href="/ar/academics/ug-majors">البرامج</a></li><li><a href="/ar/uk/uk-about">شهادات بريطانية</a></li><li><a href="/ar/graduate-research/deanship-graduate">البحث العلمي</a></li></ul></div>
+    <div><h5>القبول</h5><ul><li><a href="/ar/admission/ug-requirements">الشروط</a></li><li><a href="/ar/admission/fees">الرسوم</a></li><li><a href="/ar/admission/academic-calendar">التقويم الجامعي</a></li><li><a href="/ar/about/visit">خطّط لزيارة</a></li></ul></div>
+    <div><h5>تواصل</h5><ul><li><a href="/ar/about/contact">اتصل بنا</a></li><li><a href="/ar/media/press">الأخبار</a></li><li><a href="/ar/student-affairs/careers">الوظائف</a></li><li><a href="/ar/governance/board-of-directors">القيادة</a></li><li><a href="/ar/_dev/abandoned-pages" style="opacity:.6;font-style:italic">صفحات مؤرشفة</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 جامعة الشرق الأوسط.</span><span>QS ★★★ · ISO 9001:2015 · المستوى الذهبي AQACHEI</span></div></div></footer>
+<script src="/ar/admission/_version-switch.js" defer></script>
+<script src="/ar/admission/_v11-chrome.js" defer></script>
+<script src="/ar/admission/_v12-enhance.js" defer></script><script src="/ar/admission/_ar-dict.js" defer></script>
+<script src="/ar/admission/_ar-dict-pages.js" defer></script>
+<script src="/ar/admission/_ar-layer.js" defer></script>

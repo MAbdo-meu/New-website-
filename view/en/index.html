@@ -1,0 +1,1001 @@
+<section class="hero" style="padding:0">
+    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="metadata"
+      poster="assets/life-campus.jpg"
+      aria-label="Middle East University campus film">
+      <source src="/assets/meu-1-1787556521669-og058.mp4" type="video/mp4">
+    </video>
+    <div class="wrap hero-content">
+      <p class="hero-kick" data-ar="جامعة الشرق الأوسط">Middle East University</p>
+      <h1 class="thesis"><span>Leading.</span> <span>Influential.</span> <span>Locally &amp; regionally.</span></h1>
+      <a class="hero-scroll" href="#why" data-ar="لماذا MEU"><i></i>Why MEU</a>
+    </div>
+    <div class="vidctl">
+      <button type="button" id="vidPlay" aria-label="Pause film">❚❚</button>
+    </div>
+  </section>
+  <section class="whysec" id="why">
+    <div class="wrap">
+      <div class="whyhead">
+        <span class="wk" data-ar="لماذا MEU">Why MEU</span>
+        <p class="hero-sub" id="hsub">Middle East University seeks to prepare graduates who meet the requirements of the
+          local and international labour market, to advance distinctive applied and impactful scientific research, to
+          serve the community, and to strengthen international academic partnerships.</p>
+      </div>
+      <div class="hero-why" id="heroWhy" aria-label="Why MEU">
+        <span class="wk" data-ar="لماذا MEU">Why MEU</span>
+        <div class="wlist">
+          <a class="wi on" href="/about/why-meu" data-ar="تعليم بمعايير عالمية"><b>01</b>Education to global
+            standards</a>
+          <a class="wi" href="/about/why-meu" data-ar="أول شهادات بريطانية مستضافة في الأردن"><b>02</b>Jordan's
+            first hosted UK degrees</a>
+          <a class="wi" href="/about/why-meu" data-ar="معتمدة محلياً ودولياً ومصنّفة QS 5 STARS"><b>03</b>Accredited
+            locally &amp; internationally, QS 5 STARS rated</a>
+          <a class="wi" href="/about/why-meu" data-ar="بيئة جامعية متكاملة"><b>04</b>A complete campus
+            environment</a>
+          <a class="wi" href="/about/why-meu" data-ar="معرفة وابتكار وأثر مجتمعي"><b>05</b>Knowledge, innovation
+            &amp; community impact</a>
+        </div>
+      </div>
+      <div class="hero-actions" id="hact"><a class="btn btn-primary" href="/academics/faculty-it">Explore 10
+          faculties</a><a class="btn bg-h" href="/about/contact">Contact us</a></div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <p class="trust-label">Accredited &amp; Recognized By</p>
+      <div class="trust-inner">
+        <div class="trust-track">
+          <span class="trust-logo"><img src="/assets/ArtAccre.png"
+              alt="ASIC - Accreditation Service for International Schools, Colleges &amp; Universities"></span>
+          <span class="trust-logo"><img src="/assets/bsui-300x180.png" alt="AACSB Business Education Alliance Member"></span>
+          <span class="trust-logo"><img src="/assets/engacc-247x247.png" alt="Federation of Arab Engineers"></span>
+          <span class="trust-logo"><img src="/assets/Fibaa-250x200.png" alt="FIBAA"></span>
+          <span class="trust-logo"><img src="/assets/IT-acc.png" alt="ABET Computing Accreditation Commission"></span>
+          <span class="trust-logo"><img src="/assets/phoriginal-200x200.png" alt="ACPE International"></span>
+          <span class="trust-logo" aria-hidden="true"><img src="/assets/ArtAccre.png" alt=""></span>
+          <span class="trust-logo" aria-hidden="true"><img src="/assets/bsui-300x180.png" alt=""></span>
+          <span class="trust-logo" aria-hidden="true"><img src="/assets/engacc-247x247.png" alt=""></span>
+          <span class="trust-logo" aria-hidden="true"><img src="/assets/Fibaa-250x200.png" alt=""></span>
+          <span class="trust-logo" aria-hidden="true"><img src="/assets/IT-acc.png" alt=""></span>
+          <span class="trust-logo" aria-hidden="true"><img src="/assets/phoriginal-200x200.png" alt=""></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var inner = document.querySelector('.trust-inner');
+      var track = inner && inner.querySelector('.trust-track');
+      if (!inner || !track) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var SPEED = 0.35;          // auto-scroll px per frame
+      var offset = 0;            // current translateX (positive = shifted left)
+      var half = 0;              // width of one logo set
+      var paused = false;        // pointer hovering / focused
+      var dragging = false;
+      var startX = 0, startOffset = 0, lastX = 0, velocity = 0;
+
+      function measure() {
+        var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+        half = (track.scrollWidth + gap) / 2;
+      }
+      function wrap(v) {
+        if (!half) return v;
+        v = v % half;
+        if (v < 0) v += half;
+        return v;
+      }
+      function apply() { track.style.transform = 'translateX(' + (-offset) + 'px)'; }
+
+      function tick() {
+        if (!dragging) {
+          if (Math.abs(velocity) > 0.2) {   // momentum glide after a flick
+            offset = wrap(offset - velocity);
+            velocity *= 0.92;
+          } else {
+            velocity = 0;
+            if (!paused) offset = wrap(offset + SPEED);   // auto-scroll
+          }
+          apply();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      inner.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        inner.classList.add('dragging');
+        startX = lastX = e.clientX;
+        startOffset = offset;
+        velocity = 0;
+        inner.setPointerCapture && inner.setPointerCapture(e.pointerId);
+      });
+      inner.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        offset = wrap(startOffset - (e.clientX - startX));
+        velocity = e.clientX - lastX;
+        lastX = e.clientX;
+        apply();
+      });
+      function endDrag(e) {
+        if (!dragging) return;
+        dragging = false;
+        inner.classList.remove('dragging');
+        inner.releasePointerCapture && e && e.pointerId != null && inner.releasePointerCapture(e.pointerId);
+      }
+      inner.addEventListener('pointerup', endDrag);
+      inner.addEventListener('pointercancel', endDrag);
+
+      inner.addEventListener('pointerenter', function () { paused = true; });
+      inner.addEventListener('pointerleave', function () { paused = false; });
+
+      window.addEventListener('resize', measure);
+      window.addEventListener('load', measure);
+      var imgs = track.querySelectorAll('img'), done = 0;
+      imgs.forEach(function (im) {
+        if (im.complete) { if (++done === imgs.length) measure(); }
+        else im.addEventListener('load', function () { measure(); }, { once: true });
+      });
+      measure();
+      requestAnimationFrame(tick);
+    })();
+  </script>
+  <section class="explore">
+    <div class="wrap">
+      <p class="eyebrow">Find your path at MEU</p>
+      <h2 class="h2">Explore our programmes.</h2>
+      <p class="lead">Whether you're looking for the programme that suits you or you're ready to apply, start here — and
+        discover where MEU's programmes can take you.</p>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <div class="exp-img"
+            style="background-image:url('/assets/xp-undergrad.jpg')">
+          </div>
+          <div class="exp-body">
+            <h3>Undergraduate study</h3>
+            <p>First-year or transfer student? Explore 39 bachelor majors across nine faculties, then start your
+              application.</p><a class="exp-btn" href="/admission/admission">Apply to MEU <span>→</span></a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-img"
+            style="background-image:url('/assets/xp-postgrad.jpg')">
+          </div>
+          <div class="exp-body">
+            <h3>Post-graduate study</h3>
+            <p>Explore master's and higher-diploma programmes and begin your application process below.</p><a
+              class="exp-btn" href="/admission/admission?level=pg">Apply to Post-graduate School <span>→</span></a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-img"
+            style="background-image:url('/assets/xp-diploma.jpg')">
+          </div>
+          <div class="exp-body">
+            <h3>Intermediate diploma</h3>
+            <p>Explore 14 intermediate diploma majors at the Technical College — applied, hands-on routes into the
+              labour market.</p><a class="exp-btn" href="/academics/technical-college">Explore the diploma
+              <span>→</span></a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-img"
+            style="background-image:url('/assets/xp-uk.jpg')">
+          </div>
+          <div class="exp-body">
+            <h3>Hosted UK Degrees on campus</h3>
+            <p>Earn a University of Bedfordshire or Strathclyde degree in Amman — the first hosted UK programmes in
+              Jordan.</p><a class="exp-btn" href="https://ukdegrees.meu.edu.jo/newsite/">Explore UK Degrees <span>→</span></a>
+          </div>
+        </div>
+        <div class="exp-tile t-apply" id="tileApply">
+          <h3>Important dates</h3>
+          <div class="rows">
+            <div class="r"><span>First Semester applications open</span><b>1 Jun</b></div>
+            <div class="r"><span>First Semester registration closes</span><b>10 Sep</b></div>
+            <div class="r"><span>First Semester classes begin</span><b>20 Sep</b></div>
+          </div>
+          <div class="talk">
+            <span class="tl">Talk to admissions — your way</span>
+            <div class="chips">
+              <a class="chip"
+                href="https://wa.me/962790000000?text=Hello%20MEU%2C%20I%20have%20a%20question%20about%20admission"
+                target="_blank" rel="noopener"><svg viewBox="0 0 24 24">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.2-4.2A8.5 8.5 0 1 1 21 11.5z" />
+                </svg>WhatsApp</a>
+              <a class="chip" href="mailto:admission@meu.edu.jo?subject=Admission%20enquiry"><svg viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>Email</a>
+              <a class="chip" href="/about/contact"><svg viewBox="0 0 24 24">
+                  <path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-6a8 8 0 0 1 8-8h1a8 8 0 0 1 8 3z" />
+                </svg>Live chat</a>
+              <a class="chip" href="tel:+96264790222"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+                </svg>Call</a>
+            </div>
+          </div>
+          <a class="tlink" href="/admission/admission">Start your application <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Learn</p>
+      <h2 class="h2">Ten faculties. 39 bachelor programmes and 14 intermediate diploma majors.</h2>
+      <p class="lead">Hover a faculty to preview it — then open its full page.</p>
+      <div class="fac-grid">
+        <div id="facList">
+          <div class="fac-item active" data-i="0">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">01</span>
+              <h4>Information Technology</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="1">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">02</span>
+              <h4>Business</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="2">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">03</span>
+              <h4>Law</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="3">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">04</span>
+              <h4>Allied Medical Sciences</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="4">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">05</span>
+              <h4>Pharmacy</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="5">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">06</span>
+              <h4>Media</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="6">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">07</span>
+              <h4>Engineering & Design</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="7">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">08</span>
+              <h4>Nursing</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="8">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">09</span>
+              <h4>Arts & Sciences</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+          <div class="fac-item" data-i="9">
+            <div style="display:flex;align-items:center;gap:14px"><span class="fac-n">10</span>
+              <h4>Technical College</h4>
+            </div><span class="fac-arrow">→</span>
+          </div>
+        </div>
+        <div class="fac-preview">
+          <div class="pbg" id="facBg"></div>
+          <div class="pc">
+            <p class="eyebrow" style="color:#F0B8A0">Faculty</p>
+            <h3 id="facTitle"></h3>
+            <p id="facDesc"></p>
+            <div class="majors" id="facMajors"></div>
+            <div style="margin-top:18px"><a class="btn btn-primary" id="facLink" href="/academics/faculty-it">Open
+                faculty →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="life">
+    <div class="wrap">
+      <p class="eyebrow">Belong</p>
+      <h2 class="h2">Live out your possibilities.</h2>
+      <p class="lead">Imagine all you can become surrounded by people invested in your growth. That's the heart of the
+        MEU community.</p>
+      <div class="life-grid"><a class="life-card" href="/student-affairs/sports">
+          <div class="lbg"
+            style="background-image:url('/assets/life-sport.jpg')">
+          </div>
+          <div class="lc">
+            <h3>Sport & Stadium</h3>
+            <p>Courts, pitches and an Olympic stadium.</p>
+          </div>
+        </a><a class="life-card" href="/about/facilities">
+          <div class="lbg"
+            style="background-image:url('/assets/life-campus.jpg')">
+          </div>
+          <div class="lc">
+            <h3>Campus & Facilities</h3>
+            <p>15 minutes from Amman, near the airport.</p>
+          </div>
+        </a><a class="life-card" href="/student-affairs/careers">
+          <div class="lbg"
+            style="background-image:url('/assets/life-careers.jpg')">
+          </div>
+          <div class="lc">
+            <h3>Careers & Alumni</h3>
+            <p>The King Abdullah II Fund career office.</p>
+          </div>
+        </a></div>
+      <div style="margin-top:24px"><a class="btn btn-primary" href="/about/facilities">Explore campus life →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="spotlight">
+    <div class="wrap">
+      <div class="spot-head">
+        <div class="left">
+          <p class="eyebrow">MEU Spotlight</p>
+          <h2 class="h2">News, milestones &amp; moments from campus</h2>
+          <p class="lead">Stay close to the stories shaping life at Middle East University — from research breakthroughs
+            and student achievements to partnerships and the people behind them.</p>
+        </div>
+        <div class="spot-controls">
+          <button class="prev" aria-label="Previous">‹</button>
+          <button class="next" aria-label="Next">›</button>
+          <a href="/media/news" class="spot-more">More News <span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="spot-viewport">
+        <div class="spot-track" id="spotTrack"></div>
+      </div>
+      <div class="spot-dots" id="spotDots"></div>
+    </div>
+  </section>
+
+  <style>
+    .upevents {
+      background: var(--maroon-deep);
+      color: #fff;
+      padding: 80px 0 60px
+    }
+
+    .upevents .ue-head {
+      max-width: 760px;
+      margin-bottom: 44px
+    }
+
+    .upevents .eyebrow {
+      color: #F0B8A0
+    }
+
+    .upevents .h2 {
+      color: #fff
+    }
+
+    .upevents .lead {
+      color: rgba(255, 255, 255, .82)
+    }
+
+    .upevents .ue-learn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      color: #fff;
+      font-size: .92rem;
+      font-weight: 600;
+      border-bottom: 1.5px solid #C9A227;
+      padding-bottom: 4px
+    }
+
+    .upevents .ue-learn .ar {
+      color: #C9A227;
+      transition: .2s
+    }
+
+    .upevents .ue-learn:hover .ar {
+      transform: translateX(4px)
+    }
+
+    .ue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 50px 40px 40px;
+      border-radius: 10px;
+      margin-top: -10px
+    }
+
+    @media(max-width:900px) {
+      .ue-grid {
+        grid-template-columns: 1fr;
+        padding: 30px 24px
+      }
+    }
+
+    .ue-card {
+      display: flex;
+      flex-direction: column
+    }
+
+    .ue-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 18px
+    }
+
+    .ue-date {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--ink);
+      margin-bottom: 8px
+    }
+
+    .ue-time {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.4
+    }
+
+    .ue-time strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .ue-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: var(--ink)
+    }
+
+    .ue-desc {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1
+    }
+
+    .ue-reg {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--maroon);
+      font-weight: 600;
+      font-size: .9rem;
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 4px;
+      align-self: flex-start
+    }
+
+    .ue-reg .ar {
+      color: var(--gold);
+      transition: .2s
+    }
+
+    .ue-reg:hover .ar {
+      transform: translateX(4px)
+    }
+  </style>
+  <section class="upevents">
+    <div class="wrap">
+      <div class="ue-head">
+        <p class="eyebrow">Upcoming Events</p>
+        <h2 class="h2">What's coming up at MEU</h2>
+        <p class="lead">Discover what it means to be an MEU student. Join an open day, info session, or campus visit —
+          meet our faculty, explore our programmes, and see student life up close.</p>
+        <a href="/media/events" class="ue-learn">View all events <span class="ar">→</span></a>
+      </div>
+      <div class="ue-grid">
+        <div class="ue-card">
+          <div class="ue-img"
+            style="background-image:url('/assets/news-openday.jpg')">
+          </div>
+          <div class="ue-date">June 24, 2026</div>
+          <div class="ue-time"><strong>10:00 AM</strong>Amman Local Time (AST)</div>
+          <h3 class="ue-title">Open Day — Amman Campus</h3>
+          <p class="ue-desc">Tour our nine faculties, meet academic staff, sit in on a sample class, and explore student
+            life on the Amman campus. Families welcome — guided tours every hour.</p>
+          <a href="/media/events" class="ue-reg">Register Now <span class="ar">→</span></a>
+        </div>
+        <div class="ue-card">
+          <div class="ue-img"
+            style="background-image:url('/assets/news-emergency.jpg')">
+          </div>
+          <div class="ue-date">July 2, 2026</div>
+          <div class="ue-time"><strong>2:00 PM</strong>Amman Local Time (AST)</div>
+          <h3 class="ue-title">Paramedical &amp; Emergency Science Info Session</h3>
+          <p class="ue-desc">Meet the Faculty of Allied Medical Sciences team and learn about MEU's newest
+            health-sciences programme — curriculum, clinical partnerships, and career pathways for prospective students.
+          </p>
+          <a href="/media/events" class="ue-reg">Register Now <span class="ar">→</span></a>
+        </div>
+        <div class="ue-card">
+          <div class="ue-img"
+            style="background-image:url('/assets/xp-uk.jpg')">
+          </div>
+          <div class="ue-date">July 10, 2026</div>
+          <div class="ue-time"><strong>11:00 AM</strong>Online · via Zoom</div>
+          <h3 class="ue-title">UK Degrees at MEU: Virtual Q&amp;A</h3>
+          <p class="ue-desc">A live virtual session for applicants exploring MEU's UK joint and validated degrees with
+            the University of Strathclyde and partner institutions — admissions, fees, and graduation pathways.</p>
+          <a href="/media/events" class="ue-reg">Register Now <span class="ar">→</span></a>
+        </div>
+        <div class="ue-card">
+          <div class="ue-img"
+            style="background-image:url('/assets/xp-postgrad.jpg')">
+          </div>
+          <div class="ue-date">July 17, 2026</div>
+          <div class="ue-time"><strong>9:30 AM</strong>Amman Local Time (AST)</div>
+          <h3 class="ue-title">Graduate Studies Open House</h3>
+          <p class="ue-desc">Meet the Deanship of Graduate Studies, programme directors, and current master's students.
+            Explore MA and PhD tracks across Business, Law, Media, IT, and Education with one-on-one advising.</p>
+          <a href="/media/events" class="ue-reg">Register Now <span class="ar">→</span></a>
+        </div>
+        <div class="ue-card">
+          <div class="ue-img"
+            style="background-image:url('/assets/ev-research-ai.jpg')">
+          </div>
+          <div class="ue-date">July 24, 2026</div>
+          <div class="ue-time"><strong>1:00 PM</strong>Amman Local Time (AST)</div>
+          <h3 class="ue-title">MEU Research Symposium: AI &amp; Society</h3>
+          <p class="ue-desc">A half-day symposium with faculty, graduate researchers, and industry partners exploring
+            responsible AI, smart agriculture, and the role of universities in shaping Jordan's digital future.</p>
+          <a href="/media/events" class="ue-reg">Register Now <span class="ar">→</span></a>
+        </div>
+        <div class="ue-card">
+          <div class="ue-img"
+            style="background-image:url('/assets/ev-scholarship.jpg')">
+          </div>
+          <div class="ue-date">August 5, 2026</div>
+          <div class="ue-time"><strong>4:00 PM</strong>Amman Local Time (AST)</div>
+          <h3 class="ue-title">Scholarships &amp; Financial Aid Workshop</h3>
+          <p class="ue-desc">An interactive workshop for prospective undergraduates and their families on MEU's
+            scholarship tracks, merit awards, and financial aid — including application tips and a live Q&amp;A.</p>
+          <a href="/media/events" class="ue-reg">Register Now <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    var cur = 0, sl = document.querySelectorAll('.slide'), dt = document.querySelectorAll('.dot');
+    function whySync(i) { var w = document.querySelectorAll('#heroWhy .wi'); if (!w.length) return; w.forEach(function (x, k) { x.classList.toggle('on', k === i % w.length) }) }
+    function go(i) { if (!sl.length) return; cur = i }
+    function rs() { }
+    /* hero film: play / pause control */
+    (function () {
+      var v = document.getElementById('heroVid'), b = document.getElementById('vidPlay');
+      if (!v || !b) return;
+      b.addEventListener('click', function () {
+        if (v.paused) { v.play(); b.textContent = '❚❚'; b.setAttribute('aria-label', 'Pause film'); }
+        else { v.pause(); b.textContent = '▶'; b.setAttribute('aria-label', 'Play film'); }
+      });
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); b.textContent = '▶'; }
+    })();
+    function pick(b, m) { document.querySelectorAll('.selector button').forEach(x => x.classList.remove('active')); b.classList.add('active'); var lang = document.documentElement.getAttribute('lang') || 'en'; var H = (lang === 'ar' ? window.HERO_AR : window.HERO_EN); var s = document.getElementById('hsub'), a = document.getElementById('hact'); if (H) { s.textContent = H[m].sub; a.innerHTML = H[m].act } }
+    var F = [{ "n": "Information Technology", "s": "faculty-it", "img": "assets/fac-it.jpg" }, { "n": "Business", "s": "faculty-business", "img": "assets/fac-business.jpg" }, { "n": "Law", "s": "faculty-law", "img": "assets/fac-law.jpg" }, { "n": "Allied Medical Sciences", "s": "faculty-allied-medical", "img": "assets/fac-allied.jpg" }, { "n": "Pharmacy", "s": "faculty-pharmacy", "img": "assets/fac-pharmacy.jpg" }, { "n": "Media", "s": "faculty-media", "img": "assets/fac-media.jpg" }, { "n": "Engineering & Design", "s": "faculty-architecture", "img": "assets/fac-eng.jpg" }, { "n": "Nursing", "s": "faculty-nursing", "img": "assets/fac-nursing.jpg" }, { "n": "Arts & Sciences", "s": "faculty-arts", "img": "assets/fac-arts.jpg" }, { "n": "Technical College", "s": "technical-college", "img": "assets/fac-technical.jpg" }];
+    var DS = { "faculty-it": "Founded in September 2005, the Faculty of Information Technology builds human capability and qualifies students for excellence in a high-quality scien", "faculty-business": "We welcome you on behalf of the faculty and administrative staff. Explore our biographies, programmes and study plans — available in both Arabic and E", "faculty-law": "The Faculty of Law was formed in 2005/2006, first receiving MA students and later establishing a BA programme in Law. It teaches law close to practice", "faculty-allied-medical": "Allied medical sciences are an ancient profession serving humanity. The faculty offers hands-on health sciences with real lab partnerships and a growi", "faculty-pharmacy": "The Faculty of Pharmacy hosts the Department of Pharmacy, responsible for the five-year BSc in Pharmacy that fulfils registration requirements as a ph", "faculty-media": "The Faculty of Media is the first faculty in Jordan to award an MA in Media. A subject of study at MEU since its foundation, it was reintroduced as a ", "faculty-architecture": "Established in 2010/2011, the Faculty of Engineering and Design received its first architecture students in 2011/2012 alongside graphic design cohort", "faculty-nursing": "Nursing is an ancient humanitarian profession serving humanity. As the concept of health care has evolved, the faculty prepares caring professionals g", "faculty-arts": "The Faculty of Arts and Sciences has grown steadily over the years. It comprises four departments — Arabic, English, Political Science and Basic Scien", "technical-college": "The Technical College contains four innovative departments — Allied Medical Professions, Financial & Administrative Sciences, Information Technology, " };
+    var MJ = { "faculty-it": ["Computer Science", "Software Engineering", "Cybersecurity", "Data Science"], "faculty-business": ["Finance", "Marketing", "Accounting", "Business & Psychology"], "faculty-law": ["LLB Law", "LLM Law", "Arbitration"], "faculty-allied-medical": ["Physiotherapy", "Medical Lab Sciences", "Paramedical & Emergency Science", "Nutrition"], "faculty-pharmacy": ["BSc Pharmacy", "Pharm D", "MSc (Strathclyde joint)"], "faculty-media": ["Journalism", "Digital Media", "Public Relations & Advertising"], "faculty-architecture": ["Architecture", "Interior Design", "Graphic Design"], "faculty-nursing": ["BSc Nursing"], "faculty-arts": ["English Language & Literature", "Translation", "Arabic", "Political Science"], "technical-college": ["Intermediate diplomas", "Applied tracks"] };
+    function showF(i, el) { document.querySelectorAll('.fac-item').forEach(x => x.classList.remove('active')); el.classList.add('active'); var f = F[i]; var lang = document.documentElement.getAttribute('lang') || 'en'; var FA = window.FAC_AR; var name = (lang === 'ar' && FA) ? FA.names[i] : f.n; var desc = (lang === 'ar' && FA) ? (FA.desc[f.s] || '') : DS[f.s]; var maj = (lang === 'ar' && FA) ? (FA.majors[f.s] || []) : (MJ[f.s] || []); document.getElementById('facTitle').textContent = name; document.getElementById('facDesc').textContent = desc; document.getElementById('facBg').style.backgroundImage = "url('" + f.img + "')"; document.getElementById('facMajors').innerHTML = maj.map(m => '<span>' + m + '</span>').join(''); document.getElementById('facLink').href = 'academics/' + f.s + '.html' }
+    window.showF = showF; window.F = F; window.DS = DS; window.MJ = MJ;
+    document.querySelectorAll('.fac-item').forEach(el => { var i = +el.dataset.i; el.addEventListener('mouseenter', () => showF(i, el)); el.addEventListener('click', () => showF(i, el)) }); showF(0, document.querySelector('.fac-item'));
+    var commCur = 0, commTrack = document.getElementById('commTrack'), commSlides = document.querySelectorAll('.comm-slide'), commDots = document.querySelectorAll('.comm-dot'), commTimer;
+    function commShow(i) { commDots[commCur] && commDots[commCur].classList.remove('on'); commCur = (i + commSlides.length) % commSlides.length; var sign = (document.documentElement.getAttribute('dir') === 'rtl') ? 1 : -1; commTrack.style.transform = 'translateX(' + (sign * commCur * 100) + '%)'; commDots[commCur] && commDots[commCur].classList.add('on') }
+    function commGo(i) { commShow(i); commReset() }
+    function commStep(d) { commShow(commCur + d); commReset() }
+    function commReset() { clearInterval(commTimer); commTimer = setInterval(() => commShow(commCur + 1), 6000) }
+    if (commSlides.length) commReset();
+  </script>
+  <script>
+    (function () {
+      const esc = s => String(s).replace(/"/g, '&quot;');
+      const NEWS = [
+        { img: "assets/sp-01.jpg", date: "June 17, 2026", dateAr: "17 حزيران 2026", src: "MEU News", srcAr: "أخبار MEU", title: "MEU and Ministry of Agriculture Sign MoU to Advance AI Applications and Smart Farming", titleAr: "MEU ووزارة الزراعة توقّعان مذكرة تفاهم لتعزيز تطبيقات الذكاء الاصطناعي والزراعة الذكية", abs: "Middle East University signed a Memorandum of Understanding with the Ministry of Agriculture to develop AI-driven solutions for precision agriculture and smart farming across the Kingdom.", absAr: "وقّعت جامعة الشرق الأوسط مذكرة تفاهم مع وزارة الزراعة لتطوير حلول مدعومة بالذكاء الاصطناعي للزراعة الدقيقة والزراعة الذكية في المملكة." },
+        { img: "assets/sp-02.jpg", date: "June 17, 2026", dateAr: "17 حزيران 2026", src: "MEU News", srcAr: "أخبار MEU", title: "Exhibition Showcases MEU Media Students' Capabilities in Creating Impactful Advertising Campaigns", titleAr: "معرض يبرز قدرات طلبة كلية الإعلام في MEU على إعداد حملات إعلانية مؤثّرة", abs: "The Faculty of Media held a public exhibition highlighting end-of-semester advertising projects, with students presenting integrated campaigns built for real industry briefs.", absAr: "أقامت كلية الإعلام معرضاً عامّاً يسلّط الضوء على مشاريع الإعلان لنهاية الفصل، حيث قدّم الطلبة حملات متكاملة لمختصرات صناعية حقيقية." },
+        { img: "assets/sp-03.jpg", date: "June 11, 2026", dateAr: "11 حزيران 2026", src: "MEU News", srcAr: "أخبار MEU", title: "MEU Pharmacy Students Deliver Health Awareness Campaign at Jordan's Aerial Gateway", titleAr: "طلبة صيدلة MEU ينفّذون حملة توعية صحية في بوّابة الأردن الجوية", abs: "Pharmacy students partnered with Queen Alia International Airport to run a traveler-focused public health initiative, distributing materials on medication safety and travel wellness.", absAr: "بالتعاون مع مطار الملكة علياء الدولي، نفّذ طلبة الصيدلة مبادرة صحية موجَّهة للمسافرين، ووزّعوا مواد توعوية حول سلامة الأدوية وصحة السفر." },
+        { img: "assets/sp-04.jpg", date: "June 11, 2026", dateAr: "11 حزيران 2026", src: "MEU News", srcAr: "أخبار MEU", title: "MEU Organises 11th Career Day Featuring 60 Companies Across Diverse Economic Sectors", titleAr: "MEU تنظّم يوم المهنة الحادي عشر بمشاركة 60 شركة من قطاعات اقتصادية متنوّعة", abs: "More than sixty employers joined MEU's 11th Career Day, connecting students and graduates with hiring opportunities across banking, technology, healthcare, media, and government.", absAr: "شارك أكثر من ستين صاحب عمل في يوم المهنة الحادي عشر في MEU، ووفّروا للطلبة والخرّيجين فرص توظيف في البنوك والتكنولوجيا والصحة والإعلام والقطاع الحكومي." },
+        { img: "assets/sp-05.jpg", date: "June 11, 2026", dateAr: "11 حزيران 2026", src: "MEU Dialogues", srcAr: "حوارات MEU", title: "Al-Karki at MEU: 'The Jordanian Narrative — A Story Worth Telling for Future Generations'", titleAr: "الكركي في MEU: «الرواية الأردنية — حكاية تستحق أن تُروى للأجيال القادمة»", abs: "A dialogue session at MEU explored the importance of preserving and documenting the Jordanian national narrative through scholarship, media, and the arts.", absAr: "تناولت جلسة حوارية في MEU أهمية صون الرواية الوطنية الأردنية وتوثيقها عبر البحث العلمي والإعلام والفنون." },
+        { img: "assets/sp-06.jpg", date: "June 8, 2026", dateAr: "8 حزيران 2026", src: "Faculty of Allied Medical Sciences", srcAr: "كلية العلوم الطبية المساندة", title: "Faculty of Allied Medical Sciences Explores the Future of Healthy Ageing at Second Scientific Day", titleAr: "كلية العلوم الطبية المساندة تستكشف مستقبل الشيخوخة الصحية في يومها العلمي الثاني", abs: "Researchers, clinicians, and students convened for the second annual scientific day to share evidence-based practice on healthy ageing, rehabilitation, and quality of life.", absAr: "اجتمع الباحثون والأطباء والطلبة في اليوم العلمي السنوي الثاني لمشاركة الممارسات القائمة على الأدلة في الشيخوخة الصحية وإعادة التأهيل وجودة الحياة." },
+        { img: "assets/sp-07.jpg", date: "June 8, 2026", dateAr: "8 حزيران 2026", src: "MEU News", srcAr: "أخبار MEU", title: "Minister of Youth at MEU: 'Empowering Youth Remains a National Priority'", titleAr: "وزير الشباب في MEU: «تمكين الشباب يبقى أولوية وطنية»", abs: "The Minister of Youth visited MEU to discuss national initiatives empowering the next generation through education, entrepreneurship, and civic engagement.", absAr: "زار وزير الشباب MEU لبحث المبادرات الوطنية الرامية إلى تمكين الجيل القادم عبر التعليم وريادة الأعمال والمشاركة المدنية." },
+        { img: "assets/sp-08.jpg", date: "June 4, 2026", dateAr: "4 حزيران 2026", src: "MEU Short Film Festival", srcAr: "مهرجان MEU للأفلام القصيرة", title: "Minister of Culture Al-Rawashdeh Highlights the Importance of Art and Cinema at MEU Short Film Festival Awards", titleAr: "وزير الثقافة الرواشدة يؤكّد أهمية الفن والسينما في حفل جوائز مهرجان MEU للأفلام القصيرة", abs: "The Minister of Culture crowned the winners of MEU's Short Film Festival, underlining cinema's role in shaping cultural identity and giving voice to a new generation of storytellers.", absAr: "توّج وزير الثقافة الفائزين في مهرجان MEU للأفلام القصيرة، مؤكّداً دور السينما في تشكيل الهوية الثقافية ومنح صوت لجيل جديد من الرواة." },
+        { img: "assets/sp-09.jpg", date: "June 4, 2026", dateAr: "4 حزيران 2026", src: "Faculty of Allied Medical Sciences", srcAr: "كلية العلوم الطبية المساندة", title: "MEU Physiotherapy Students Take Part in Anatomy Practical at the University of Jordan", titleAr: "طلبة العلاج الطبيعي في MEU يشاركون في تطبيق عملي للتشريح في الجامعة الأردنية", abs: "Physiotherapy students participated in a hands-on anatomy laboratory at the University of Jordan as part of a cross-institutional clinical training collaboration.", absAr: "شارك طلبة العلاج الطبيعي في مختبر تشريح تطبيقي في الجامعة الأردنية ضمن تعاون تدريبي سريري بين المؤسستين." },
+        { img: "assets/sp-10.jpg", date: "June 4, 2026", dateAr: "4 حزيران 2026", src: "Faculty of Law", srcAr: "كلية الحقوق", title: "Safeguarding Public Funds: Attorney General Khrais Leads a Seminar at MEU", titleAr: "حماية المال العام: النائب العام خريس يقود ندوة في MEU", abs: "His Excellency the Attorney General delivered a seminar at MEU on legal frameworks and institutional safeguards protecting public funds in the Kingdom.", absAr: "ألقى عطوفة النائب العام ندوة في MEU حول الأطر القانونية والضمانات المؤسسية لحماية المال العام في المملكة." },
+        { img: "assets/sp-11.jpg", date: "June 1, 2026", dateAr: "1 حزيران 2026", src: "Faculty of Media", srcAr: "كلية الإعلام", title: "MEU Signs Cooperation Agreement with Photographer Alaa Abu Fares to Enhance Photography and Content Creation Skills", titleAr: "MEU توقّع اتفاقية تعاون مع المصوّر علاء أبو فارس لتعزيز مهارات التصوير وصناعة المحتوى", abs: "A new training agreement will give MEU students access to specialised workshops in photography, visual storytelling, and modern content creation.", absAr: "اتفاقية تدريب جديدة تتيح لطلبة MEU حضور ورش متخصّصة في التصوير والسرد البصري وصناعة المحتوى الحديث." },
+        { img: "assets/sp-12.jpg", date: "June 1, 2026", dateAr: "1 حزيران 2026", src: "MEU Sports", srcAr: "الرياضة في MEU", title: "MEU Law Student Ahmad Hammoudeh Secures Gold at the University Boxing Championship", titleAr: "طالب الحقوق في MEU أحمد حمودة يحرز ذهبية بطولة الجامعات للملاكمة", abs: "Law student Ahmad Hammoudeh claimed the gold medal at the national University Boxing Championship, adding to MEU's growing record in collegiate sports.", absAr: "أحرز طالب الحقوق أحمد حمودة الميدالية الذهبية في بطولة الجامعات الوطنية للملاكمة، مضيفاً إلى سجلّ MEU المتنامي في الرياضات الجامعية." }
+      ];
+      const READ_AR = 'اقرأ المزيد <span class="ar">→</span>';
+      const track = document.getElementById('spotTrack'), dots = document.getElementById('spotDots');
+      if (track) {
+        const prevBtn = document.querySelector('.spot-controls .prev'), nextBtn = document.querySelector('.spot-controls .next');
+        NEWS.forEach(n => { const c = document.createElement('a'); c.className = 'spot-card'; c.href = 'media/news.html'; c.innerHTML = `<div class="spot-img" style="background-image:url('${n.img}')"><span class="src" data-ar="${esc(n.srcAr)}">${n.src}</span></div><div class="spot-body"><div class="spot-date" data-ar="${esc(n.dateAr)}">${n.date}</div><h3 class="spot-title" data-ar="${esc(n.titleAr)}">${n.title}</h3><p class="spot-abs" data-ar="${esc(n.absAr)}">${n.abs}</p><span class="spot-read" data-ar="${esc(READ_AR)}">Read More <span class="ar">→</span></span></div>`; track.appendChild(c); });
+        const perView = () => window.innerWidth <= 560 ? 1 : window.innerWidth <= 880 ? 2 : 3;
+        let idx = 0;
+        function buildDots() { dots.innerHTML = ''; const pv = perView(); const groups = Math.ceil(NEWS.length / pv); for (let i = 0; i < groups; i++) { const d = document.createElement('span'); if (i === 0) d.className = 'active'; d.onclick = () => { idx = Math.min(i * pv, NEWS.length - pv); update(); }; dots.appendChild(d); } }
+        function update() { const card = track.querySelector('.spot-card'); if (!card) return; const w = card.getBoundingClientRect().width + 24; track.style.transform = `translateX(-${idx * w}px)`; prevBtn.disabled = idx <= 0; nextBtn.disabled = idx >= NEWS.length - perView(); const pv = perView();[...dots.children].forEach((d, i) => d.classList.toggle('active', i === Math.round(idx / pv))); }
+        prevBtn.onclick = () => { idx = Math.max(0, idx - perView()); update(); };
+        nextBtn.onclick = () => { idx = Math.min(NEWS.length - perView(), idx + perView()); update(); };
+        window.addEventListener('resize', () => { idx = Math.min(idx, NEWS.length - perView()); buildDots(); update(); });
+        buildDots(); update();
+      }
+    })();
+  </script>
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-logo">Middle East University</div>
+          <p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at
+            home and partnered abroad. Learn. Belong. Lead.</p>
+        </div>
+        <div>
+          <h5>Academics</h5>
+          <ul>
+            <li><a href="/academics/faculty-it">Faculties</a></li>
+            <li><a href="/academics/programs">Programmes</a></li>
+            <li><a href="/uk/uk-about">UK Degrees</a></li>
+            <li><a href="/student-affairs/deanship-students-affairs">Deanships</a></li>
+            <li><a href="/centers/centers-institutes">Centers & Institutions</a></li>
+            <li><a href="/admission/admission#cal">Academic Calendar</a></li>
+            <li><a href="/about/partnerships">Partnerships & Agreements</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Admissions</h5>
+          <ul>
+            <li><a href="/admission/ug-requirements">Requirements</a></li>
+            <li><a href="/admission/ug-fees">Fees & aid</a></li>
+            <li><a href="/academic-calendar">Calendar</a></li>
+            <li><a href="/about/visit">Plan a visit</a></li>
+            <li><a href="/about/accessibility">Special needs & accommodations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="/about/contact">Contact</a></li>
+            <li><a href="/media/press">News</a></li>
+            <li><a href="/student-affairs/careers">Careers</a></li>
+            <li><a href="/governance/board-of-directors">Leadership</a></li>
+            <li><a href="/student-affairs/alumni-association">Alumni Association (Proposed)</a></li>
+            <li><a href="/_dev/abandoned-pages" style="opacity:.6;font-style:italic">Abandoned pages</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom"><span data-ar="© 2026 جامعة الشرق الأوسط">© 2026 Middle East University ·
+          <a href="/sitemap" style="color:inherit;text-decoration:underline"
+            data-ar="خريطة الموقع">Site map</a> · <a href="/process/board-overview"
+            style="color:inherit;text-decoration:underline" data-ar="عملية التطوير">Development Process</a> · <a
+            href="/about/accessibility" style="color:inherit;text-decoration:underline"
+            data-ar="إمكانية الوصول">Accessibility</a> · <a href="/media/media-upload"
+            style="color:inherit;text-decoration:underline" data-ar="تحميل الوسائط">Media Upload</a> · <a
+            href="/media/media-library" style="color:inherit;text-decoration:underline"
+            data-ar="مكتبة الوسائط">Media Library</a></span><span
+          data-ar="QS ★★★ · ISO 9001:2015 · المستوى الذهبي AQACHEI">QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      // [selector, AR text]. Uses querySelectorAll; applied to each match unless string vs array.
+      const MAP = [
+        // top tabs
+        ['.jhu-tabs .tab-main[onclick*="menu"] span', 'القائمة'],
+        ['.jhu-tabs .tab-main[onclick*="news"] span', 'أخبار'],
+        ['.jhu-tabs a.tab-main[href="/media/meu-pulse"] span', 'نبض MEU'],
+        ['.jhu-tabs .tab-main[onclick*="search"] span', 'بحث'],
+
+
+        ['.jhu-tabs .grp2 a[href="/uk/uk-apply"] span', 'قدّم الآن'],
+        ['.jhu-tabs .grp2 a.v11-inquire span', 'اتصل بنا'],
+        ['.jhu-tabs .grp2 a[href="https://ukdegrees.meu.edu.jo/newsite/"] span', 'البرامج البريطانية'],
+        ['.jhu-tabs .grp2 a[href="/academics/programs"] span', 'البرامج'],
+        // side panel - menu
+        ['#pane-menu .ptitle', 'استكشف MEU'],
+        ['#pane-menu > a:nth-of-type(1)', 'عن الجامعة'],
+        ['#pane-menu > a:nth-of-type(2)', 'الكليات'],
+        ['#pane-menu > a:nth-of-type(3)', 'القبول والتسجيل'],
+        ['#pane-menu > a:nth-of-type(4)', 'المنح والخصومات'],
+        ['#pane-menu > a:nth-of-type(5)', 'البرامج البريطانية'],
+        ['#pane-menu > a:nth-of-type(6)', 'الحياة الجامعية'],
+        ['#pane-menu > a:nth-of-type(7)', 'حرمنا الجامعي'],
+        ['#pane-menu > a:nth-of-type(8)', 'العمادات'],
+        ['#pane-menu > a:nth-of-type(9)', 'المراكز والمعاهد'],
+        ['#pane-menu .grp:nth-of-type(1) h6', 'روابط سريعة'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(1)', 'دليل البرامج'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(2)', 'متطلبات القبول'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(3)', 'المنح والخصومات'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(4)', 'الرسوم'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(5)', 'الدفع الإلكتروني'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(6)', 'الخرائط والاتجاهات'],
+        ['#pane-menu .grp:nth-of-type(1) .sub:nth-of-type(7)', 'اتصل بنا'],
+        ['#pane-menu .grp:nth-of-type(2) h6', 'البوابات'],
+        ['#pane-menu .grp:nth-of-type(2) .sub:nth-of-type(1)', 'بوابة الطالب ↗'],
+        ['#pane-menu .grp:nth-of-type(2) .sub:nth-of-type(2)', 'بوابة الموظفين ↗'],
+        ['#pane-menu .grp:nth-of-type(2) .sub:nth-of-type(3)', 'EduGate ↗'],
+        ['#pane-menu .grp:nth-of-type(2) .sub:nth-of-type(4)', 'التعلّم الإلكتروني ↗'],
+        ['#pane-menu .pclose', 'إغلاق القائمة'],
+        ['#pane-search .ptitle', 'البحث'],
+        ['#pane-search input', { attr: 'placeholder', val: 'ابحث في MEU…' }],
+        ['#pane-search .sbtn', 'بحث'],
+        ['#pane-search .cs', 'عمليات البحث الشائعة'],
+        ['#pane-search .pclose', 'إغلاق القائمة'],
+        ['#pane-news .ptitle', 'الأخبار والفعاليات'],
+        ['#pane-news h6:nth-of-type(1)', 'أحدث الأخبار'],
+        ['#pane-news h6.mt', 'الفعاليات القادمة'],
+        ['#pane-news .pclose', 'إغلاق القائمة'],
+        // hero
+        ['.thesis span:nth-child(1)', 'جامعة رائدة.'],
+        ['.thesis span:nth-child(2)', 'ومؤثرة.'],
+        ['.thesis span:nth-child(3)', 'محلياً وإقليمياً.'],
+        ['#hsub', 'تسعى جامعة الشرق الأوسط إلى إعداد خريج يواكب متطلبات سوق العمل المحلي والدولي، وتعزيز البحث العلمي النوعي التطبيقي المؤثر، وخدمة المجتمع، وتعزيز الشراكات الأكاديمية الدولية.'],
+        ['#hact .btn-primary', 'اكتشف 10 كليات'],
+        ['#hact .bg-h', 'تواصل معنا'],
+        // trust
+        ['.trust-label', 'معتمدون ومعترف بنا من'],
+        // explore
+        ['.explore .eyebrow', 'اكتشف مسارك في MEU'],
+        ['.explore .h2', 'اكتشف برامجنا.'],
+        ['.explore .lead', 'سواءً كنت تبحث عن برنامج يناسبك أو جاهزاً للتقديم، ابدأ من هنا واكتشف إلى أين يمكن لبرامج جامعة الشرق الأوسط أن تأخذك.'],
+        ['.exp-grid .exp-card:nth-child(1) h3', 'الدراسة الجامعية'],
+        ['.exp-grid .exp-card:nth-child(1) p', 'طالب جديد أو محوّل؟ استكشف 39 تخصصاً للبكالوريوس في تسع كليات، ثم ابدأ تقديم طلبك.'],
+        ['.exp-grid .exp-card:nth-child(1) .exp-btn', { html: 'قدّم إلى MEU <span>→</span>' }],
+        ['.exp-grid .exp-card:nth-child(2) h3', 'الدراسات العليا'],
+        ['.exp-grid .exp-card:nth-child(2) p', 'استكشف برامج الماجستير والدبلوم العالي، وابدأ عملية تقديم طلبك أدناه.'],
+        ['.exp-grid .exp-card:nth-child(2) .exp-btn', { html: 'قدّم إلى الدراسات العليا <span>→</span>' }],
+        ['.exp-grid .exp-card:nth-child(3) h3', 'الدبلوم المتوسط'],
+        ['.exp-grid .exp-card:nth-child(3) p', 'استكشف 14 تخصصاً في الدبلوم المتوسط في الكلية التقنية — مسارات تطبيقية عملية إلى سوق العمل.'],
+        ['.exp-grid .exp-card:nth-child(3) .exp-btn', { html: 'استكشف الدبلوم <span>→</span>' }],
+        ['.exp-grid .exp-card:nth-child(4) h3', 'البرامج البريطانية المستضافة في الحرم الجامعي'],
+        ['.exp-grid .exp-card:nth-child(4) p', 'احصل على شهادة من جامعة بيدفوردشاير أو ستراثكلايد في عمّان — أوّل برامج بريطانية مستضافة في الأردن.'],
+        ['.exp-grid .exp-card:nth-child(4) .exp-btn', { html: 'استكشف البرامج البريطانية <span>→</span>' }],
+        ['#tileApply h3', 'مواعيد مهمة'],
+        ['#tileApply .r:nth-child(1) span', 'فتح التقديم للفصل الدراسي الأول'],
+        ['#tileApply .r:nth-child(1) b', '1 حزيران'],
+        ['#tileApply .r:nth-child(2) span', 'إغلاق التسجيل للفصل الدراسي الأول'],
+        ['#tileApply .r:nth-child(2) b', '10 أيلول'],
+        ['#tileApply .r:nth-child(3) span', 'بدء الدراسة للفصل الدراسي الأول'],
+        ['#tileApply .r:nth-child(3) b', '20 أيلول'],
+        ['#tileApply .talk .tl', 'تحدّث إلى القبول — بالطريقة التي تناسبك'],
+        ['#tileApply .chips a:nth-child(1)', { html: '<svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.2-4.2A8.5 8.5 0 1 1 21 11.5z"/></svg>واتساب' }],
+        ['#tileApply .chips a:nth-child(2)', { html: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>البريد الإلكتروني' }],
+        ['#tileApply .chips a:nth-child(3)', { html: '<svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-6a8 8 0 0 1 8-8h1a8 8 0 0 1 8 3z"/></svg>محادثة مباشرة' }],
+        ['#tileApply .chips a:nth-child(4)', { html: '<svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>اتصال' }],
+        ['#tileApply .tlink', { html: 'ابدأ تقديم طلبك <span class="ar">→</span>' }],
+
+        // faculties section
+        ['section:nth-of-type(3) .eyebrow', 'تعلّم'],
+        ['section:nth-of-type(3) .h2', 'عشر كليات. 39 برنامج بكالوريوس و14 تخصص دبلوم متوسط.'],
+        ['section:nth-of-type(3) .lead', 'مرّر فوق كلية لمعاينتها — ثم افتح صفحتها الكاملة.'],
+        ['#facLink', 'افتح صفحة الكلية →'],
+        ['.fac-preview .eyebrow', 'كلية'],
+        // life
+        ['.life .eyebrow', 'انتمِ'],
+        ['.life .h2', 'عِش إمكاناتك.'],
+        ['.life .lead', 'تخيّل كل ما يمكن أن تصبح عليه محاطاً بمن يستثمرون في نموّك. ذلك هو قلب مجتمع MEU.'],
+        ['.life-grid a:nth-child(1) h3', 'الرياضة والملعب'],
+        ['.life-grid a:nth-child(1) p', 'ملاعب ومضامير وملعب أولمبي.'],
+        ['.life-grid a:nth-child(2) h3', 'الحرم الجامعي والمرافق'],
+        ['.life-grid a:nth-child(2) p', '15 دقيقة من عمّان، بالقرب من المطار.'],
+        ['.life-grid a:nth-child(3) h3', 'المهن والخريجون'],
+        ['.life-grid a:nth-child(3) p', 'مكتب المهن — صندوق الملك عبدالله الثاني.'],
+        ['.life .btn-primary', 'استكشف الحياة الجامعية →'],
+        // spotlight
+        ['.spotlight .eyebrow', 'أضواء MEU'],
+        ['.spotlight .h2', 'أخبار ومحطات ولحظات من الحرم الجامعي'],
+        ['.spotlight .lead', 'ابقَ قريباً من القصص التي تشكّل الحياة في جامعة الشرق الأوسط — من إنجازات بحثية ومنجزات طلابية إلى الشراكات والأشخاص خلفها.'],
+        ['.spot-more', { html: 'المزيد من الأخبار <span class="ar">→</span>' }],
+        // cta bar
+        // footer
+        ['.foot-logo', 'جامعة الشرق الأوسط'],
+        ['footer .foot-grid > div:nth-child(1) p', 'عمّان، الأردن · تأسست عام 2005. جامعة خاصة معتمدة محلياً وشريكة عالمياً. تعلّم. انتمِ. قُد.'],
+        ['footer .foot-grid > div:nth-child(2) h5', 'الكليات والبرامج'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(1) a', 'الكليات'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(2) a', 'البرامج'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(3) a', 'البرامج البريطانية'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(4) a', 'العمادات'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(5) a', 'المراكز والمعاهد'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(6) a', 'التقويم الأكاديمي'],
+        ['footer .foot-grid > div:nth-child(2) ul li:nth-child(7) a', 'الشراكات والاتفاقيات'],
+        ['footer .foot-grid > div:nth-child(3) h5', 'القبول والتسجيل'],
+        ['footer .foot-grid > div:nth-child(3) ul li:nth-child(1) a', 'المتطلبات'],
+        ['footer .foot-grid > div:nth-child(3) ul li:nth-child(2) a', 'الرسوم والمنح'],
+        ['footer .foot-grid > div:nth-child(3) ul li:nth-child(3) a', 'التقويم'],
+        ['footer .foot-grid > div:nth-child(3) ul li:nth-child(4) a', 'خطّط لزيارتك'],
+        ['footer .foot-grid > div:nth-child(3) ul li:nth-child(5) a', 'الاحتياجات الخاصة والتيسيرات'],
+        ['footer .foot-grid > div:nth-child(4) h5', 'تواصل'],
+        ['footer .foot-grid > div:nth-child(4) ul li:nth-child(1) a', 'اتصل بنا'],
+        ['footer .foot-grid > div:nth-child(4) ul li:nth-child(2) a', 'الأخبار'],
+        ['footer .foot-grid > div:nth-child(4) ul li:nth-child(3) a', 'الوظائف'],
+        ['footer .foot-grid > div:nth-child(4) ul li:nth-child(4) a', 'القيادة'],
+        ['footer .foot-grid > div:nth-child(4) ul li:nth-child(5) a', 'جمعية الخريجين (مقترح)'],
+        ['footer .foot-grid > div:nth-child(4) ul li:nth-child(6) a', 'صفحات مهجورة'],
+      ];
+
+      // Faculty data AR
+      const FAC_AR = {
+        names: ['تكنولوجيا المعلومات', 'إدارة الأعمال', 'الحقوق', 'العلوم الطبية المساندة', 'الصيدلة', 'الإعلام', 'الهندسة والتصميم', 'التمريض', 'الآداب والعلوم', 'الكلية التقنية'],
+        desc: {
+          'faculty-it': 'تأسست كلية تكنولوجيا المعلومات في أيلول 2005 لبناء القدرات البشرية وتأهيل الطلاب للتميّز في بيئة علمية عالية الجودة.',
+          'faculty-business': 'نرحّب بكم باسم أعضاء هيئة التدريس والإدارة. تعرّفوا على سير الأساتذة وبرامجنا وخططنا الدراسية — متاحة بالعربية والإنجليزية.',
+          'faculty-law': 'تأسست كلية الحقوق في 2005/2006، واستقبلت أولاً طلبة الماجستير ثم أنشأت برنامج البكالوريوس. تُدرَّس القانون قريباً من التطبيق.',
+          'faculty-allied-medical': 'العلوم الطبية المساندة مهنة عريقة تخدم الإنسانية. تقدّم الكلية علوماً صحية تطبيقية بشراكات مختبرية حقيقية ومجال نموّ واسع.',
+          'faculty-pharmacy': 'تضم كلية الصيدلة قسم الصيدلة المسؤول عن بكالوريوس الصيدلة لمدة خمس سنوات الذي يلبّي متطلبات التسجيل المهني.',
+          'faculty-media': 'كلية الإعلام هي أول كلية في الأردن تمنح ماجستيراً في الإعلام، وقد أُعيد تقديمها كمسار أكاديمي رئيسي في الجامعة.',
+          'faculty-architecture': 'تأسست في 2010/2011، واستقبلت أول طلبة العمارة في 2011/2012 إلى جانب دفعات التصميم الجرافيكي.',
+          'faculty-nursing': 'التمريض مهنة إنسانية عريقة. تُعدّ الكلية ممرضين ومهنيين رعويين يواكبون تطوّر مفهوم الرعاية الصحية.',
+          'faculty-arts': 'تنمو كلية الآداب والعلوم باطّراد وتضم أربعة أقسام — اللغة العربية، الإنجليزية، العلوم السياسية، والعلوم الأساسية.',
+          'technical-college': 'تضم الكلية التقنية أربعة أقسام مبتكرة — المهن الطبية المساندة، العلوم المالية والإدارية، تكنولوجيا المعلومات، وغيرها.'
+        },
+        majors: {
+          'faculty-it': ['علوم الحاسوب', 'هندسة البرمجيات', 'الأمن السيبراني', 'علم البيانات'],
+          'faculty-business': ['التمويل', 'التسويق', 'المحاسبة', 'إدارة الأعمال وعلم النفس'],
+          'faculty-law': ['بكالوريوس الحقوق', 'ماجستير الحقوق', 'التحكيم'],
+          'faculty-allied-medical': ['العلاج الطبيعي', 'علوم المختبرات الطبية', 'خدمات الطوارئ الطبية', 'التغذية'],
+          'faculty-pharmacy': ['بكالوريوس الصيدلة', 'دكتور صيدلة', 'ماجستير (مشترك مع ستراثكلايد)'],
+          'faculty-media': ['الصحافة', 'الإعلام الرقمي', 'العلاقات العامة والإعلان'],
+          'faculty-architecture': ['العمارة', 'التصميم الداخلي', 'التصميم الجرافيكي'],
+          'faculty-nursing': ['بكالوريوس التمريض'],
+          'faculty-arts': ['اللغة الإنجليزية وآدابها', 'الترجمة', 'اللغة العربية', 'العلوم السياسية'],
+          'technical-college': ['دبلومات متوسطة', 'مسارات تطبيقية']
+        }
+      };
+      window.FAC_AR = FAC_AR;
+
+      // hero sub variants used by selector buttons
+      const HERO_AR = {
+        e: { sub: 'تسعى جامعة الشرق الأوسط إلى إعداد خريج يواكب متطلبات سوق العمل المحلي والدولي، وتعزيز البحث العلمي النوعي التطبيقي المؤثر، وخدمة المجتمع، وتعزيز الشراكات الأكاديمية الدولية.', act: '<a class="btn btn-primary" href="/academics/faculty-it">اكتشف 10 كليات</a><a class="btn bg-h" href="/about/contact">تواصل معنا</a>' },
+        r: { sub: 'جاهز للخطوة التالية؟ ابدأ طلبك، احسب الرسوم والمنح، واحصل على قرار أسرع.', act: '<a class="btn btn-primary" href="/uk/uk-apply">ابدأ طلبك</a><a class="btn bg-h" href="/admission/ug-fees">احسب الرسوم والمنح</a>' }
+      };
+      const HERO_EN = {
+        e: { sub: "Middle East University seeks to prepare graduates who meet the requirements of the local and international labour market, to advance distinctive applied and impactful scientific research, to serve the community, and to strengthen international academic partnerships.", act: '<a class="btn btn-primary" href="/academics/faculty-it">Explore 10 faculties</a><a class="btn bg-h" href="/about/contact">Contact us</a>' },
+        r: { sub: "Ready to take the next step? Start your application, estimate tuition and scholarships, and get a decision faster.", act: '<a class="btn btn-primary" href="/uk/uk-apply">Start your application</a><a class="btn bg-h" href="/admission/ug-fees">Estimate tuition & aid</a>' }
+      };
+      window.HERO_AR = HERO_AR; window.HERO_EN = HERO_EN;
+
+      // snapshot EN for data-ar attribute targets
+      document.querySelectorAll('[data-ar]').forEach(el => {
+        if (!el.hasAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+      });
+
+      // snapshot for MAP entries (use textContent to avoid entity corruption like &amp;)
+      MAP.forEach(([sel, v]) => {
+        document.querySelectorAll(sel).forEach(el => {
+          if (typeof v === 'object' && v.attr) {
+            if (!el.hasAttribute('data-en-' + v.attr)) el.setAttribute('data-en-' + v.attr, el.getAttribute(v.attr) || '');
+          } else if (typeof v === 'object' && v.html) {
+            if (!el.hasAttribute('data-en-html')) el.setAttribute('data-en-html', el.innerHTML);
+          } else {
+            if (!el.hasAttribute('data-en-text')) el.setAttribute('data-en-text', el.textContent);
+          }
+        });
+      });
+
+      // snapshot faculty EN
+      window.__FAC_EN = {
+        names: Array.from(document.querySelectorAll('#facList .fac-item h4')).map(e => e.textContent),
+      };
+
+      window.setLang = function (lang) {
+        const html = document.documentElement;
+        html.setAttribute('lang', lang);
+        html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        const lt = document.getElementById('langTabLabel');
+        if (lt) { lt.textContent = lang === 'ar' ? 'English' : 'العربية'; lt.setAttribute('lang', lang === 'ar' ? 'en' : 'ar'); }
+        try { localStorage.setItem('meu_lang', lang); } catch (e) { }
+
+        // data-ar attribute elements (snapshot EN lazily for nodes injected later)
+        document.querySelectorAll('[data-ar]').forEach(el => {
+          if (!el.hasAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+          el.innerHTML = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+        });
+
+        // MAP entries
+        MAP.forEach(([sel, v]) => {
+          document.querySelectorAll(sel).forEach(el => {
+            if (typeof v === 'object' && v.attr) {
+              if (!el.hasAttribute('data-en-' + v.attr)) el.setAttribute('data-en-' + v.attr, el.getAttribute(v.attr) || '');
+              el.setAttribute(v.attr, lang === 'ar' ? v.val : (el.getAttribute('data-en-' + v.attr) || ''));
+            } else if (typeof v === 'object' && v.html) {
+              if (!el.hasAttribute('data-en-html')) el.setAttribute('data-en-html', el.innerHTML);
+              el.innerHTML = lang === 'ar' ? v.html : el.getAttribute('data-en-html');
+            } else {
+              if (!el.hasAttribute('data-en-text')) el.setAttribute('data-en-text', el.textContent);
+              el.textContent = lang === 'ar' ? v : el.getAttribute('data-en-text');
+            }
+          });
+        });
+
+
+        // rebuild faculty list labels
+        document.querySelectorAll('#facList .fac-item').forEach((it, i) => {
+          const h4 = it.querySelector('h4');
+          if (h4) h4.textContent = lang === 'ar' ? FAC_AR.names[i] : window.__FAC_EN.names[i];
+        });
+
+        // active faculty preview re-render
+        const activeFac = document.querySelector('#facList .fac-item.active');
+        if (activeFac && window.showF) {
+          const i = +activeFac.dataset.i;
+          // patch description/majors using AR/EN
+          const slug = (['faculty-it', 'faculty-business', 'faculty-law', 'faculty-allied-medical', 'faculty-pharmacy', 'faculty-media', 'faculty-architecture', 'faculty-nursing', 'faculty-arts', 'technical-college'])[i];
+          const t = document.getElementById('facTitle');
+          const d = document.getElementById('facDesc');
+          const m = document.getElementById('facMajors');
+          if (t) t.textContent = lang === 'ar' ? FAC_AR.names[i] : (window.F ? window.F[i].n : t.textContent);
+          if (d && lang === 'ar') d.textContent = FAC_AR.desc[slug] || '';
+          else if (d && window.DS) d.textContent = window.DS[slug] || '';
+          if (m) m.innerHTML = ((lang === 'ar' ? FAC_AR.majors[slug] : (window.MJ && window.MJ[slug])) || []).map(x => '<span>' + x + '</span>').join('');
+        }
+
+        // hero selector active state restore
+        const sel = document.querySelector('.selector button.active');
+        const mode = sel && sel.textContent && (sel.textContent.includes('apply') || sel.textContent.includes('جاهز')) ? 'r' : 'e';
+        const sub = document.getElementById('hsub'), act = document.getElementById('hact');
+        if (sub) sub.textContent = (lang === 'ar' ? HERO_AR : HERO_EN)[mode].sub;
+        if (act) act.innerHTML = (lang === 'ar' ? HERO_AR : HERO_EN)[mode].act;
+
+        // re-apply community carousel transform for current direction
+        if (typeof commShow === 'function' && typeof commCur !== 'undefined' && document.getElementById('commTrack')) commShow(commCur);
+      };
+
+      // expose F/DS/MJ defined elsewhere
+      setTimeout(() => {
+        window.F = window.F || (typeof F !== 'undefined' ? F : null);
+      }, 0);
+
+      window.toggleLang = function () {
+        const cur = document.documentElement.getAttribute('lang') || 'en';
+        setLang(cur === 'ar' ? 'en' : 'ar');
+      };
+
+      // init
+      let init = 'en';
+      setLang(init);
+
+      // Deferred scripts (chrome, enhancements, carousels) inject English markup after
+      // this point, which made the visible wording differ from refresh to refresh in
+      // Arabic. Re-apply the current language once everything has been injected.
+      function reapply() {
+        var cur = document.documentElement.getAttribute('lang') || 'en';
+        try { setLang(cur); } catch (e) { }
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', reapply);
+      window.addEventListener('load', reapply);
+      [120, 400, 1000, 2000].forEach(function (t) { setTimeout(reapply, t); });
+    })();
+
+  </script>
+  <script src="/_version-switch.js" defer></script>
+  <script src="/_v11-chrome.js" defer></script>
+  <script src="/_v12-enhance.js" defer></script>
+  <script>/* v1.2 home-page programme finder tile */
+    (function () {
+      var go = document.getElementById('findGo'); if (!go) return;
+      var lvl = document.getElementById('findLevel'), fld = document.getElementById('findField');
+      function href() {
+        var p = new URLSearchParams();
+        if (lvl.value) p.set('level', lvl.value);
+        if (fld.value) p.set('q', fld.selectedOptions[0].textContent.replace(/&amp;/g, '&').split(/[,&]/)[0].trim());
+        var qs = p.toString();
+        go.setAttribute('href', 'academics/programs.html' + (qs ? ('?' + qs) : ''));
+      }
+      [lvl, fld].forEach(function (el) { el.addEventListener('change', href) });
+      href();
+    })();</script>
+  <script>window.__MEU_AR_NATIVE = true;</script>
+  <script src="/_ar-dict.js" defer></script>
+  <script src="/_ar-dict-pages.js" defer></script>
+  <script src="/_ar-supp.js" defer></script>

@@ -1,0 +1,878 @@
+<!-- SECTION NAV -->
+<div class="subnav"><div class="wrap">
+  <ul class="topnav" id="topnav">
+    <li><button class="active" id="nav-plan" onclick="navTo('plan')">Plan your Admission</button></li>
+    <li><button id="nav-cal" onclick="navTo('cal')">Academic Calendar</button></li>
+    <li><button id="nav-sch" onclick="navTo('sch')">Scholarships</button></li>
+    <li><a href="/admission/fees">Fees</a></li>
+    <li><button id="nav-staff" onclick="navTo('staff')">Staff</button></li>
+    <li><button id="nav-help" onclick="navTo('help')">Contact Us</button></li>
+  </ul>
+  <button class="burger" onclick="document.getElementById('topnav').classList.toggle('open')">&#9776;</button>
+</div></div>
+
+<!-- PAGE HEAD -->
+<header class="pagehead"><div class="wrap">
+  <div class="crumb"><a onclick="navTo('plan')">Home</a> &nbsp;&rsaquo;&nbsp; Admission and Registration</div>
+  <h1>Admission and Registration</h1>
+  <p class="sub" id="headSub">Plan your admission step by step — confirm eligibility, choose a program, review your financial plan, and apply.</p>
+  <div class="levelbar" id="levelbar">
+    <button class="active" onclick="setLvl('ug',this)">Undergraduate</button>
+    <button onclick="setLvl('pg',this)">Post-graduate (Master&rsquo;s)</button>
+    <button onclick="setLvl('dip',this)">Higher Diploma</button>
+    <button onclick="setLvl('idip',this)">Intermediate Diploma</button>
+  </div>
+</div></header>
+
+<!-- ============ SECTION: PLAN YOUR ADMISSION ============ -->
+<div class="view on" id="view-plan">
+  <div class="stepper"><div class="wrap"><div class="steprow">
+    <button class="stepitem active" id="step0" onclick="goStep(0)"><span class="sn">1</span><span class="stx"><span class="st">Requirements</span><span class="sd">Confirm your eligibility</span></span></button>
+    <button class="stepitem" id="step1" onclick="goStep(1)"><span class="sn">2</span><span class="stx"><span class="st">Choose program</span><span class="sd">Browse faculties &amp; majors</span></span></button>
+    <button class="stepitem locked" id="step2" onclick="goStep(2)"><span class="sn">3</span><span class="stx"><span class="st">Fees &amp; Financial Plan</span><span class="sd">Published fees by stage</span></span></button>
+    <button class="stepitem" id="step3" onclick="goStep(3)"><span class="sn">4</span><span class="stx"><span class="st">Apply</span><span class="sd">Submit on EduGate</span></span></button>
+  </div></div></div>
+
+  <div class="content"><div class="wrap">
+    <section class="panel on" id="panel0">
+      <p class="eyebrow">Step 1 — Eligibility</p>
+      <h2 class="h2"><span id="reqLvl">Undergraduate</span> admission requirements</h2>
+      <div data-lv="ug">
+        <div class="reqgrid">
+          <div class="prose"><ol>
+            <li>General Secondary Education certificate (Tawjihi) or its equivalent, with a minimum average of 60% for all majors, except Law (65%) and Pharmacy &amp; Engineering (80%).</li>
+            <li>Non-Jordanian students may be admitted up to 10 marks below the Jordanian average, following the GSE streams that govern each major.</li>
+            <li>Community College Diploma holders who pass the Qualifying Exam (minimum 68%; Pharmacy &amp; Engineering 70%) are accepted into equivalent approved majors.</li>
+            <li>Holders of 3- and 4-year Diplomas may enrol through the Bridging System after passing Al-Balqa&rsquo;s Qualifying Exam at the same thresholds.</li>
+          </ol><p style="font-size:.9rem;color:var(--muted)">Up to 50% of passed courses are credited under the Bridging System.</p></div>
+          <div class="boxcard"><h4>Documents required</h4><ol>
+            <li>Original or certified Tawjihi transcript.</li>
+            <li>Equivalence for foreign certificates from the Ministry of Education.</li>
+            <li>Copy of passport or national ID, and birth certificate.</li>
+            <li>Military service booklet (male Jordanians).</li>
+            <li>Two recent photographs, 6&times;4 cm.</li>
+          </ol></div>
+        </div>
+      </div>
+      <div data-lv="pg">
+        <div class="reqgrid">
+          <div class="prose">
+            <p>Post-graduate (Master&rsquo;s) admission is based on a recognised bachelor&rsquo;s degree that meets the faculty&rsquo;s minimum standing, together with an English-language test score.</p>
+            <ul><li>A recognised bachelor&rsquo;s degree from an accredited university.</li>
+            <li>English proficiency &mdash; TOEFL, IELTS or the National English Exam. Without a score, a 6-credit remedial course is taken in the first year.</li>
+            <li>Applicants ranked below &ldquo;Good&rdquo; may be admitted conditionally on passing three faculty-set courses (minimum 70% each) in the first semester.</li></ul>
+            <div class="placeholder"><b>To confirm:</b> the exact minimum GPA per program and the English-test thresholds.</div>
+          </div>
+          <div class="boxcard"><h4>English-test centres</h4>
+            <div class="chiprow"><span class="chip">TOEFL &mdash; AMIDEAST / ETS</span><span class="chip">IELTS &mdash; British Council</span><span class="chip">National English Exam</span></div>
+            <p style="font-size:.9rem;color:var(--grey);margin-top:13px">Affiliation students must provide a public-university certificate confirming 30 passed credit hours.</p>
+          </div>
+        </div>
+      </div>
+      <div data-lv="dip">
+        <div class="prose"><p>Higher Diploma admission follows the graduate framework &mdash; a recognised prior qualification in a relevant field, plus the standard documents.</p>
+          <div class="placeholder"><b>Placeholder:</b> detailed Higher Diploma entry requirements are not published on the current site.</div></div>
+      </div>
+      <div data-lv="idip">
+        <div class="prose"><p>Intermediate Diploma (&#1583;&#1576;&#1604;&#1608;&#1605; &#1605;&#1578;&#1608;&#1587;&#1591;) admission follows the undergraduate framework &mdash; a General Secondary Certificate (Tawjihi) or a recognised equivalent, plus the standard documents.</p>
+          <div class="placeholder"><b>Placeholder:</b> detailed Intermediate Diploma entry requirements are not published on the current site.</div></div>
+      </div>
+      <div class="navbtns"><span></span><button class="btn btn-primary" onclick="goStep(1)">Next: choose a program &rarr;</button></div>
+    </section>
+
+    <section class="panel" id="panel1">
+      <p class="eyebrow">Step 2 — Choose your program</p>
+      <h2 class="h2">Find your <span id="progLvl">major</span>.</h2>
+      <p class="lead">Select a faculty to preview its programs, then choose one to continue to your financial plan.</p>
+      <div id="explorerView">
+        <div class="facexp">
+          <div class="faclist" id="faclist"></div>
+          <div class="facprev"><div class="pbg" id="facBg"></div><div class="pc">
+            <span class="pe">Faculty</span><h3 id="facName">&mdash;</h3>
+            <div class="majlist" id="majList"></div>
+          </div></div>
+        </div>
+        <div style="margin-top:14px"><button class="linkbtn" onclick="showAllList()">&#9783; List all options</button></div>
+      </div>
+      <div id="allListView" style="display:none">
+        <div style="margin-top:6px"><button class="linkbtn" onclick="showExplorer()">&larr; Back to faculty view</button></div>
+        <div class="alllist" id="allList"></div>
+      </div>
+      <div class="navbtns"><button class="btn btn-ghost" onclick="goStep(0)">&larr; Requirements</button><button class="btn btn-primary" id="toCost" onclick="goStep(2)" disabled style="opacity:.5">Select a program first</button></div>
+    </section>
+
+    <section class="panel" id="panel2">
+      <p class="eyebrow">Step 3 — Fees &amp; Financial Plan</p>
+      <h2 class="h2">Your financial plan.</h2>
+      <p class="lead">Drawn from MEU&rsquo;s published fee schedule. Tuition is assessed per credit hour at the point of course registration.</p>
+      <div id="costWrap"><div class="emptycost"><b>No program selected yet.</b><br>Return to Step 2 and choose a program to see your full financial plan.</div></div>
+      <div class="navbtns"><button class="btn btn-ghost" onclick="goStep(1)">&larr; Change program</button>
+        <span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost" onclick="restart()">&#8635; Start over</button><a class="btn btn-primary" href="https://reg.meu.edu.jo/faces/ui/pages/guest/admissionOnline/index.xhtml" target="_blank" rel="noopener">Register now &rarr;</a></span></div>
+    </section>
+
+    <section class="panel" id="panel3">
+      <p class="eyebrow">Step 4 — Apply</p>
+      <h2 class="h2">Ready when you are.</h2>
+      <p class="lead">Submit your application and upload your documents through MEU&rsquo;s EduGate admission portal. You can return to any earlier step from the stepper above.</p>
+      <div class="boxcard" style="margin-top:22px;max-width:520px"><h4>Before you start, have these ready:</h4><ol>
+        <li>Your certified certificate and transcript.</li>
+        <li>Passport or national ID, and birth certificate.</li>
+        <li>Two recent photographs (6&times;4 cm).</li>
+        <li>Certificate equivalence, if applicable.</li>
+      </ol></div>
+      <div class="navbtns"><button class="btn btn-ghost" onclick="goStep(2)">&larr; Back to fees</button>
+        <span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost" onclick="restart()">&#8635; Start over</button><a class="btn btn-primary" href="https://reg.meu.edu.jo/faces/ui/pages/guest/admissionOnline/index.xhtml" target="_blank" rel="noopener">Open EduGate &amp; apply &rarr;</a></span></div>
+    </section>
+  </div></div>
+</div>
+
+<!-- ============ SECTION: ACADEMIC CALENDAR ============ -->
+<div class="view" id="view-cal">
+  <div class="content"><div class="wrap">
+    <p class="eyebrow">Academic Calendar</p>
+    <h2 class="h2">Academic year 2025&ndash;2026.</h2>
+    <p class="lead">Key dates by semester &mdash; instruction, registration, exams and holidays. All Islamic holidays are subject to moon sighting and confirmation by the University presidency.</p>
+    <div class="caltabs">
+      <button class="caltab active" onclick="showSem('s1',this)">First Semester</button>
+      <button class="caltab" onclick="showSem('s2',this)">Second Semester</button>
+      <button class="caltab" onclick="showSem('s3',this)">Summer Semester</button>
+      <button class="caltab" onclick="showSem('all',this)">All Semesters</button>
+    </div>
+    <div class="callegend">
+      <span><i class="lg start"></i> Term start / end</span>
+      <span><i class="lg reg"></i> Registration</span>
+      <span><i class="lg exam"></i> Examinations</span>
+      <span><i class="lg wd"></i> Withdrawal / add</span>
+      <span><i class="lg hol"></i> Holiday</span>
+      <span><i class="lg gen"></i> Other</span>
+    </div>
+    <div id="calBody"></div>
+  </div></div>
+</div>
+
+<!-- ============ SECTION: SCHOLARSHIPS ============ -->
+<div class="view" id="view-sch">
+  <div class="content"><div class="wrap">
+    <div class="schkind" role="tablist" aria-label="Scholarship type">
+      <a class="active" href="/admission/admission#sch" aria-current="page">Academic Scholarships</a>
+      <a href="/admission/talent-scholarship">Talent Scholarship</a>
+    </div>
+    <p class="eyebrow">Merit scholarships</p>
+    <h2 class="h2">Scholarships by program.</h2>
+    <p class="lead">MEU offers incentive grants to new students, scaled by academic average. The higher your average, the larger the scholarship &mdash; with a full 100% scholarship for the very top band. Grants apply to all approved study-plan hours.</p>
+
+    <div class="schroute" id="schRoute">
+      <button class="schroutebtn active" onclick="setRoute('tawjihi',this)">General Secondary (Tawjihi) students</button>
+      <button class="schroutebtn" onclick="setRoute('bridge',this)">Intermediate / Comprehensive Diploma students</button>
+    </div>
+
+    <div class="facexp schexp">
+      <div class="faclist" id="schFacList"></div>
+      <div class="facprev"><div class="pbg" id="schBg"></div><div class="pc">
+        <span class="pe">Faculty</span><h3 id="schFacName">&mdash;</h3>
+        <div class="schprev" id="schProgs"></div>
+      </div></div>
+    </div>
+
+    <div class="schnotes">
+      <div class="schnote"><span class="ic">&#127891;</span><div>For new students entering the <b>first semester of 2025/2026</b>, for Jordanian and non-Jordanian holders.</div></div>
+      <div class="schnote"><span class="ic">&#128209;</span><div>Incentive grants cover <b>all credit hours</b> of the approved study plan, per the University's terms and instructions.</div></div>
+      <div class="schnote"><span class="ic">&#11088;</span><div>The <b>100% scholarship</b> applies to the Jordanian General Secondary (Tawjihi) certificate only.</div></div>
+    </div>
+    <p class="calnote">Translated from MEU&rsquo;s published scholarships page. Figures are the per-credit-hour tuition after the grant, in Jordanian Dinar. Subject to the University&rsquo;s terms and instructions.</p>
+  </div></div>
+</div>
+
+<!-- ============ SECTION: STAFF ============ -->
+<div class="view" id="view-staff">
+  <div class="content"><div class="wrap">
+    <p class="eyebrow">The team</p>
+    <h2 class="h2">Admission &amp; Registration staff.</h2>
+    <p class="lead">The people who process your application and look after your academic records.</p>
+    <div class="staffgrid" id="staffGrid"></div>
+  </div></div>
+</div>
+
+<!-- ============ SECTION: NEED HELP ============ -->
+<div class="view" id="view-help">
+  <div class="content"><div class="wrap">
+    <div class="helpwrap">
+      <p class="eyebrow">Need help?</p>
+      <h2 class="h2">The Admission &amp; Registration Department.</h2>
+      <div class="prose">
+        <p>The Admission and Registration Department is vital to MEU&rsquo;s success, as it is one of the only departments at the University that directly connects to students and faculty members at MEU and to the Ministry of Higher Education and Scientific Research. The Department is responsible for outlining MEU&rsquo;s admission policies, helping students with the major-changing process, and running all student registration procedures.</p>
+        <p>The Department is also in charge of tracking students&rsquo; academic affairs from the point of their admission until the day of their graduation, and enforcing the rules of the Certificates and Academic Degrees Granting Guidelines. As the Department is essential to so many University processes, it must be maintained so that it can continue to efficiently serve students during their journeys to academic and professional success.</p>
+      </div>
+    </div>
+    <p class="eyebrow" style="margin-top:36px">Get in touch</p>
+    <h3 style="font-size:1.3rem;color:var(--maroon-deep)">Reach the team directly.</h3>
+    <div class="contactgrid">
+      <a class="contactcard wa" href="https://api.whatsapp.com/send?phone=962797122000" target="_blank" rel="noopener"><div class="ci">&#128172;</div><h4>WhatsApp</h4><p>Fastest for quick questions</p><div class="cv">+962 79 712 2000</div></a>
+      <a class="contactcard ph" href="tel:+962797122000"><div class="ci">&#128222;</div><h4>Call us</h4><p>Speak with the department</p><div class="cv">+962 79 712 2000</div></a>
+      <a class="contactcard em" href="mailto:admission@meu.edu.jo"><div class="ci">&#9993;</div><h4>Email</h4><p>For documents &amp; detailed queries</p><div class="cv">admission@meu.edu.jo</div></a>
+    </div>
+    <p class="footnote">Email address shown is indicative — confirm the department&rsquo;s published address before publishing. WhatsApp and phone are the numbers listed on meu.edu.jo.</p>
+  </div></div>
+</div>
+
+
+
+<script>
+var IMG={
+ "Arts & Educational Sciences":"../assets/campus-interior.jpg",
+ "Law":"../assets/fac-law.jpg",
+ "Business":"../assets/news-film.jpg",
+ "Information Technology":"../assets/fac-it.jpg",
+ "Media":"../assets/fac-media.jpg",
+ "Engineering & Design":"../assets/fac-eng.jpg",
+ "Pharmacy":"../assets/fac-pharmacy.jpg",
+ "Allied Medical Sciences":"../assets/news-emergency.jpg",
+ "Nursing":"../assets/fac-nursing.jpg"
+};
+var UG={
+ "Arts & Educational Sciences":[
+   {n:"English Language and Literature",jd:80,avg:60,hrs:135,d:[[98,100],[60,50]]},
+   {n:"Arabic Language and Literature",jd:50,avg:60,hrs:132,d:[[98,100],[85,45],[80,40],[60,35]]},
+   {n:"Applied Translation",jd:90,avg:60,hrs:135,d:[[98,100],[85,50],[80,45],[60,40]]},
+   {n:"Education Technology",jd:70,avg:60,hrs:132,d:[[98,100],[60,50]]},
+   {n:"Sports Management and Training",jd:70,avg:60,hrs:132,d:[[98,100],[85,50],[80,45],[60,40]]}],
+ "Law":[{n:"Law",jd:65,avg:65,hrs:141,d:[[98,100],[85,50],[80,45],[65,40]]}],
+ "Business":[
+   {n:"Business Administration",jd:80,avg:60,hrs:132,d:[[98,100],[85,50],[80,45],[60,40]]},
+   {n:"Accounting",jd:85,avg:60,hrs:132,d:[[98,100],[60,50]]},
+   {n:"E-Marketing and Social Media",jd:90,avg:60,hrs:132,d:[[98,100],[85,40],[80,35],[60,30]]},
+   {n:"E-Business and E-Commerce",jd:90,avg:60,hrs:132,d:[[98,100],[85,45],[80,40],[60,35]]},
+   {n:"Business Intelligence",jd:90,avg:60,hrs:132,d:[[98,100],[80,40],[60,35]]},
+   {n:"Human Resource Management",jd:90,avg:60,hrs:132,d:[[98,100],[85,50],[80,45],[60,40]]},
+   {n:"Financial Technology (FinTech)",jd:100,avg:60,hrs:132,d:[[98,100],[60,50]]},
+   {n:"Supply Chain & Digital Logistics",jd:90,avg:60,hrs:132,d:[[98,100],[85,40],[80,35],[60,30]]},
+   {n:"Business and Psychology",jd:90,avg:60,hrs:132,d:[[98,100],[60,50]]}],
+ "Information Technology":[
+   {n:"Computer Science",jd:90,avg:60,hrs:132,d:[[98,100],[85,40],[80,35],[60,30]]},
+   {n:"Software Engineering",jd:100,avg:60,hrs:132,d:[[98,100],[85,40],[80,35],[60,30]]},
+   {n:"Cyber Security",jd:100,avg:60,hrs:132,d:[[98,100],[85,40],[80,35],[60,30]]},
+   {n:"Artificial Intelligence",jd:100,avg:60,hrs:132,d:[[98,100],[85,40],[80,35],[60,30]]}],
+ "Media":[
+   {n:"Journalism and Media",jd:80,avg:60,hrs:132,d:[[98,100],[85,50],[80,45],[60,40]]},
+   {n:"Radio and Television",jd:70,avg:60,hrs:132,d:[[98,100],[85,50],[80,45],[60,40]]},
+   {n:"Digital Media",jd:80,avg:60,hrs:132,d:[[98,100],[85,50],[80,45],[60,40]]}],
+ "Engineering & Design":[
+   {n:"Renewable Energy Engineering",jd:90,avg:80,hrs:162,d:[[98,100],[80,50]]},
+   {n:"Intelligence Systems Engineering",jd:110,avg:80,hrs:162,d:[[98,100],[80,50]]},
+   {n:"Architecture",jd:110,avg:80,hrs:165,d:[[98,100],[80,50]]},
+   {n:"Biomedical Engineering",jd:110,avg:80,hrs:165,d:[[98,100],[80,50]]},
+   {n:"Graphic Design",jd:90,avg:60,hrs:135,d:[[98,100],[85,50],[80,45],[60,40]]},
+   {n:"Interior Design",jd:100,avg:60,hrs:141,d:[[98,100],[85,45],[80,40],[60,35]]}],
+ "Pharmacy":[
+   {n:"Pharmacy",jd:130,avg:80,hrs:165,d:[[98,100],[90,50],[85,45],[80,40]]},
+  ],
+ "Allied Medical Sciences":[
+   {n:"Physiotherapy",jd:100,avg:70,hrs:132,d:[[98,100],[70,50]]},
+   {n:"Medical Analysis and Laboratory Sciences",jd:100,avg:70,hrs:136,d:[[98,100],[85,50],[80,45],[70,40]]},
+   {n:"Nutrition and Integrative Health",jd:80,avg:70,hrs:132,d:[[98,100],[70,50]]},
+   {n:"Genetic Engineering and Biotechnology",jd:100,avg:60,hrs:132,d:[[98,100],[60,50]]},
+   {n:"Paramedic and Emergency Science",jd:90,avg:70,hrs:132,d:[[98,100],[70,50]]}],
+ "Nursing":[{n:"Nursing",jd:90,avg:70,hrs:134,d:[[98,100],[85,40],[80,35],[70,30]]}]
+};
+var PG={
+ "Law":[{n:"Private Law",jd:140,hrs:33},{n:"Public Law",jd:140,hrs:33}],
+ "Business":[{n:"MBA",jd:200,hrs:33},{n:"Accounting",jd:150,hrs:33}],
+ "Media":[{n:"Media",jd:180,hrs:33}],
+ "Pharmacy":[{n:"Pharmaceutical Sciences",jd:180,hrs:33}]
+};
+var FEE={
+ ug:{appLabel:"Enrollment fee",appOnce:75, deposit:75, regPerSem:500, recHrs:15, terms:8, free:["Transportation","Health insurance"]},
+ pg:{appLabel:"Enrollment application fee",appOnce:100, deposit:75, regPerSem:550, recHrs:9, terms:4, free:["Admission fee","ID card"]}
+};
+var WORD={ug:"Undergraduate",pg:"Post-graduate",dip:"Higher Diploma",idip:"Intermediate Diploma"};
+var MJW={ug:"major",pg:"master\u2019s program",dip:"diploma",idip:"diploma"};
+var SUBS={plan:"Plan your admission step by step — confirm eligibility, choose a program, review your financial plan, and apply.",
+ cal:"Semester dates, registration windows and deadlines.",
+ sch:"Merit scholarships by program.",
+ staff:"Meet the Admission and Registration team.",
+ help:"Reach the department, and learn what it does."};
+
+var step=0, selected=null, hours=15, grade=null, tierIdx=null;
+function data(){return document.body.getAttribute('data-level')==='pg'?PG:UG;}
+function lvl(){return document.body.getAttribute('data-level');}
+
+/* SECTION NAV */
+function navTo(s){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('view-'+s).classList.add('on');
+  document.querySelectorAll('.topnav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('nav-'+s).classList.add('active');
+  document.getElementById('topnav').classList.remove('open');
+  document.getElementById('headSub').textContent=SUBS[s];
+  // level toggle only relevant to the planning flow
+  document.getElementById('levelbar').style.display = (s==='plan')?'flex':'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function setLvl(l,btn){
+  document.body.setAttribute('data-level',l);
+  document.querySelectorAll('.levelbar button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('reqLvl').textContent=WORD[l];
+  document.getElementById('progLvl').textContent=MJW[l];
+  showExplorer();
+  restart();
+  if(l==='dip'||l==='idip') buildDipPicker(WORD[l]); else buildPicker();
+}
+
+function goStep(i){
+  if(i===2 && !selected) i=1;
+  step=i;
+  document.querySelectorAll('.panel').forEach((p,idx)=>p.classList.toggle('on',idx===i));
+  document.querySelectorAll('.stepitem').forEach((r,idx)=>r.classList.toggle('active',idx===i));
+  window.scrollTo({top:document.querySelector('.stepper').offsetTop-80,behavior:'smooth'});
+}
+
+function buildPicker(){
+  var d=data(); var facs=Object.keys(d); var html=''; var i=0;
+  facs.forEach(function(f){
+    var num=('0'+(++i)).slice(-2);
+    html+='<div class="facrow" onclick="showFac(\''+encodeURIComponent(f)+'\',this)"><span class="fl"><span class="fnum">'+num+'</span><span><h4>'+f+'</h4><span class="fcount">'+d[f].length+' program'+(d[f].length>1?'s':'')+'</span></span></span><span class="farrow">&rarr;</span></div>';
+  });
+  document.getElementById('faclist').innerHTML=html;
+  showFac(encodeURIComponent(facs[0]),document.querySelector('.facrow'));
+}
+function buildDipPicker(label){
+  label = label || 'Higher Diploma';
+  document.getElementById('faclist').innerHTML='<div style="padding:24px;color:var(--muted);font-size:.9rem">'+label+' majors are not published on the current site.</div>';
+  document.getElementById('facName').textContent=label;
+  document.getElementById('majList').innerHTML='<div style="color:rgba(255,255,255,.85);font-size:.9rem">Add the diploma program list and the financial plan works identically.</div>';
+  document.getElementById('facBg').style.backgroundImage='';
+}
+function showFac(encF,el){
+  var f=decodeURIComponent(encF); var d=data();
+  document.querySelectorAll('.facrow').forEach(r=>r.classList.remove('active'));
+  if(el)el.classList.add('active');
+  document.getElementById('facName').textContent=f;
+  document.getElementById('facBg').style.backgroundImage="url('"+(IMG[f]||'')+"')";
+  var html='';
+  d[f].forEach(function(p,idx){
+    var meta=(p.avg?'Min '+p.avg+'% \u00b7 ':'')+p.hrs+' cr \u00b7 '+p.jd+' JD/hr';
+    var isSel=selected&&selected.name===p.n&&selected.fac===f;
+    html+='<button class="majopt'+(isSel?' sel':'')+'" onclick="pickMajor(\''+encodeURIComponent(f)+'\','+idx+',this)"><span><span class="mn">'+p.n+'</span><br><span class="mm">'+meta+'</span></span><span class="mpick">'+(isSel?'Selected':'Pick')+'</span></button>';
+  });
+  document.getElementById('majList').innerHTML=html;
+}
+function pickMajor(encF,idx,el){
+  var f=decodeURIComponent(encF); var p=data()[f][idx];
+  selectProgram(f,p);
+  document.querySelectorAll('.majopt').forEach(m=>{m.classList.remove('sel');var t=m.querySelector('.mpick');if(t)t.textContent='Pick';});
+  el.classList.add('sel'); el.querySelector('.mpick').textContent='Selected';
+}
+function selectProgram(f,p){
+  selected={name:p.n,jd:p.jd,hrs:p.hrs,avg:p.avg,fac:f,d:p.d||[]};
+  grade=null;
+  tierIdx=defaultTierIdx(selected.d);
+  hours=FEE[lvl()]?FEE[lvl()].recHrs:15;
+  document.getElementById('step2').classList.remove('locked');
+  document.getElementById('step1').classList.add('done');
+  var tc=document.getElementById('toCost'); tc.disabled=false; tc.style.opacity='1'; tc.textContent='Next: fees & financial plan \u2192';
+  buildCost();
+}
+// resolve the currently selected tier's discount %
+function discountFor(){
+  if(!selected||!selected.d||!selected.d.length||tierIdx==null) return 0;
+  var t=selected.d[tierIdx]; return t?t[1]:0;
+}
+// human label for a tier [minGrade, disc]; uses the next tier up to show the band
+function tierLabel(tiers,i){
+  var t=tiers[i];
+  var lo=t[0];
+  // tiers are stored high-to-low; the upper bound is the previous (higher) tier's min, minus a hair
+  var hi=(i>0)?tiers[i-1][0]:100;
+  var band = (hi>=100) ? (lo+'% and above') : (lo+'% – '+(Math.round((hi-0.1)*10)/10)+'%');
+  return band+'  ·  '+t[1]+'% scholarship';
+}
+// choose default tier per rules: middle option; if 2 → the lower discount; if 1 → it
+function defaultTierIdx(tiers){
+  if(!tiers||!tiers.length) return null;
+  var n=tiers.length;
+  if(n===1) return 0;
+  if(n===2){ // pick lower discount (tiers high-to-low by grade → lower grade = lower disc usually = last)
+    return (tiers[0][1]<=tiers[1][1])?0:1;
+  }
+  return Math.floor(n/2); // middle
+}
+function buildAllList(){
+  var d=data(); var html='';
+  Object.keys(d).forEach(function(f){
+    html+='<div class="allfac"><h3>'+f+'</h3><div class="allgrid">';
+    d[f].forEach(function(p,idx){
+      var sel=selected&&selected.name===p.n&&selected.fac===f;
+      html+='<button class="allcard'+(sel?' sel':'')+'" onclick="pickFromList(\''+encodeURIComponent(f)+'\','+idx+')"><h4>'+p.n+'</h4><div class="am">'+(p.avg?'<span>Min '+p.avg+'%</span>':'')+'<span>'+p.hrs+' cr hours</span><span>'+p.jd+' JD / hr</span></div><span class="ago">'+(sel?'Selected \u2713':'Select &rarr;')+'</span></button>';
+    });
+    html+='</div></div>';
+  });
+  document.getElementById('allList').innerHTML=html;
+}
+function pickFromList(encF,idx){var f=decodeURIComponent(encF);var p=data()[f][idx];selectProgram(f,p);buildAllList();}
+function showAllList(){buildAllList();document.getElementById('explorerView').style.display='none';document.getElementById('allListView').style.display='block';}
+function showExplorer(){document.getElementById('allListView').style.display='none';document.getElementById('explorerView').style.display='block';}
+
+function buildCost(){
+  if(!selected)return;
+  var f=FEE[lvl()]; var s=selected;
+  var perSemTuition=s.jd*hours;
+  var freeLines=f.free.map(x=>'<div class="ln"><span>'+x+'</span><span class="free">Free</span></div>').join('');
+  var hasDisc = lvl()==='ug' && s.d && s.d.length;
+  var gradeCtl='';
+  if(hasDisc){
+    var opts=s.d.map(function(t,i){
+      return '<option value="'+i+'"'+(i===tierIdx?' selected':'')+'>'+tierLabel(s.d,i)+'</option>';
+    }).join('');
+    gradeCtl='<div class="gradectl"><div class="gc-row"><label for="gr">Merit scholarship &mdash; select your Tawjihi average band</label>'+
+      '<select id="gr" onchange="setTier(this.value)">'+opts+'</select></div>'+
+      '<div class="gc-result" id="gcResult"></div></div>';
+  } else if(lvl()!=='ug'){
+    gradeCtl='<div class="gradectl nodisc">No published grade-based scholarship for '+WORD[lvl()].toLowerCase()+' programs. The figures below are full published fees.</div>';
+  }
+  var html=''+
+  '<div class="costhead"><div><h3>'+s.name+'</h3><div class="csub">'+s.fac+' \u00b7 '+WORD[lvl()]+'</div></div>'+
+    '<div class="perhr"><div class="big" id="perHr">'+s.jd+' JD</div><div class="lbl" id="perHrLbl">per credit hour</div></div></div>'+
+  gradeCtl+
+  '<div class="hoursctl"><label for="hr">Credit hours to register next semester</label>'+
+    '<input id="hr" type="range" min="3" max="18" step="1" value="'+hours+'" oninput="setHours(this.value)">'+
+    '<span class="hv" id="hrv">'+hours+' hrs</span><span class="rec">Recommended first-semester load: '+f.recHrs+' hrs</span></div>'+
+  '<div class="cats">'+
+    '<div class="cat a"><span class="ctag">Application</span><div class="ctime">One-time, at application</div><h4>'+f.appLabel+'</h4>'+
+      '<div class="ln"><span>'+f.appLabel+' (once)</span><span>'+f.appOnce+' JD</span></div>'+
+      '<div class="ph-tot"><span class="k">Payable once</span><span class="v">'+f.appOnce+' JD</span></div></div>'+
+    '<div class="cat b"><span class="ctag">Enrollment confirmation</span><div class="ctime">Indicative timing &mdash; to secure your place</div><h4>Confirmation deposit</h4>'+
+      '<div class="ln"><span>Refundable deposit (once)</span><span>'+f.deposit+' JD</span></div>'+
+      '<div class="ph-tot"><span class="k">Refundable, payable once</span><span class="v">'+f.deposit+' JD</span></div></div>'+
+    '<div class="cat c"><span class="ctag">Course registration</span><div class="ctime">Each semester, at registration</div><h4>Tuition &amp; registration</h4>'+
+      '<div class="ln"><span>Registration fee / semester</span><span>'+f.regPerSem+' JD</span></div>'+
+      '<div class="ln" id="lnList"><span>Tuition (list) &mdash; '+hours+' hrs &times; '+s.jd+' JD</span><span id="semTuiList">'+perSemTuition.toLocaleString()+' JD</span></div>'+
+      '<div class="ln disc-line" id="lnDisc" style="display:none"><span id="discLabel">Scholarship</span><span id="semDisc">&minus;0 JD</span></div>'+
+      '<div class="ln" id="lnNet"><span>Tuition payable</span><span id="semTui">'+perSemTuition.toLocaleString()+' JD</span></div>'+
+      freeLines+
+      '<div class="ph-tot"><span class="k">Estimated / semester</span><span class="v" id="semTot">'+(f.regPerSem+perSemTuition).toLocaleString()+' JD</span></div></div>'+
+  '</div>'+
+  '<div class="totalband"><div><div class="jt-k">Total program fees (estimated)</div><div class="jt-v" id="totalV">&mdash;</div></div>'+
+    '<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><button class="fullbtn" onclick="toggleFull()">View full breakdown &#9662;</button><div class="jt-note" id="totalNote"></div></div></div>'+
+  '<div class="fullshow" id="fullShow"></div><p class="footnote" id="costFoot"></p>';
+  document.getElementById('costWrap').innerHTML=html;
+  recompute();
+}
+function setHours(v){hours=+v;document.getElementById('hrv').textContent=v+' hrs';recompute();}
+function setTier(v){ tierIdx = (v===''||v==null) ? null : +v; recompute(); }
+
+function recompute(){
+  if(!selected)return; var f=FEE[lvl()]; var s=selected;
+  var tiers=(s.d&&s.d.length)?s.d:[];
+  var disc=discountFor();                      // 0..100 from selected tier
+  var netRate = s.jd*(1-disc/100);             // discounted per-hour
+  var perSemList = s.jd*hours;
+  var perSemNet  = netRate*hours;
+  var perSemSave = perSemList-perSemNet;
+  var e;
+  // per-hour header reflects discount
+  if(e=document.getElementById('perHr')) e.innerHTML = disc>0 ? netRate.toLocaleString()+' JD <small style="font-size:.5em;text-decoration:line-through;color:rgba(255,255,255,.5)">'+s.jd+'</small>' : s.jd+' JD';
+  if(e=document.getElementById('perHrLbl')) e.textContent = disc>0 ? 'per credit hour (after '+disc+'% scholarship)' : 'per credit hour';
+  // result message for the selected band
+  if(e=document.getElementById('gcResult')){
+    if(!tiers.length || tierIdx==null) e.innerHTML='<span class="muted">Select your grade band to apply the scholarship.</span>';
+    else if(disc>=100) e.innerHTML='<span class="ok">Full scholarship: <b>100%</b> of tuition covered for this band.</span>';
+    else if(disc>0) e.innerHTML='<span class="ok">Scholarship applied: <b>'+disc+'%</b> off the per-credit-hour tuition for all plan hours.</span>';
+    else e.innerHTML='<span class="muted">No scholarship for this band.</span>';
+  }
+  // registration card lines
+  if(e=document.getElementById('semTuiList')) e.textContent=perSemList.toLocaleString()+' JD';
+  var dl=document.getElementById('lnDisc');
+  if(dl){
+    if(disc>0){ dl.style.display='flex';
+      document.getElementById('discLabel').textContent='Scholarship ('+disc+'% off)';
+      document.getElementById('semDisc').textContent='\u2212'+Math.round(perSemSave).toLocaleString()+' JD';
+    } else dl.style.display='none';
+  }
+  if(e=document.getElementById('semTui')) e.textContent=Math.round(perSemNet).toLocaleString()+' JD';
+  if(e=document.getElementById('semTot')) e.textContent=Math.round(f.regPerSem+perSemNet).toLocaleString()+' JD';
+
+  // totals (whole plan) with discount on tuition
+  var fullList=s.jd*s.hrs;
+  var fullNet=netRate*s.hrs;
+  var regEach=f.regPerSem*f.terms;
+  var totalList=fullList+f.appOnce+f.deposit+regEach;
+  var totalNet =fullNet +f.appOnce+f.deposit+regEach;
+  document.getElementById('totalV').innerHTML = disc>0
+     ? '\u2248 '+Math.round(totalNet).toLocaleString()+' JD <span style="font-size:.5em;color:var(--muted);text-decoration:line-through">'+totalList.toLocaleString()+'</span>'
+     : '\u2248 '+totalList.toLocaleString()+' JD';
+  document.getElementById('totalNote').textContent='Full plan: '+s.hrs+' credit hours across about '+f.terms+' semesters.'+(disc>0?' Scholarship applied to all plan hours.':'');
+
+  var discRows = disc>0
+    ? '<tr><td>Tuition &mdash; list ('+s.hrs+' hrs &times; '+s.jd+' JD)</td><td class="r">'+fullList.toLocaleString()+' JD</td></tr>'+
+      '<tr><td>Merit scholarship (&minus;'+disc+'% on tuition)</td><td class="r">\u2212'+Math.round(fullList-fullNet).toLocaleString()+' JD</td></tr>'+
+      '<tr><td>Tuition payable</td><td class="r">'+Math.round(fullNet).toLocaleString()+' JD</td></tr>'
+    : '<tr><td>Tuition &mdash; full plan ('+s.hrs+' hrs &times; '+s.jd+' JD)</td><td class="r">'+fullList.toLocaleString()+' JD</td></tr>';
+  document.getElementById('fullShow').innerHTML='<table>'+
+    discRows+
+    '<tr><td>'+f.appLabel+' (once)</td><td class="r">'+f.appOnce+' JD</td></tr>'+
+    '<tr><td>Refundable deposit (once)</td><td class="r">'+f.deposit+' JD</td></tr>'+
+    '<tr><td>Registration fees (about '+f.terms+' semesters)</td><td class="r">'+regEach.toLocaleString()+' JD</td></tr>'+
+    '<tr><td>Estimated total program fees</td><td class="r">'+Math.round(totalNet).toLocaleString()+' JD</td></tr></table>';
+  var note = lvl()==='pg' ? 'Master\u2019s plans are estimated at 33 credit hours; confirm per track (thesis vs comprehensive).' : 'Based on the published '+s.hrs+'-hour study plan.';
+  var discNote = (lvl()==='ug') ? ' Merit scholarships are MEU\u2019s published incentive grants for new students entering the first semester of 2025/2026 (Jordanian and non-Jordanian Tawjihi holders); the 100% grant applies to the Jordanian Tawjihi only, and grants cover all approved plan hours per the University\u2019s terms.' : '';
+  document.getElementById('costFoot').textContent='Estimate based on the credit hours and average you enter, and MEU\u2019s published fee and scholarship schedules. '+note+discNote+' Amounts are in Jordanian Dinar; non-Jordanian base rates and optional fees (transport, parking, service fees) are not included. Tuition is assessed per credit hour at the point of course registration. The refundable deposit\u2019s timing is indicative.';
+}
+function toggleFull(){document.getElementById('fullShow').classList.toggle('on');}
+function restart(){
+  selected=null;
+  document.getElementById('step2').classList.add('locked');
+  document.getElementById('step1').classList.remove('done');
+  var tc=document.getElementById('toCost'); if(tc){tc.disabled=true;tc.style.opacity='.5';tc.textContent='Select a program first';}
+  document.getElementById('costWrap').innerHTML='<div class="emptycost"><b>No program selected yet.</b><br>Return to Step 2 and choose a program to see your full financial plan.</div>';
+  showExplorer();
+  goStep(0);
+  if(lvl()!=='dip'&&lvl()!=='idip') buildPicker();
+}
+
+/* ===== STAFF (real photos + names + titles from meu.edu.jo) ===== */
+var STAFF=[
+ {n:"Nadia Al-Bakri",r:"Director of the Registration Department",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D9%86%D8%A7%D8%AF%D9%8A%D8%A9-%D9%85%D8%B5%D9%84%D8%AD-%D8%B5%D9%84%D8%A7%D8%AD-%D8%A7%D9%84%D8%A8%D9%83%D8%B1%D9%8A.png",lead:true},
+ {n:"Ayat Abdul Mahdi",r:"Assistant to the Director",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D8%A2%D9%8A%D9%80%D9%80%D9%80%D8%A7%D8%AA-%D8%B9%D9%84%D9%8A-%D8%B9%D9%85%D8%B1-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D9%85%D9%87%D9%80%D8%AF%D9%8A.png"},
+ {n:"Fadi Odeh",r:"Assistant to the Director",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D9%81%D8%A7%D8%AF%D9%8A-%D9%81%D9%87%D8%AF-%D9%8A%D9%88%D8%B3%D9%81-%D8%B9%D9%88%D8%AF%D9%87.png"},
+ {n:"Ahmed Almasri",r:"Head of the Documentation Division",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D8%A7%D8%AD%D9%85%D8%AF-%D8%AC%D8%A8%D8%B1-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A.png"},
+ {n:"Nasrin Nejad",r:"Admissions Officer",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D9%86%D8%B3%D8%B1%D9%8A%D9%86-%D8%AE%D9%84%D9%81-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D9%87%D8%A7%D8%AF%D9%8A-%D8%A7%D9%84%D9%86%D8%AC%D8%A7%D8%AF%D8%A7.png"},
+ {n:"Lina Salman",r:"Administrative Assistant",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D9%84%D9%8A%D9%86%D8%A7-%D8%A7%D8%B1%D9%85%D8%A7%D9%86%D8%AF%D9%88-%D8%B9%D8%B7%D8%A7-%D8%B3%D9%84%D9%85%D8%A7%D9%86.png"},
+ {n:"Ahmad Shiab",r:"Registration Officer",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D8%A7%D8%AD%D9%85%D8%AF-%D9%81%D9%8A%D8%B5%D9%84-%D9%85%D8%AD%D9%85%D8%AF-%D8%B4%D9%8A%D8%A7%D8%A8.png"},
+ {n:"Huthaifa Abu Matar",r:"Registration Officer",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D8%AD%D8%B0%D9%8A%D9%81%D8%A9-%D8%A3%D8%B3%D8%A7%D9%85%D8%A9-%D8%A7%D8%AD%D9%85%D8%AF-%D8%A3%D8%A8%D9%88-%D9%85%D8%B7%D8%B1.png"},
+ {n:"Norhan Alkurdi",r:"Registration Officer",img:"https://www.meu.edu.jo/wp-content/uploads/2024/08/%D9%86%D9%88%D8%B1%D9%87%D8%A7%D9%86-%D9%85%D8%B1%D9%88%D8%A7%D9%86-%D8%B9%D9%83%D8%A7%D8%B4-%D8%A7%D9%84%D9%83%D8%B1%D8%AF%D9%89.png"}
+];
+function initials(n){return n.split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();}
+function buildStaff(){
+  var html=STAFF.map(function(p){
+    var photo='<div class="photo" style="background-image:url(\''+p.img+'\')"><span class="av" style="display:none">'+initials(p.n)+'</span></div>';
+    if(p.lead){
+      return '<div class="person lead">'+photo+'<div class="pbody"><div class="ld">Department Director</div><div class="pn">'+p.n+'</div><div class="pr">'+p.r+'</div></div></div>';
+    }
+    return '<div class="person">'+photo+'<div class="pbody"><div class="pn">'+p.n+'</div><div class="pr">'+p.r+'</div></div></div>';
+  }).join('');
+  var g=document.getElementById('staffGrid'); g.innerHTML=html;
+  // graceful fallback to initials if a photo fails to load
+  g.querySelectorAll('.photo').forEach(function(ph){
+    var url=(ph.style.backgroundImage||'').slice(5,-2);
+    var test=new Image();
+    test.onerror=function(){ph.style.backgroundImage='none';ph.querySelector('.av').style.display='flex';};
+    test.src=url;
+  });
+}
+
+/* ===== ACADEMIC CALENDAR 2025-2026 (from MEU PDF) ===== */
+/* type: start|reg|exam|wd|hol|gen */
+var CAL={
+ s1:{label:"First Semester 2025–2026",months:[
+  {m:"September 2025",ev:[
+   {d:"14",day:"Sun",t:"start",x:"Beginning of the academic year 2025–2026; academic staff duties begin."}]},
+  {m:"October 2025",ev:[
+   {d:"10",day:"Fri",t:"reg",x:"Deadline for registration without penalty (all degrees)."},
+   {d:"11",day:"Sat",t:"start",x:"Instruction begins for postgraduate students; withdrawal & addition week (no financial penalty). Financial penalties begin for non-paying students and late registrants."},
+   {d:"12",day:"Sun",t:"start",x:"Instruction begins for the first semester. Placement tests begin (Arabic, English, computer skills) for new students."},
+   {d:"16",day:"Thu",t:"gen",x:"End of the placement tests period."},
+   {d:"17",day:"Fri",t:"wd",x:"End of withdrawal & addition week without financial penalties."},
+   {d:"18",day:"Sat",t:"wd",x:"Withdrawal period begins for one or more courses with a 50% loss (not shown on transcript)."},
+   {d:"23",day:"Thu",t:"gen",x:"Deadline for submitting incomplete exams (second & summer semester 2024–2025)."}]},
+  {m:"November 2025",ev:[
+   {d:"07",day:"Fri",t:"wd",x:"End of the 50%-loss withdrawal period (not shown on transcript)."},
+   {d:"08",day:"Sat",t:"wd",x:"Withdrawal period begins with a 100% loss, shown on transcript as Withdrawn."},
+   {d:"29",day:"Sat",t:"exam",x:"Midterm examination period begins for postgraduate students."},
+   {d:"30",day:"Sun",t:"exam",x:"Midterm examination period begins for undergraduate students."}]},
+  {m:"December 2025",ev:[
+   {d:"01",day:"Mon",t:"exam",x:"Date of the Comprehensive Examination."},
+   {d:"04",day:"Thu",t:"gen",x:"Deadline for submitting thesis plans."},
+   {d:"08",day:"Mon",t:"exam",x:"End of the midterm examination period (undergraduate & graduate)."},
+   {d:"18",day:"Thu",t:"gen",x:"Deadline for approval of midterm examination results."},
+   {d:"25",day:"Thu",t:"hol",x:"Christmas Day."}]},
+  {m:"January 2026",ev:[
+   {d:"01",day:"Thu",t:"hol",x:"New Year's Day."},
+   {d:"04",day:"Sun",t:"reg",x:"Registration begins for the second semester. Deadline for submitting the thesis for defense."},
+   {d:"15",day:"Thu",t:"wd",x:"End of the 100%-loss withdrawal period (shown as withdrawn). Deadline for receiving deprivation lists from faculties."},
+   {d:"18",day:"Sun",t:"exam",x:"Final examination period begins for practical courses."},
+   {d:"22",day:"Thu",t:"exam",x:"End of final exams for practical courses. Deadline for withdrawal from all courses. Final day of instruction."},
+   {d:"25",day:"Sun",t:"exam",x:"Final examination period begins for theoretical courses."}]},
+  {m:"February 2026",ev:[
+   {d:"08",day:"Sun",t:"exam",x:"End of the final examination period for theoretical courses."},
+   {d:"09",day:"Mon",t:"hol",x:"Student vacation begins (between first and second semesters)."},
+   {d:"11",day:"Wed",t:"gen",x:"Deadline for submitting first-semester results to the Department of Admission and Registration; defense results to the Deans' Council."},
+   {d:"12",day:"Thu",t:"gen",x:"Announcement of the first-semester results."},
+   {d:"26",day:"Thu",t:"hol",x:"End of the students' vacation period."}]}
+ ]},
+ s2:{label:"Second Semester 2025–2026",months:[
+  {m:"February 2026",ev:[
+   {d:"27",day:"Fri",t:"reg",x:"Deadline for registration without financial penalty (all degrees)."},
+   {d:"28",day:"Sat",t:"start",x:"Instruction begins for graduate students; withdrawal & addition week (no penalty). Financial penalties begin for non-paying/late registrants."}]},
+  {m:"March 2026",ev:[
+   {d:"01",day:"Sun",t:"start",x:"Instruction begins for the second semester. Placement tests begin (Arabic, English, computer skills) for new students."},
+   {d:"05",day:"Thu",t:"gen",x:"End of placement tests period."},
+   {d:"06",day:"Fri",t:"wd",x:"End of withdrawal & addition week without financial penalties."},
+   {d:"07",day:"Sat",t:"wd",x:"Withdrawal period begins with a 50% loss (not shown on transcript)."},
+   {d:"12",day:"Thu",t:"gen",x:"Deadline for submitting incomplete examinations (first semester 2025–2026)."},
+   {d:"20",day:"Fri",t:"hol",x:"Beginning of Eid al-Fitr.*"},
+   {d:"23",day:"Mon",t:"hol",x:"End of Eid al-Fitr.*"},
+   {d:"27",day:"Fri",t:"wd",x:"End of the 50%-loss withdrawal period (not shown on transcript)."},
+   {d:"28",day:"Sat",t:"wd",x:"Withdrawal period begins with a 100% loss (shown as Withdrawn)."}]},
+  {m:"April 2026",ev:[
+   {d:"25",day:"Sat",t:"exam",x:"Midterm examination period begins for postgraduate students."},
+   {d:"26",day:"Sun",t:"exam",x:"Midterm examination period begins for undergraduate students."},
+   {d:"27",day:"Mon",t:"exam",x:"Date of the Comprehensive Examination."},
+   {d:"30",day:"Thu",t:"gen",x:"Deadline for submitting thesis plans."}]},
+  {m:"May 2026",ev:[
+   {d:"01",day:"Fri",t:"hol",x:"Labour Day."},
+   {d:"04",day:"Mon",t:"exam",x:"End of the midterm examination period (undergraduate & graduate)."},
+   {d:"10",day:"Sun",t:"reg",x:"Registration begins for the summer semester."},
+   {d:"14",day:"Thu",t:"gen",x:"Deadline for approval of midterm examination results."},
+   {d:"18",day:"Mon",t:"gen",x:"Deadline for submitting the thesis for defense."},
+   {d:"25",day:"Mon",t:"hol",x:"Independence Day."},
+   {d:"26–30",day:"Tue–Sat",t:"hol",x:"Eid al-Adha.*"}]},
+  {m:"June 2026",ev:[
+   {d:"11",day:"Thu",t:"wd",x:"End of the 100%-loss withdrawal period (shown as withdrawn). Deadline for receiving deprivation lists from faculties."},
+   {d:"14",day:"Sun",t:"exam",x:"Final examination period begins for practical courses."},
+   {d:"16",day:"Tue",t:"hol",x:"Islamic New Year.*"},
+   {d:"18",day:"Thu",t:"exam",x:"Deadline for withdrawal from all courses. Final day of instruction. End of final exams for practical courses."},
+   {d:"20",day:"Sat",t:"exam",x:"Final examination period begins for theoretical courses."}]},
+  {m:"July 2026",ev:[
+   {d:"02",day:"Thu",t:"exam",x:"End of the final examination period for theoretical courses."},
+   {d:"03",day:"Fri",t:"hol",x:"Student vacation begins (between second and summer semesters)."},
+   {d:"05",day:"Sun",t:"gen",x:"Deadline for submitting second-semester results to the Department of Admission and Registration."},
+   {d:"06",day:"Mon",t:"gen",x:"Announcement of the second-semester results; defense results to the Deans' Council."},
+   {d:"09",day:"Thu",t:"hol",x:"End of the students' vacation period."}]}
+ ]},
+ s3:{label:"Summer Semester 2025–2026",months:[
+  {m:"July 2026",ev:[
+   {d:"11",day:"Sat",t:"start",x:"Instruction begins for postgraduate students; withdrawal & addition week (no penalty)."},
+   {d:"12",day:"Sun",t:"start",x:"Instruction begins for the summer semester. Placement tests begin for new students."},
+   {d:"14",day:"Tue",t:"wd",x:"End of withdrawal & addition week without financial penalties. End of placement tests for new students."},
+   {d:"15",day:"Wed",t:"wd",x:"Withdrawal period begins with a 50% loss (not shown on transcript)."},
+   {d:"22",day:"Wed",t:"wd",x:"End of the 50%-loss withdrawal period (not shown on transcript)."},
+   {d:"23",day:"Thu",t:"wd",x:"Withdrawal period begins with a 100% loss (shown as Withdrawn)."}]},
+  {m:"August 2026",ev:[
+   {d:"01",day:"Sat",t:"exam",x:"Midterm examination period begins for postgraduate students."},
+   {d:"02",day:"Sun",t:"exam",x:"Midterm examination period begins for undergraduate students."},
+   {d:"05",day:"Wed",t:"exam",x:"End of the midterm examination period (undergraduate & graduate)."},
+   {d:"11",day:"Tue",t:"reg",x:"Deadline for approval of midterm results. Registration begins for the first semester 2026–2027."},
+   {d:"25",day:"Tue",t:"hol",x:"Prophet's Birthday.*"},
+   {d:"26",day:"Wed",t:"wd",x:"End of the 100%-loss withdrawal period (shown as withdrawn). Deadline for receiving deprivation lists."},
+   {d:"27",day:"Thu",t:"exam",x:"Deadline for withdrawal from all courses. Final day of instruction."},
+   {d:"30",day:"Sun",t:"exam",x:"Final examination period begins for practical courses."},
+   {d:"31",day:"Mon",t:"exam",x:"End of final exams for practical courses; academic staff vacation begins."}]},
+  {m:"September 2026",ev:[
+   {d:"01",day:"Tue",t:"exam",x:"Final examination period begins for theoretical courses."},
+   {d:"06",day:"Sun",t:"exam",x:"End of the final examination period for theoretical courses."},
+   {d:"08",day:"Tue",t:"gen",x:"Deadline for submitting summer-semester results to the Department of Admission and Registration."},
+   {d:"09",day:"Wed",t:"gen",x:"Announcement of the summer-semester results."},
+   {d:"15",day:"Tue",t:"gen",x:"Academic staff duties begin."},
+   {d:"24",day:"Thu",t:"gen",x:"Deadline for reviewing the results of the final examinations."}]}
+ ]}
+};
+var TAGTEXT={start:"Term",reg:"Registration",exam:"Exams",wd:"Withdrawal",hol:"Holiday",gen:"Note"};
+var MONTHIDX={January:0,February:1,March:2,April:3,May:4,June:5,July:6,August:7,September:8,October:9,November:10,December:11};
+var TODAY=new Date(2026,5,17); // June 17, 2026 (current date)
+TODAY.setHours(0,0,0,0);
+var showPast=false;
+
+// parse a month label ("October 2025") + day field ("18" or "26–30") into a Date (uses first day in a range)
+function evDate(monthLabel,dayField){
+  var parts=monthLabel.split(' '); var mi=MONTHIDX[parts[0]]; var yr=+parts[1];
+  var dnum=parseInt(String(dayField).replace(/[^0-9].*$/,''),10);
+  return new Date(yr,mi,dnum);
+}
+// which semester contains today (fallback to nearest upcoming, else last)
+function defaultSem(){
+  var order=['s1','s2','s3'];
+  for(var i=0;i<order.length;i++){
+    var s=CAL[order[i]]; var ds=[];
+    s.months.forEach(mo=>mo.ev.forEach(e=>ds.push(evDate(mo.m,e.d))));
+    var min=ds[0],max=ds[0];
+    ds.forEach(d=>{if(d<min)min=d;if(d>max)max=d;});
+    if(TODAY<=max) return order[i]; // first semester whose events aren't all past
+  }
+  return 's3';
+}
+
+function renderMonths(s){ // returns {html, pastCount} for one semester object
+  var html=''; var pastCount=0;
+  s.months.forEach(function(mo){
+    var rows='';
+    mo.ev.forEach(function(e){
+      var d=evDate(mo.m,e.d);
+      var past=d<TODAY;
+      if(past)pastCount++;
+      if(past && !showPast) return;
+      var todayCls = (d.getTime()===TODAY.getTime())?' istoday':'';
+      rows+='<div class="calevent '+e.t+(past?' past':'')+todayCls+'"><div class="cd"><div class="dnum">'+e.d+'</div><div class="dday">'+e.day+'</div></div>'+
+        '<div class="ce"><span class="tag '+e.t+'">'+TAGTEXT[e.t]+'</span><br>'+e.x+'</div></div>';
+    });
+    if(rows) html+='<div class="calmonth"><h3>'+mo.m+'</h3>'+rows+'</div>';
+  });
+  return {html:html,past:pastCount};
+}
+function buildCal(sem){
+  var html=''; var pastCount=0;
+  if(sem==='all'){
+    var order=['s1','s2','s3'];
+    order.forEach(function(k){
+      var r=renderMonths(CAL[k]);
+      pastCount+=r.past;
+      html+='<div class="calsem"><h2 class="calsemtitle">'+CAL[k].label+'</h2>'+(r.html||'<div class="calempty2">No upcoming events in this semester.</div>')+'</div>';
+    });
+  } else {
+    var r=renderMonths(CAL[sem]);
+    pastCount=r.past;
+    html = r.html || '<div class="calempty2">No upcoming events in this semester.'+(pastCount?' <button class="linkbtn" style="padding:0" onclick="togglePast()">Show '+pastCount+' past event'+(pastCount>1?'s':'')+'</button>':'')+'</div>';
+  }
+  var toggle = pastCount ? '<div style="margin-top:18px"><button class="linkbtn" style="padding:0" onclick="togglePast()">'+(showPast?'&#8722; Hide past events':'&#43; Show '+pastCount+' past event'+(pastCount>1?'s':''))+'</button></div>' : '';
+  html+=toggle+'<p class="calnote">* All dates and Islamic holidays are subject to moon sighting and confirmation by the University presidency. Source: MEU University Calendar 2025–2026. Today: 17 June 2026.</p>';
+  document.getElementById('calBody').innerHTML=html;
+}
+var curSem='s1';
+function showSem(sem,btn){
+  curSem=sem;
+  document.querySelectorAll('.caltab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active'); else {
+    var idx={s1:0,s2:1,s3:2,all:3}[sem];
+    document.querySelectorAll('.caltab')[idx].classList.add('active');
+  }
+  buildCal(sem);
+}
+function togglePast(){showPast=!showPast;buildCal(curSem);}
+
+/* ===== SCHOLARSHIPS view (built from UG discount tiers) ===== */
+function bandText(tiers,i){
+  var lo=tiers[i][0];
+  var hi=(i>0)?tiers[i-1][0]:100;
+  return (hi>=100) ? (lo+'% +') : (lo+'–'+(Math.round((hi-0.1)*10)/10)+'%');
+}
+/* Diploma/bridging discount tiers (admission via Community-College Diploma / Comprehensive exam),
+   keyed by English major name. Tiers high-to-low [minGrade,disc]. Source: MEU scholarships page. */
+var DBRIDGE={
+ "English Language and Literature":[[68,50]],
+ "Applied Translation":[[85,50],[75,45],[68,40]],
+ "Arabic Language and Literature":[[85,45],[75,40],[68,35]],
+ "Education Technology":[[68,50]],
+ "Law":[[85,50],[75,45],[68,40]],
+ "Business Administration":[[85,50],[75,45],[68,40]],
+ "Accounting":[[68,50]],
+ "E-Marketing and Social Media":[[85,40],[75,35],[68,30]],
+ "Business Intelligence":[[75,40],[68,35]],
+ "Financial Technology (FinTech)":[[68,50]],
+ "E-Business and E-Commerce":[[85,45],[75,40],[68,35]],
+ "Supply Chain & Digital Logistics":[[85,40],[75,35],[68,30]],
+ "Computer Science":[[85,40],[75,35],[68,30]],
+ "Artificial Intelligence":[[85,40],[75,35],[68,30]],
+ "Software Engineering":[[85,40],[75,35],[68,30]],
+ "Cyber Security":[[85,40],[75,35],[68,30]],
+ "Journalism and Media":[[85,50],[75,45],[68,40]],
+ "Radio and Television":[[85,50],[75,45],[68,40]],
+ "Renewable Energy Engineering":[[70,50]],
+ "Intelligence Systems Engineering":[[70,50]],
+ "Architecture":[[70,50]],
+ "Graphic Design":[[85,50],[75,45],[68,40]],
+ "Interior Design":[[85,45],[75,40],[68,35]],
+ "Pharmacy":[[85,50],[75,45],[70,40]],
+ "Physiotherapy":[[68,50]],
+ "Nursing":[[85,40],[75,35],[68,30]]
+};
+/* Master's & Higher Diploma: published per-hour fees, no grade-based discount. Consistent naming. */
+var GRAD_FEES={
+ "Master's":{
+   "Law":[{n:"Private Law",jd:140},{n:"Public Law",jd:140}],
+   "Business":[{n:"Business Administration (MBA)",jd:200},{n:"Accounting",jd:150}],
+   "Media":[{n:"Media",jd:180}],
+   "Pharmacy":[{n:"Pharmaceutical Sciences",jd:180}]
+ },
+ "Higher Diploma":{
+   "Arts & Educational Sciences":[{n:"Higher Diploma in Education",jd:100}]
+ }
+};
+
+// mini tier cells for the preview panel, color-coded by discount size
+function discClass(p){ return p>=100?'full':(p>=50?'d4':(p>=45?'d3':(p>=40?'d2':'d1'))); }
+function tierCells2(jd,d){
+  var asc=d.slice().sort(function(a,b){return a[0]-b[0];});
+  return asc.map(function(t){
+    var idx=d.indexOf(t);
+    var after=Math.round(jd*(1-t[1]/100)*10)/10;
+    var full=t[1]>=100;
+    return '<div class="schtier2 '+discClass(t[1])+'"><div class="b">'+bandText(d,idx)+'</div>'+
+      '<div class="d">'+t[1]+'%</div><div class="a">'+(full?'':after+' JD/hr')+'</div></div>';
+  }).join('');
+}
+// for a given route, return {faculty: [ {n,jd,d}, ... ]} including only programs that have a scholarship
+var SCH_ROUTE='tawjihi';
+function schData(route){
+  var out={};
+  Object.keys(UG).forEach(function(fac){
+    var progs=[];
+    UG[fac].forEach(function(p){
+      var d = (route==='bridge') ? DBRIDGE[p.n] : p.d;
+      if(d && d.length) progs.push({n:p.n,jd:p.jd,d:d});
+    });
+    if(progs.length) out[fac]=progs; // skip faculties with no scholarship programs
+  });
+  return out;
+}
+function buildSchFacList(){
+  var data=schData(SCH_ROUTE);
+  var facs=Object.keys(data); var html=''; var i=0;
+  facs.forEach(function(f){
+    var num=('0'+(++i)).slice(-2);
+    var topDisc=Math.max.apply(null,[].concat.apply([],data[f].map(p=>p.d.map(t=>t[1]))));
+    html+='<div class="facrow" onclick="showSchFac(\''+encodeURIComponent(f)+'\',this)">'+
+      '<span class="fl"><span class="fnum">'+num+'</span><span><h4>'+f+'</h4>'+
+      '<span class="fcount">'+data[f].length+' program'+(data[f].length>1?'s':'')+'</span></span></span>'+
+      '<span class="fdisc">up to '+topDisc+'%</span></div>';
+  });
+  document.getElementById('schFacList').innerHTML=html;
+  if(facs.length) showSchFac(encodeURIComponent(facs[0]),document.querySelector('#schFacList .facrow'));
+}
+function showSchFac(encF,el){
+  var f=decodeURIComponent(encF); var data=schData(SCH_ROUTE);
+  document.querySelectorAll('#schFacList .facrow').forEach(r=>r.classList.remove('active'));
+  if(el)el.classList.add('active');
+  document.getElementById('schFacName').textContent=f;
+  document.getElementById('schBg').style.backgroundImage="url('"+(IMG[f]||'')+"')";
+  var gradeLabel = (SCH_ROUTE==='bridge') ? 'Diploma GPA' : 'Tawjihi average';
+  var html=(data[f]||[]).map(function(p){
+    return '<div class="schprog"><div class="pgh"><span class="pgn">'+p.n+'</span>'+
+      '<span class="pgf">'+p.jd+' JD/hr &middot; by '+gradeLabel+'</span></div>'+
+      '<div class="pgtiers">'+tierCells2(p.jd,p.d)+'</div></div>';
+  }).join('');
+  document.getElementById('schProgs').innerHTML=html;
+}
+function setRoute(r,btn){
+  SCH_ROUTE=r;
+  document.querySelectorAll('.schroutebtn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  buildSchFacList();
+}
+function buildScholarships(){ buildSchFacList(); }
+
+/* init — default to Plan your Admission */
+buildStaff();
+buildScholarships();
+(function(){var ds=defaultSem();curSem=ds;showSem(ds,null);})();
+buildPicker();
+/* preselect study level from ?level=pg|dip|ug (or #pg) */
+(function(){
+  var q=new URLSearchParams(location.search).get('level')||'';
+  if(!q && /^#(pg|dip|idip|ug)$/.test(location.hash)) q=location.hash.slice(1);
+  var idx={ug:0,pg:1,dip:2,idip:3};
+  if(q in idx){var b=document.querySelectorAll('.levelbar button')[idx[q]];if(b)setLvl(q,b);}
+})();
+(function(){var h=(location.hash||'').replace('#','');var ok={plan:1,cal:1,sch:1,staff:1,help:1};navTo(ok[h]?h:'plan');})();
+window.addEventListener('hashchange',function(){var h=location.hash.replace('#','');var ok={plan:1,cal:1,sch:1,staff:1,help:1};if(ok[h])navTo(h);});
+</script>
+<footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="/academics/faculty-it">Faculties</a></li><li><a href="/academics/ug-majors">Programmes</a></li><li><a href="/uk/uk-about">UK Degrees</a></li><li><a href="/graduate-research/deanship-graduate">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="/admission/ug-requirements">Requirements</a></li><li><a href="/admission/ug-fees">Fees & aid</a></li><li><a href="/admission/academic-calendar">Calendar</a></li><li><a href="/about/visit">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="/about/contact">Contact</a></li><li><a href="/media/press">News</a></li><li><a href="/student-affairs/careers">Careers</a></li><li><a href="/governance/board-of-directors">Leadership</a></li><li><a href="/_dev/abandoned-pages" style="opacity:.6;font-style:italic">Abandoned pages</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer><script src="/admission/_version-switch.js" defer></script>
+<script src="/admission/_v11-chrome.js" defer></script>
+<script src="/admission/_v12-enhance.js" defer></script><script src="/admission/_ar-dict.js" defer></script>
+<script src="/admission/_ar-dict-pages.js" defer></script>
+<script src="/admission/_ar-layer.js" defer></script>

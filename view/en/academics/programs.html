@@ -1,0 +1,307 @@
+<header class="pagehead ph-grad"><div class="wrap">
+  <div class="crumb"><a href="javascript:history.back()">&larr; Back</a> <span style="opacity:.5">/</span> <a href="/">Home</a> <span style="opacity:.5">/</span> Faculties <span style="opacity:.5">/</span> Explore our Programs</div>
+  <h1>Explore our Programs</h1>
+  <p class="sub">Browse every programme at MEU — intermediate diploma, undergraduate, master's and doctoral degrees across our faculties. Hosted UK degrees are listed separately at the end. Filter by level or faculty to find the programme that fits.</p>
+  <div class="prog-stats">
+    <div class="ps"><b id="statTotal">—</b><span>PROGRAMS</span></div>
+    <div class="ps"><b id="statFac">—</b><span>FACULTIES</span></div>
+    <div class="ps"><b id="statLevels">—</b><span>STUDY LEVELS</span></div>
+  </div>
+</div></header>
+
+<div class="page-main"><div class="wrap"><div class="prog-layout">
+
+  <!-- FILTER RAIL -->
+  <aside>
+    <form class="filters" id="filters" onsubmit="return false">
+      <div class="fhead"><h2>Narrow Results</h2><button type="button" class="reset" id="resetBtn">Reset</button></div>
+      <div class="fsearch">
+        <label for="q">Search</label>
+        <input type="text" id="q" placeholder="Search programs…" autocomplete="off" aria-label="Search programs">
+      </div>
+
+      <div class="fgroup" data-facet="level">
+        <button type="button" aria-expanded="true">Program Level <span class="chev">▼</span></button>
+        <div class="opts" id="grp-level"></div>
+      </div>
+      <div class="fgroup" data-facet="faculty">
+        <button type="button" aria-expanded="true">Faculty <span class="chev">▼</span></button>
+        <div class="opts" id="grp-faculty"></div>
+      </div>
+    </form>
+  </aside>
+
+  <!-- RESULTS -->
+  <div class="content">
+    <div class="res-bar">
+      <div class="count"><b id="resCount">0</b> <span id="resWord">programs</span></div>
+      <div class="sortwrap">
+        <label for="sort">Sort within faculty</label>
+        <select id="sort">
+          <option value="az">A–Z</option>
+          <option value="za">Z–A</option>
+          <option value="level">By level</option>
+        </select>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="key" aria-hidden="true">
+      <span class="key-i"><i class="sw sw-ug"></i>Intermediate Diploma</span>
+      <span class="key-i"><i class="sw sw-ug"></i>Undergraduate</span>
+      <span class="key-i"><i class="sw sw-master"></i>Master's</span>
+      <span class="key-i"><i class="sw sw-phd"></i>Doctorate</span>
+      <span class="key-i"><i class="sw sw-uk"></i>UK Degrees</span>
+    </div>
+    <div class="prog-list" id="list"></div>
+    <nav class="nextsteps" aria-label="Next steps">
+      <h2>Next step in your journey</h2>
+      <div class="ns-links">
+        <a href="/admission/admission">Admission requirements <span class="ar">&rarr;</span></a>
+        <a href="/admission/fees">Fees &amp; insurance <span class="ar">&rarr;</span></a>
+        <a href="/admission/admission#cal">Academic calendar <span class="ar">&rarr;</span></a>
+        <a href="/uk/uk-about">Hosted UK degrees <span class="ar">&rarr;</span></a>
+        <a href="/admission/admission">Apply now <span class="ar">&rarr;</span></a>
+        <a href="/about/contact">Contact us <span class="ar">&rarr;</span></a>
+      </div>
+    </nav>
+  </div>
+
+</div></div></div>
+
+<script>
+/* ---- MEU current catalogue — sourced from meu.edu.jo (local UG + graduate) and ukdegrees.meu.edu.jo (UK hosted).
+   Credit hours authoritative where published; delivery format provisional pending program PDFs. ---- */
+var PROGRAMS = [
+  // Technical College — Intermediate Diploma
+  {n:"Intermediate Diploma majors (Technical College)", f:"Technical College", lv:"Intermediate Diploma", hrs:null, fmt:"On-campus", u:"technical-college.html"},
+  // Arts & Educational Sciences
+  {n:"English Language and Literature", f:"Arts & Educational Sciences", lv:"Undergraduate", hrs:135, fmt:"Blended", u:"../study-plans/MEU_StudyPlan_English_BA.html"},
+  {n:"Arabic Language and Literature", f:"Arts & Educational Sciences", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"../study-plans/MEU_StudyPlan_Arabic_BA.html"},
+  {n:"Applied Translation", f:"Arts & Educational Sciences", lv:"Undergraduate", hrs:135, fmt:"On-campus", u:"../study-plans/MEU_StudyPlan_Translation_BA.html"},
+  {n:"Education Technology", f:"Arts & Educational Sciences", lv:"Undergraduate", hrs:132, fmt:"Blended", u:"../study-plans/MEU_StudyPlan_EduTech_BA.html"},
+  {n:"Sports Management and Training", f:"Arts & Educational Sciences", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"../study-plans/MEU_StudyPlan_SportsMgmt_BA.html"},
+  // Law
+  {n:"Law", f:"Law", lv:"Undergraduate", hrs:141, fmt:"On-campus", u:"#"},
+  {n:"Private Law", f:"Law", lv:"Master's", hrs:null, fmt:"On-campus", tracks:["Thesis","Comprehensive"], u:"../study-plans/MEU_StudyPlan_PrivateLaw_MA.html"},
+  {n:"Public Law", f:"Law", lv:"Master's", hrs:null, fmt:"On-campus", tracks:["Thesis","Comprehensive"], u:"../study-plans/MEU_StudyPlan_PublicLaw_MA.html"},
+  // Business
+  {n:"Business Administration", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Accounting", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"E-Marketing and Social Media", f:"Business", lv:"Undergraduate", hrs:132, fmt:"Blended", u:"#"},
+  {n:"E-Business and E-Commerce", f:"Business", lv:"Undergraduate", hrs:132, fmt:"Blended", u:"#"},
+  {n:"Business Intelligence", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Human Resource Management", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Financial Technology (FinTech)", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Supply Chain & Digital Logistics Management", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Business and Psychology", f:"Business", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Business Administration (MBA)", f:"Business", lv:"Master's", hrs:null, fmt:"Blended", tracks:["Thesis","Comprehensive"], u:"../study-plans/MEU_StudyPlan_MBA_MA.html"},
+  {n:"Accounting", f:"Business", lv:"Master's", hrs:null, fmt:"Blended", tracks:["Thesis","Comprehensive"], u:"../study-plans/MEU_StudyPlan_Accounting_MA.html"},
+  // Information Technology
+  {n:"Computer Science", f:"Information Technology", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Software Engineering", f:"Information Technology", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Cyber Security", f:"Information Technology", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Artificial Intelligence", f:"Information Technology", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  // Media
+  {n:"Journalism and Media", f:"Media", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Radio and Television", f:"Media", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Digital Media", f:"Media", lv:"Undergraduate", hrs:132, fmt:"Blended", u:"#"},
+  {n:"Media", f:"Media", lv:"Master's", hrs:null, fmt:"Blended", tracks:["Thesis","Comprehensive"], u:"../study-plans/MEU_StudyPlan_Media_MA.html"},
+  // Engineering & Design
+  {n:"Renewable Energy Engineering", f:"Engineering & Design", lv:"Undergraduate", hrs:162, fmt:"On-campus", u:"#"},
+  {n:"Intelligent Systems Engineering", f:"Engineering & Design", lv:"Undergraduate", hrs:162, fmt:"On-campus", u:"#"},
+  {n:"Architecture", f:"Engineering & Design", lv:"Undergraduate", hrs:165, fmt:"On-campus", u:"#"},
+  {n:"Biomedical Engineering", f:"Engineering & Design", lv:"Undergraduate", hrs:165, fmt:"On-campus", u:"#"},
+  {n:"Graphic Design", f:"Engineering & Design", lv:"Undergraduate", hrs:135, fmt:"On-campus", u:"#"},
+  {n:"Interior Design", f:"Engineering & Design", lv:"Undergraduate", hrs:141, fmt:"On-campus", u:"#"},
+  // Pharmacy
+  {n:"Pharmacy", f:"Pharmacy", lv:"Undergraduate", hrs:165, fmt:"On-campus", u:"#"},
+  {n:"Pharmaceutical Sciences", f:"Pharmacy", lv:"Master's", hrs:null, fmt:"Blended", u:"#"},
+  // Allied Medical Sciences
+  {n:"Physiotherapy", f:"Allied Medical Sciences", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Medical Analysis and Laboratory Sciences", f:"Allied Medical Sciences", lv:"Undergraduate", hrs:136, fmt:"On-campus", u:"#"},
+  {n:"Nutrition and Integrative Health", f:"Allied Medical Sciences", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Genetic Engineering and Biotechnology", f:"Allied Medical Sciences", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  {n:"Paramedic and Emergency Science", f:"Allied Medical Sciences", lv:"Undergraduate", hrs:132, fmt:"On-campus", u:"#"},
+  // Nursing
+  {n:"Nursing", f:"Nursing", lv:"Undergraduate", hrs:134, fmt:"On-campus", u:"#"},
+  // Hosted UK degrees — kept out of the local faculty structure (University of Bedfordshire)
+  {n:"Cyber Security (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-bachelors.html"},
+  {n:"International Business (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-bachelors.html"},
+  {n:"MBA Global (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-masters.html"},
+  {n:"Cyber Security (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-masters.html"},
+  {n:"Business (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-phd.html"},
+  {n:"Health (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-phd.html"},
+  {n:"Applicable Computing (Bedfordshire)", f:"Hosted UK Degrees — Bedfordshire", lv:"UK Degrees", hrs:null, fmt:"On-campus", uk:1, u:"../uk/uk-phd.html"}
+];
+
+var FACET_ORDER = {
+  level:   ["Intermediate Diploma","Undergraduate","Master's","Doctorate","UK Degrees"],
+  format:  ["On-campus","Blended","Online"]
+};
+
+var state = {q:"", level:new Set(), faculty:new Set(), format:new Set(), sort:"az"};
+
+function uniqueSorted(key, order){
+  var vals = {};
+  PROGRAMS.forEach(function(p){ vals[p[key]] = (vals[p[key]]||0)+1; });
+  var keys = Object.keys(vals);
+  if(order){ keys.sort(function(a,b){return order.indexOf(a)-order.indexOf(b);}); }
+  else { keys.sort(); }
+  return keys.map(function(k){return {label:k, count:vals[k]};});
+}
+
+function buildFacet(facet, key, order){
+  var opts = uniqueSorted(key, order);
+  var html = opts.map(function(o){
+    return '<label class="opt"><input type="checkbox" data-facet="'+facet+'" value="'+o.label.replace(/"/g,'&quot;')+'"><span>'+o.label+'</span><span class="cnt">'+o.count+'</span></label>';
+  }).join('');
+  document.getElementById('grp-'+facet).innerHTML = html;
+}
+buildFacet('level','lv',FACET_ORDER.level);
+buildFacet('faculty','f',null);
+
+function matches(p){
+  if(state.q){
+    var q=state.q.toLowerCase();
+    if(p.n.toLowerCase().indexOf(q)<0 && p.f.toLowerCase().indexOf(q)<0 && p.lv.toLowerCase().indexOf(q)<0) return false;
+  }
+  if(state.level.size   && !state.level.has(p.lv))  return false;
+  if(state.faculty.size && !state.faculty.has(p.f)) return false;
+  return true;
+}
+
+function render(){
+  var rows = PROGRAMS.filter(matches);
+  var list = document.getElementById('list');
+  document.getElementById('resCount').textContent = rows.length;
+  document.getElementById('resWord').textContent = rows.length===1?'program':'programs';
+
+  if(!rows.length){
+    list.innerHTML = '<div class="empty"><h3>No programs match your filters</h3><p>Try removing a filter or clearing your search.</p><button type="button" onclick="resetAll()">Clear all filters</button></div>';
+    renderChips();
+    return;
+  }
+
+  // group by faculty
+  var groups = {};
+  rows.forEach(function(p){ (groups[p.f] = groups[p.f] || []).push(p); });
+
+  // faculty order: alphabetical (matches the filter rail)
+  var facNames = Object.keys(groups).sort(function(a,b){
+    var rank = function(x){ return x==='Technical College' ? 0 : (x.indexOf('Hosted UK Degrees')===0 ? 2 : 1); };
+    return (rank(a)-rank(b)) || a.localeCompare(b);
+  });
+
+  function withinSort(a,b){
+    switch(state.sort){
+      case "za":    return b.n.localeCompare(a.n);
+      case "level": return (FACET_ORDER.level.indexOf(a.lv)-FACET_ORDER.level.indexOf(b.lv)) || a.n.localeCompare(b.n);
+      default:      return a.n.localeCompare(b.n); // az
+    }
+  }
+
+  list.innerHTML = facNames.map(function(f){
+    var items = groups[f].slice().sort(withinSort);
+    var cards = items.map(function(p){
+      var lvkey = p.uk ? 'uk'
+                : (p.lv==="Master's") ? 'master'
+                : (p.lv==="Doctorate") ? 'phd'
+                : 'ug';
+      var hrsBadge = p.hrs ? '<span class="badge hrs"><b>'+p.hrs+'</b> <span>cr. hrs</span></span>' : '';
+      var hasPage = p.u && p.u !== '#';
+      var cta = hasPage
+        ? '<a class="pr-go" href="'+p.u+'">View program <span class="ar">→</span></a>'
+        : '<span class="pr-go pr-go-disabled">View program <span class="ar">→</span></span>';
+      var titleHtml = hasPage ? '<a href="'+p.u+'">'+p.n+'</a>' : p.n;
+      return '<div class="prog-card lv-'+lvkey+'">'+
+        '<h3>'+titleHtml+'</h3>'+
+        '<div class="pr-meta">'+
+          '<span class="badge lvl">'+p.lv+'</span>'+
+          hrsBadge+
+        '</div>'+
+        cta+
+      '</div>';
+    }).join('');
+    var heading = (f.indexOf('Hosted UK Degrees')===0 || f==='Technical College') ? f : 'Faculty of '+f;
+    return '<section class="fac-group">'+
+      '<div class="fg-head"><h2>'+heading+'</h2>'+
+        '<span class="fg-count"><b>'+items.length+'</b> <span>'+(items.length===1?'program':'programs')+'</span></span></div>'+
+      '<div class="prog-grid">'+cards+'</div></section>';
+  }).join('');
+
+  renderChips();
+}
+
+function renderChips(){
+  var chips=[];
+  if(state.q) chips.push({facet:'q', label:'“'+state.q+'”'});
+  ['level','faculty'].forEach(function(facet){
+    state[facet].forEach(function(v){ chips.push({facet:facet, label:v}); });
+  });
+  var el=document.getElementById('chips');
+  el.innerHTML = chips.map(function(c){
+    return '<span class="chip">'+c.label+'<button type="button" data-facet="'+c.facet+'" data-val="'+String(c.label).replace(/"/g,'&quot;')+'" aria-label="Remove filter">×</button></span>';
+  }).join('');
+}
+
+/* ---- events ---- */
+document.getElementById('q').addEventListener('input', function(e){ state.q=e.target.value.trim(); render(); });
+document.getElementById('sort').addEventListener('change', function(e){ state.sort=e.target.value; render(); });
+
+document.getElementById('filters').addEventListener('change', function(e){
+  var cb=e.target; if(cb.type!=='checkbox') return;
+  var f=cb.dataset.facet, v=cb.value;
+  if(cb.checked) state[f].add(v); else state[f].delete(v);
+  render();
+});
+
+document.getElementById('chips').addEventListener('click', function(e){
+  var b=e.target.closest('button'); if(!b) return;
+  var f=b.dataset.facet, v=b.dataset.val;
+  if(f==='q'){ state.q=''; document.getElementById('q').value=''; }
+  else {
+    state[f].delete(v);
+    var cb=document.querySelector('input[data-facet="'+f+'"][value="'+v.replace(/"/g,'\\"')+'"]');
+    if(cb) cb.checked=false;
+  }
+  render();
+});
+
+/* collapsible groups */
+document.querySelectorAll('.fgroup>button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var g=btn.parentElement, collapsed=g.classList.toggle('collapsed');
+    btn.setAttribute('aria-expanded', String(!collapsed));
+  });
+});
+
+document.getElementById('resetBtn').addEventListener('click', resetAll);
+function resetAll(){
+  state.q=''; state.level.clear(); state.faculty.clear(); state.format.clear();
+  document.getElementById('q').value='';
+  document.querySelectorAll('.filters input[type=checkbox]').forEach(function(cb){cb.checked=false;});
+  render();
+}
+
+document.getElementById('statTotal').textContent = PROGRAMS.length;
+document.getElementById('statFac').textContent = new Set(PROGRAMS.filter(function(p){return !p.uk;}).map(function(p){return p.f;})).size;
+document.getElementById('statLevels').textContent = new Set(PROGRAMS.map(function(p){return p.lv;})).size;
+render();
+</script>
+<footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="/academics/faculty-it">Faculties</a></li><li><a href="/academics/ug-majors">Programmes</a></li><li><a href="/uk/uk-about">UK Degrees</a></li><li><a href="/graduate-research/deanship-research">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="/admission/ug-requirements">Requirements</a></li><li><a href="/admission/ug-fees">Fees & aid</a></li><li><a href="/academics/academic-calendar">Calendar</a></li><li><a href="/about/visit">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="/about/contact">Contact</a></li><li><a href="/media/press">News</a></li><li><a href="/student-affairs/careers">Careers</a></li><li><a href="/governance/board-of-directors">Leadership</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer><script src="/academics/_version-switch.js" defer></script>
+<script src="/academics/_v11-chrome.js" defer></script>
+<script src="/academics/_v11-convert.js" defer></script>
+<script src="/academics/_v12-enhance.js" defer></script><script>/* v12deep: home-page programme finder deep link */
+(function(){var p=new URLSearchParams(location.search);var q=p.get('q')||'';var lvl=p.get('level')||'';
+ var box=document.getElementById('q');
+ if(q&&box){box.value=q;box.dispatchEvent(new Event('input',{bubbles:true}));}
+ if(lvl){var cb=document.querySelector('.filters input[type=checkbox][value="'+lvl+'"]');if(cb&&!cb.checked){cb.checked=true;cb.dispatchEvent(new Event('change',{bubbles:true}));}}
+ if(q||lvl){var t=document.querySelector('.results,#results,.plist');if(t)setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'})},220);}
+})();</script><script src="/academics/_ar-dict.js" defer></script>
+<script src="/academics/_ar-dict-pages.js" defer></script>
+<script src="/academics/_ar-layer.js" defer></script>

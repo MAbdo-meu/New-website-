@@ -1,0 +1,56 @@
+<div class="pagehead"><style>.pagehead::after{background-image:url('/assets/ev-newstudents.jpg')}</style><div class="wrap"><div class="crumb"><a href="/">Home</a> › <a href="/about/about">About</a> › Partnerships</div><h1>Partnerships &amp; Signed Agreements</h1><div class="sub">Register maintained by Public Relations &amp; Communications</div></div></div></div>
+
+  <section><div class="wrap"><div class="prose" style="max-width:840px">
+    <p><strong>Connected to industry.</strong> Partnership agreements with local and international organisations bring training places and short courses to our students and staff, and close the gap between academia and practice. Every agreement below is published from the register maintained by Public Relations &amp; Communications — the office that organises and announces each signing — and confirmed as current by the owning faculty each semester.</p>
+  </div>
+  <div class="v12src" id="regNote" style="max-width:840px"></div>
+
+  <p class="eyebrow" style="margin-top:34px">Signed agreements</p>
+  <div id="pFilters" style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px"></div>
+  <div id="pList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px"></div>
+
+  <div class="btnrow" style="margin-top:30px"><a class="btn btn-primary" href="/centers/training-enterprise">Partner with MEU →</a><a class="btn btn-ghost" href="/media/press">Signing announcements</a></div>
+  </div></section>
+<script src="//meu/_mobile-nav.js"></script><footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="/academics/faculty-it">Faculties</a></li><li><a href="/academics/ug-majors">Programmes</a></li><li><a href="/uk/uk-about">UK Degrees</a></li><li><a href="/graduate-research/deanship-graduate">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="/admission/ug-requirements">Requirements</a></li><li><a href="/admission/ug-fees">Fees & aid</a></li><li><a href="/about/academic-calendar">Calendar</a></li><li><a href="/about/visit">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="/about/contact">Contact</a></li><li><a href="/media/press">News</a></li><li><a href="/student-affairs/careers">Careers</a></li><li><a href="/governance/board-of-directors">Leadership</a></li><li><a href="/_dev/abandoned-pages" style="opacity:.6;font-style:italic">Abandoned pages</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer><script src="/about/_version-switch.js" defer></script>
+<script src="/about/_v11-chrome.js" defer></script>
+
+<script src="/about/_data-partnerships.js"></script>
+<script>
+(function(){
+  var D=window.MEU_PARTNERSHIPS, items=D.items.slice().sort(function(a,b){return b.signed.localeCompare(a.signed)});
+  var TYPES={academic:'Academic & degree',training:'Training & industry',clinical:'Clinical placement',government:'Government & national'};
+  var active='all';
+  document.getElementById('regNote').innerHTML='<span aria-hidden="true">\u{1F6C8}</span><div><b>Source of record</b>Register maintained by '+D.register.owner.en+', confirmed by '+D.register.confirmedBy.en+'. Last PR update: '+D.register.updated+' \u00b7 '+D.register.cycle.en+'. Pages render from this register, so an agreement appears on the website only after PR has recorded it.</div>';
+  function chips(){
+    var keys=['all'].concat(Object.keys(TYPES));
+    document.getElementById('pFilters').innerHTML=keys.map(function(k){
+      var n=k==='all'?items.length:items.filter(function(i){return i.type===k}).length;
+      return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===active)+'" style="cursor:pointer;font:600 .82rem Inter,sans-serif;border:1px solid '+(k===active?'#8A1C1D':'#E2D5D2')+';background:'+(k===active?'#8A1C1D':'#fff')+';color:'+(k===active?'#fff':'#2A2122')+';border-radius:999px;padding:8px 14px">'+(k==='all'?'All agreements':TYPES[k])+' ('+n+')</button>';
+    }).join('');
+  }
+  function list(){
+    var rows=items.filter(function(i){return active==='all'||i.type===active});
+    document.getElementById('pList').innerHTML=rows.map(function(i){
+      return '<article class="card"><div class="cbody">'+
+        '<div style="font:800 .6rem Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#8A1C1D">'+TYPES[i.type]+'</div>'+
+        '<h3 style="margin:6px 0 4px">'+i.partner+'</h3>'+
+        '<div style="font-size:.78rem;color:#6E6463;margin-bottom:9px">'+i.country.en+' \u00b7 signed '+i.signed+' \u00b7 '+i.faculty.en+'</div>'+
+        '<p>'+i.scope.en+'</p>'+
+        '<a class="more" href="'+i.link+'">Faculty or centre \u2192</a>'+
+      '</div></article>';
+    }).join('');
+  }
+  document.getElementById('pFilters').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-k]'); if(!b) return; active=b.dataset.k; chips(); list();
+  });
+  chips(); list();
+})();
+</script>
+<script src="/about/_v12-enhance.js" defer></script><script src="/about/_ar-dict.js" defer></script>
+<script src="/about/_ar-dict-pages.js" defer></script>
+<script src="/about/_ar-layer.js" defer></script>

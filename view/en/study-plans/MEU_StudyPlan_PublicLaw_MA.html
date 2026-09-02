@@ -1,0 +1,154 @@
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Faculty of Law · Department of Public Law · Graduate</p>
+    <h1>MA in Public Law</h1>
+    <p class="lede">A 33-credit master's degree in public law, offered in a research-focused Thesis track and a coursework-focused Comprehensive track. Choose a track below to view its study plan.</p>
+    <div class="facts">
+      <div class="fact"><div class="n">33</div><div class="l">Credit Hours</div></div>
+      <div class="fact"><div class="n">Master's</div><div class="l">Degree Awarded</div></div>
+      <div class="fact"><div class="n" id="factTrack">Thesis</div><div class="l">Selected Track</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="trackbar">
+    <span class="tb-label">Study Track</span>
+    <div class="toggle" role="group" aria-label="Choose study track">
+      <button id="btnThesis" aria-pressed="true" onclick="setTrack('thesis')"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Thesis Track</button>
+      <button id="btnComp" aria-pressed="false" onclick="setTrack('comprehensive')"><svg class="ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Comprehensive Track</button>
+    </div>
+    <p class="tb-note">
+      <span class="only-thesis"><b>Thesis route:</b> 18 core + 6 elective hours and a 9-hour dissertation.</span>
+      <span class="only-comp"><b>Comprehensive route:</b> 24 core + 9 elective hours and a comprehensive exam.</span>
+    </p>
+  </div>
+</div>
+
+<main class="wrap" id="plan" data-track="thesis">
+
+  <section class="block" id="core">
+    <div class="block-head">
+      <h2>Core Requirements</h2>
+      <span class="hrs only-thesis">18 Credit Hours · Compulsory</span>
+      <span class="hrs only-comp">24 Credit Hours · Compulsory</span>
+    </div>
+    <p class="block-note">Required modules for all students. The Comprehensive track adds two further core modules — Advanced Studies in International Human Rights Law and a Research Project.</p>
+    <div class="table-card">
+      <table>
+        <thead><tr><th>Code</th><th>Course Title</th><th class="c">Cr</th><th>Prerequisite</th></tr></thead>
+        <tbody>
+          <tr><td class="code">2017121</td><td class="title">Advanced Studies in International Public Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017120</td><td class="title">Advanced Studies in Criminal Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017123</td><td class="title">Advanced Studies in Political Systems and Constitutional Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017124</td><td class="title">Advanced Studies in Administrative Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017125</td><td class="title">Advanced Studies in Official Misconduct</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017127</td><td class="title">Research Methodology</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">2017126</td><td class="title">Advanced Studies in International Human Rights Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr class="only-comp"><td class="code">2017114</td><td class="title">Research Project</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="electives">
+    <div class="block-head">
+      <h2>Elective Requirements</h2>
+      <span class="hrs only-thesis">6 Credit Hours · Elective</span>
+      <span class="hrs only-comp">9 Credit Hours · Elective</span>
+    </div>
+    <p class="block-note">
+      <span class="only-thesis">Choose 6 credit hours (2 courses) from the list below.</span>
+      <span class="only-comp">Choose 9 credit hours (3 courses) from the list below.</span>
+      Students may also count any course from another concentration area as an elective.
+    </p>
+    <div class="table-card only-thesis">
+      <table>
+        <thead><tr><th>Code</th><th>Course Title</th><th class="c">Cr</th><th>Prerequisite</th></tr></thead>
+        <tbody>
+          <tr><td class="code">2017126</td><td class="title">Advanced Studies in International Human Rights Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017128</td><td class="title">Advanced Studies in Criminal Procedure Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017129</td><td class="title">Advanced Studies in Constitutional Jurisdiction</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017112</td><td class="title">Advanced Studies in Administrative Jurisdiction</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017111</td><td class="title">Advanced Studies in International Environmental Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017110</td><td class="title">Advanced Studies in Cybercrime</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017113</td><td class="title">Advanced Studies in Administrative Contracts</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017122</td><td class="title">Any course from another concentration area</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-card only-comp">
+      <table>
+        <thead><tr><th>Code</th><th>Course Title</th><th class="c">Cr</th><th>Prerequisite</th></tr></thead>
+        <tbody>
+          <tr><td class="code">2017128</td><td class="title">Advanced Studies in Criminal Procedure Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017129</td><td class="title">Advanced Studies in Constitutional Jurisdiction</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017112</td><td class="title">Advanced Studies in Administrative Jurisdiction</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017111</td><td class="title">Advanced Studies in International Environmental Law</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017110</td><td class="title">Advanced Studies in Cybercrime</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017113</td><td class="title">Advanced Studies in Administrative Contracts</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+          <tr><td class="code">2017122</td><td class="title">Any course from another concentration area</td><td class="cr">3</td><td class="prereq"><span class="none">—</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="capstone">
+    <div class="block-head">
+      <h2>Capstone</h2>
+      <span class="hrs only-thesis">9 Credit Hours</span>
+      <span class="hrs only-comp">0 Credit Hours · Pass / Fail</span>
+    </div>
+    <div class="capstone only-thesis">
+      <div class="cap-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div><h3>Dissertation</h3><p>An original, supervised research thesis in public law demonstrating mastery of legal scholarship and research methods. Required for the Thesis track.</p></div>
+      <div class="cap-cr"><b>9</b><span>Cr. Hrs</span></div>
+    </div>
+    <div class="capstone only-comp">
+      <div class="cap-ic"><svg viewBox="0 0 24 24"><path d="M12 6.5V20M5 8V18a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M3 6l9-3 9 3"/></svg></div>
+      <div><h3>Comprehensive Examination</h3><p>A qualifying examination covering the program's core and elective coursework, taken after completing the required modules. Required for the Comprehensive track; carries no credit hours.</p></div>
+      <div class="cap-cr"><b>0</b><span>Cr. Hrs</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="summary">
+    <div class="summary">
+      <h2>Credit Hour Distribution</h2>
+      <div class="sumgrid">
+        <div class="sumcell"><div class="n" id="sumCore">18</div><div class="l">Core Requirements</div></div>
+        <div class="sumcell"><div class="n" id="sumElec">6</div><div class="l">Elective Requirements</div></div>
+        <div class="sumcell"><div class="n" id="sumCap">9</div><div class="l" id="sumCapL">Dissertation</div></div>
+      </div>
+      <div class="sumtotal"><span class="big">33</span><span class="lbl">total credit hours required for graduation</span></div>
+    </div>
+    <p class="disclaimer">This study plan reflects the 2020/2021 catalog for the MA in Public Law, Department of Public Law, Faculty of Law. The program is offered in Thesis and Comprehensive tracks, each totalling 33 credit hours. Course offerings, prerequisites, and track requirements are subject to revision by the university. Always confirm requirements with the Department and your academic advisor before registration.</p>
+  </section>
+
+</main>
+
+<script>
+  function setTrack(t){
+    document.getElementById('plan').setAttribute('data-track', t);
+    var thesis = (t === 'thesis');
+    document.getElementById('btnThesis').setAttribute('aria-pressed', String(thesis));
+    document.getElementById('btnComp').setAttribute('aria-pressed', String(!thesis));
+    document.getElementById('factTrack').textContent = thesis ? 'Thesis' : 'Comprehensive';
+    document.getElementById('sumCore').textContent = thesis ? '18' : '24';
+    document.getElementById('sumElec').textContent = thesis ? '6' : '9';
+    document.getElementById('sumCap').textContent = thesis ? '9' : '0';
+    document.getElementById('sumCapL').textContent = thesis ? 'Dissertation' : 'Comprehensive Exam';
+  }
+</script>
+<footer>
+  <div class="wrap">
+    <span>Middle East University · Amman, Jordan · <a href="https://www.meu.edu.jo">www.meu.edu.jo</a></span>
+    <span>Faculty of Law · Department of Public Law</span>
+  </div>
+</footer>
+
+<script src="/study-plans/_version-switch.js" defer></script>
+<script src="/study-plans/_v11-chrome.js" defer></script>
+<script src="/study-plans/_v11-convert.js" defer></script>
+<script src="/study-plans/_v12-enhance.js" defer></script><script src="/study-plans/_ar-dict.js" defer></script>
+<script src="/study-plans/_ar-dict-pages.js" defer></script>
+<script src="/study-plans/_ar-layer.js" defer></script>

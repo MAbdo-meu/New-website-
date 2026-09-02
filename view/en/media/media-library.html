@@ -1,0 +1,92 @@
+<div class="pagehead"><div class="wrap">
+  <div class="crumb"><a href="/">Home</a> › Media Library</div>
+  <h1>Media Library</h1>
+  <div class="sub">Everything uploaded through the media area. Links are temporary and refresh each time you open this page.</div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="card" id="gate">
+    <div class="h2">Access required</div>
+    <p class="muted">Enter the media access password to view the library.</p>
+    <div style="max-width:360px;margin-top:20px">
+      <label for="pw">Password</label>
+      <input type="password" id="pw" autocomplete="current-password" placeholder="••••••••••">
+      <div class="row"><button class="btn" id="unlock">Unlock</button></div>
+      <div class="alert" id="gateErr">That password is not correct.</div>
+    </div>
+  </div>
+
+  <div id="app" style="display:none">
+    <div class="toolbar">
+      <div class="filters">
+        <button class="chip" data-k="all" aria-pressed="true">All</button>
+        <button class="chip" data-k="image" aria-pressed="false">Images</button>
+        <button class="chip" data-k="video" aria-pressed="false">Videos</button>
+      </div>
+      <div class="row" style="margin:0"><span class="muted" id="count"></span><a class="btn" href="/media/media-upload">Upload media</a><button class="btn btn-ghost" id="refresh">Refresh</button></div>
+    </div>
+    <div class="alert" id="err"></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none">Nothing uploaded yet. <a href="/media/media-upload" style="color:var(--maroon);font-weight:600">Add the first file →</a></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Middle East University — prototype 1.6 internal tool. <a href="/media/media-upload">Upload media</a></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="/media/_media-lib.js"></script>
+<script>
+(function(){
+  var gate=document.getElementById('gate'),app=document.getElementById('app'),
+      grid=document.getElementById('grid'),err=document.getElementById('err'),
+      empty=document.getElementById('empty'),count=document.getElementById('count');
+  var items=[],filter='all';
+
+  function show(){gate.style.display='none';app.style.display='block';load();}
+  if(MEUMedia.unlocked())show();
+  document.getElementById('unlock').onclick=function(){
+    if(MEUMedia.tryUnlock(document.getElementById('pw').value)){document.getElementById('gateErr').className='alert';show();}
+    else document.getElementById('gateErr').className='alert err';
+  };
+  document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('unlock').click();});
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function render(){
+    var list=items.filter(function(i){return filter==='all'||i.kind===filter;});
+    count.textContent=list.length+' item'+(list.length===1?'':'s');
+    empty.style.display=list.length?'none':'block';
+    grid.innerHTML=list.map(function(i){
+      var frame=i.kind==='image'
+        ? '<img src="'+esc(i.url)+'" alt="'+esc(i.name)+'" loading="lazy">'
+        : '<video src="'+esc(i.url)+'" controls preload="metadata"></video>';
+      return '<div class="tile"><div class="frame">'+frame+'</div><div class="body">'+
+        '<div class="nm">'+esc(i.name)+'</div>'+
+        '<div class="meta"><span class="badge">'+i.kind+'</span><span>'+MEUMedia.fmtBytes(i.size)+'</span></div>'+
+        '<div class="meta"><span>'+(i.created?new Date(i.created).toLocaleDateString():'')+'</span></div>'+
+        '<div class="acts"><a href="'+esc(i.url)+'" target="_blank" rel="noopener">Open</a>'+
+        '<button data-url="'+esc(i.url)+'" class="cp">Copy link</button></div></div></div>';
+    }).join('');
+    Array.prototype.forEach.call(grid.querySelectorAll('.cp'),function(b){
+      b.onclick=function(){navigator.clipboard.writeText(b.getAttribute('data-url'));b.textContent='Copied';setTimeout(function(){b.textContent='Copy link';},1400);};
+    });
+  }
+  function load(){
+    err.className='alert';grid.innerHTML='<p class="muted">Loading…</p>';
+    MEUMedia.list().then(function(r){items=r;render();}).catch(function(e){
+      grid.innerHTML='';err.textContent=e.message||'Could not load the library.';err.className='alert err';
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'),function(c){
+    c.onclick=function(){
+      filter=c.getAttribute('data-k');
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+      render();
+    };
+  });
+  document.getElementById('refresh').onclick=load;
+})();
+</script>
+<script src="/media/_version-switch.js" defer></script>
+<script src="/media/_ar-dict.js" defer></script>
+<script src="/media/_ar-dict-pages.js" defer></script>
+<script src="/media/_ar-layer.js" defer></script>

@@ -1,0 +1,109 @@
+<section class="pagehead">
+  <div class="wrap">
+    <div class="crumb"><a href="/">Home</a> / News Center</div>
+    <h1>News Center</h1>
+    <p class="sub">The latest news, achievements, partnerships and events from across Middle East University — straight from our campus to you.</p>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="wrap">
+    <div class="chips">
+      <span class="chip active">All News</span>
+      <span class="chip">Academic</span>
+      <span class="chip">Research</span>
+      <span class="chip">Partnerships</span>
+      <span class="chip">Students</span>
+      <span class="chip">Sports</span>
+      <span class="chip">Culture &amp; Arts</span>
+      <span class="chip">Community</span>
+    </div>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="wrap">
+    <div class="feat">
+      <div class="pic" style="background-image:url('https://www.meu.edu.jo/wp-content/uploads/2026/06/724484445_1006741395655788_3908657212574915022_n-280x187.jpg')"></div>
+      <div class="body">
+        <div class="eb">Featured Story</div>
+        <h2>MEU and Ministry of Agriculture Sign MoU to Advance AI Applications and Smart Farming</h2>
+        <p>Middle East University signed a Memorandum of Understanding with Jordan's Ministry of Agriculture to develop AI-driven precision agriculture and smart farming solutions — extending the university's applied research into national food security and rural development.</p>
+        <div class="meta">June 17, 2026 · <b>MEU News</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-wrap">
+  <div class="wrap">
+    <h2 class="h2">Latest News</h2>
+    <div class="ng" id="newsGrid"></div>
+    <div class="loadmore"><button>Load More Stories</button></div>
+  </div>
+</section>
+
+<section class="subscribe">
+  <div class="wrap">
+    <h3>Stay in the MEU Loop</h3>
+    <p>Get the latest stories, milestones and event announcements delivered to your inbox.</p>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+
+
+<script>
+const NEWS = [
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/722638699_1005503452446249_7250196566513340894_n-280x187.jpg",date:"June 17, 2026",src:"MEU News",title:"Exhibition Showcases MEU Media Students' Capabilities in Creating Impactful Advertising Campaigns",abs:"The Faculty of Media held a public exhibition highlighting end-of-semester advertising projects built around real industry briefs."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-10-at-3.03.30-PM-252x187.jpeg",date:"June 11, 2026",src:"Faculty of Pharmacy",title:"MEU Pharmacy Students Deliver Health Awareness Campaign at Jordan's Aerial Gateway",abs:"Pharmacy students partnered with Queen Alia International Airport to run a traveler-focused public health initiative."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-10-at-7.02.41-PM-3-280x187.jpeg",date:"June 11, 2026",src:"Careers",title:"MEU Organises 11th Career Day Featuring 60 Companies Across Diverse Economic Sectors",abs:"Over sixty employers joined MEU's 11th Career Day, connecting students with hiring opportunities across multiple sectors."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-09-at-1.42.42-PM-280x187.jpeg",date:"June 11, 2026",src:"MEU Dialogues",title:"Al-Karki at MEU: 'The Jordanian Narrative — A Story Worth Telling for Future Generations'",abs:"A dialogue session at MEU explored the importance of preserving and documenting the Jordanian national narrative."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-07-at-4.34.37-PM-1-280x187.jpeg",date:"June 8, 2026",src:"Allied Medical Sciences",title:"Faculty of Allied Medical Sciences Explores the Future of Healthy Ageing at Second Scientific Day",abs:"Researchers, clinicians and students convened for the second annual scientific day on healthy ageing and rehabilitation."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-07-at-2.21.22-PM-280x187.jpeg",date:"June 8, 2026",src:"MEU News",title:"Minister of Youth at MEU: 'Empowering Youth Remains a National Priority'",abs:"The Minister of Youth visited MEU to discuss national initiatives empowering the next generation."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-03-at-3.14.25-PM-4-237x187.jpeg",date:"June 4, 2026",src:"Culture & Arts",title:"Minister of Culture Al-Rawashdeh Highlights Art and Cinema at MEU Short Film Festival Awards",abs:"The Minister of Culture crowned the winners of MEU's Short Film Festival, underlining cinema's role in shaping cultural identity."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/shared-image-4-249x187.jpg",date:"June 4, 2026",src:"Allied Medical Sciences",title:"MEU Physiotherapy Students Take Part in Anatomy Practical at the University of Jordan",abs:"Physiotherapy students participated in a hands-on anatomy laboratory at the University of Jordan."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/06/WhatsApp-Image-2026-05-20-at-2.56.41-PM-280x187.jpeg",date:"June 4, 2026",src:"Faculty of Law",title:"Safeguarding Public Funds: Attorney General Khrais Leads a Seminar at MEU",abs:"His Excellency the Attorney General delivered a seminar at MEU on legal frameworks protecting public funds."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/711695692_992839893712605_745237852613200985_n-268x187.jpg",date:"June 1, 2026",src:"Faculty of Media",title:"MEU Signs Cooperation Agreement with Photographer Alaa Abu Fares",abs:"A new training agreement gives MEU students access to specialised workshops in photography and visual storytelling."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/707647404_987557224240872_7511783147004444541_n-249x187.jpg",date:"June 1, 2026",src:"MEU Sports",title:"MEU Law Student Ahmad Hammoudeh Secures Gold at University Boxing Championship",abs:"Law student Ahmad Hammoudeh claimed the gold medal at the national University Boxing Championship."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/703896712_987354250927836_1387633908154051090_n-280x187.jpg",date:"May 31, 2026",src:"Faculty of Arts",title:"MEU's Faculty of Arts and Educational Sciences Examines the Future of Education at Specialised Summit",abs:"Scholars and practitioners gathered to explore alignment between education and the future labour market."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-24-at-9.43.23-AM-1-126x187.jpeg",date:"May 24, 2026",src:"Faculty of Media",title:"MEU Forges Strategic Training Alliance with Media Figure Alaa Bushnaq to Empower Youth Talent",abs:"A strategic training partnership will deliver mentoring and on-camera coaching to MEU media students."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/703954824_986592291004032_5629772204565244363_n-280x187.jpg",date:"May 24, 2026",src:"Community",title:"MEU Launches Comprehensive Awareness Campaign on Colon Cancer Prevention and Early Detection",abs:"A campus-wide campaign promoted screening, prevention and lifestyle education for early colon cancer detection."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/703924565_986547781008483_1307803467460605507_n-280x187.jpg",date:"May 24, 2026",src:"MEU Sports",title:"Modifying Personal Lifestyle: A Dedicated Sports Day Commences at MEU",abs:"A campus sports day promoted active lifestyles, wellbeing, and student participation across faculties."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-8.53.21-PM-249x187.jpeg",date:"May 24, 2026",src:"International",title:"MEU Student Embarks on International Academic Exchange via Erasmus+ Programme in Romania",abs:"An MEU student traveled to Romania for a semester abroad under the Erasmus+ international exchange programme."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-20-at-1.47.16-PM-1-280x187.jpeg",date:"May 24, 2026",src:"MEU News",title:"MEU Celebrates Jordan's 80th Independence Day with National Proclamations on Stability and Resilience",abs:"The MEU community marked Independence Day with addresses honouring Jordan's resilience and national identity."},
+  {img:"https://www.meu.edu.jo/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-19-at-2.31.39-PM-280x187.jpeg",date:"May 20, 2026",src:"MEU Dialogues",title:"Renowned Arab Writer Midhat Al-Adl at MEU Dialogues: 'Arab Drama Shapes Public Awareness'",abs:"Acclaimed writer Midhat Al-Adl spoke at MEU Dialogues on the cultural and social influence of Arab drama."}
+];
+const grid = document.getElementById('newsGrid');
+NEWS.forEach(n=>{
+  const a = document.createElement('a');
+  a.className='ncard';
+  a.href='#';
+  a.innerHTML = `
+    <div class="img" style="background-image:url('${n.img}')"><span class="src">${n.src}</span></div>
+    <div class="b">
+      <div class="dt">${n.date}</div>
+      <h3>${n.title}</h3>
+      <p>${n.abs}</p>
+      <span class="rd">Read More →</span>
+    </div>`;
+  grid.appendChild(a);
+});
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');
+});
+</script>
+<footer><div class="wrap"><div class="foot-grid">
+    <div><div class="foot-logo">Middle East University</div><p style="font-size:.88rem;max-width:320px">Amman, Jordan · Founded 2005. A private university accredited at home and partnered abroad. Learn. Belong. Lead.</p></div>
+    <div><h5>Academics</h5><ul><li><a href="/academics/faculty-it">Faculties</a></li><li><a href="/academics/ug-majors">Programmes</a></li><li><a href="/uk/uk-about">UK Degrees</a></li><li><a href="/graduate-research/deanship-graduate">Research</a></li></ul></div>
+    <div><h5>Admissions</h5><ul><li><a href="/admission/ug-requirements">Requirements</a></li><li><a href="/admission/ug-fees">Fees & aid</a></li><li><a href="/media/academic-calendar">Calendar</a></li><li><a href="/about/visit">Plan a visit</a></li></ul></div>
+    <div><h5>Connect</h5><ul><li><a href="/about/contact">Contact</a></li><li><a href="/media/press">News</a></li><li><a href="/student-affairs/careers">Careers</a></li><li><a href="/governance/board-of-directors">Leadership</a></li><li><a href="/_dev/abandoned-pages" style="opacity:.6;font-style:italic">Abandoned pages</a></li></ul></div>
+  </div><div class="foot-bottom"><span>© 2026 Middle East University.</span><span>QS ★★★ · ISO 9001:2015 · AQACHEI Golden Level</span></div></div></footer><script src="/media/_version-switch.js" defer></script>
+<script src="/media/_v11-chrome.js" defer></script>
+<script src="/media/_v12-enhance.js" defer></script><script src="/media/_ar-dict.js" defer></script>
+<script src="/media/_ar-dict-pages.js" defer></script>
+<script src="/media/_ar-layer.js" defer></script>
